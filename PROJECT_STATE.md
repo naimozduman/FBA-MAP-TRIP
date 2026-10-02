@@ -4,7 +4,7 @@ Updated: 2 October 2026, UTC. The later implementation prompt superseded plan-on
 
 **A working local v2 reconstruction is implemented and tested. Actual legacy migration and an owned cloud deployment are blocked.** This is not a claimed recovery of the original ChatGPT source/backend and is not a production cutover.
 
-Repository: `naimozduman/FBA-MAP-TRIP`, checkout `/workspace/FBA-MAP-TRIP`, branch `work`. This checkout started unborn/empty. The exact release commit and any verified remote publication are reported in the task handoff; `git rev-parse HEAD` identifies the local revision. Original site: https://fieldwork-book-sourcing.naimozduman.chatgpt.site/. No verified Vercel preview/production URL exists.
+Repository: `naimozduman/FBA-MAP-TRIP`, checkout `/workspace/FBA-MAP-TRIP`, branch `work`. This checkout started unborn/empty. Implementation commit `a1006f903312b2cdaafc55dad36febe9ce85b74d` was pushed to `origin/work`, and `git ls-remote` confirmed the exact remote SHA. A following state-document commit records this publication; `git rev-parse HEAD` identifies the current revision. Original site: https://fieldwork-book-sourcing.naimozduman.chatgpt.site/. No verified Vercel preview/production URL exists.
 
 ## Completed locally
 
@@ -18,7 +18,7 @@ Repository: `naimozduman/FBA-MAP-TRIP`, checkout `/workspace/FBA-MAP-TRIP`, bran
 - Personal-car / rental-truck fields, specific drivers/vehicles, payload/volume/gear checks, rental windows and handling, car-return explanation, explicit truck restriction verification. Destination pickup with another car remains provisional until its separate route/cost transfer plan is validated; unsupported solo two-vehicle movement is infeasible.
 - Entered book contribution and shared trip costs remain separate projections. Fuel/inclusive mileage for the same vehicle cannot be double-counted. Per-mile estimates recalculate from current road miles; unknown mileage stays unavailable. Incremental longer/truck scenario inputs persist, require evidence, and use total door-to-door person-hours. No invented yields, prices, rentals, reservations or opportunity rankings.
 - Guarded legacy ZIP/JSON/read-only SQLite inspector, normalized versioned importer, explicit legacy account mapping, stable scoped IDs, raw snapshots, quarantine and rerun reports. Owner bootstrap binds existing confirmed accounts only. Environment/deployment templates, CI workflow and concise operator/cutover documentation are included.
-- Cloud environment setup draft saved and reread with tested install/start instructions (script update at revision 3). Existing network/provider requirement settings were preserved; no secrets are bound and no configuration was published/applied. The initial draft referenced an absent `main`; an actual release HEAD is the appropriate repository pin. Fresh-task restoration remains unverified.
+- Cloud environment setup draft saved and reread with tested install/start instructions and the actual Fieldwork release HEAD at mount path `FBA-MAP-TRIP`. Existing network/provider requirement settings were preserved; no secrets are bound and no configuration was published/applied. This replaces the initial reference to an absent `main` with inspected checkout evidence. Fresh-task restoration remains unverified.
 
 ## Verification evidence (local only)
 
@@ -36,7 +36,7 @@ Node 24.19.0, npm 11.9.0, Chromium, Playwright 1.63.0, Vitest 5.0.3, isolated Po
 | `npm audit --omit=dev` | Zero reported production dependency vulnerabilities. This is registry evidence, not a comprehensive security audit. |
 | `npm run inspect:legacy -- private/synthetic-inspector.sqlite` | Read-only table counting passed on a synthetic SQLite file; does not verify D1. |
 
-Latest browser captures: `test-results/evidence/{desktop,tablet,phone}-{city,trip,multi-night,authenticated}.png`. Public-reference screenshots and the inspected comparison are retained under `docs/evidence/VISUAL_REVIEW.md`; private traces and synthetic credentials remain ignored. Final desktop Explore fits its viewport, and both desktop/phone city actions stay visible while details scroll. PGlite's claims are synthetic; the independent GoTrue/PostgREST checks use real login tokens. Remote CI, cloud email recovery and live Mapbox road-route verification remain unrun.
+Latest browser captures: `test-results/evidence/{desktop,tablet,phone}-{city,trip,multi-night,authenticated}.png`. Public-reference screenshots and the inspected comparison are retained under `docs/evidence/VISUAL_REVIEW.md`; private traces and synthetic credentials remain ignored. Final desktop Explore fits its viewport, and both desktop/phone city actions stay visible while details scroll. PGlite's claims are synthetic; the independent GoTrue/PostgREST checks use real login tokens. The pushed CI workflow has no verified remote result. Cloud email recovery and live Mapbox road-route verification remain unrun.
 
 ## Recovery and migration status
 
