@@ -1,0 +1,9 @@
+.git
+.env*
+private
+node_modules
+.next
+test-results
+coverage
+playwright-report
+*.tsbuildinfo

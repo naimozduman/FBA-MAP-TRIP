@@ -1,0 +1,40 @@
+{
+  "capturedAt": "2026-10-02T01:10:39.994Z",
+  "browser": "Chromium via Playwright 1.63.0",
+  "url": "http://127.0.0.1:3000/preview",
+  "data": "Unsaved handoff geographic references only; not recovered legacy records",
+  "captures": [
+    {
+      "name": "desktop",
+      "viewport": {
+        "width": 1586,
+        "height": 992
+      },
+      "checks": {
+        "horizontalOverflow": false,
+        "pageHeight": 992,
+        "cityPanel": {
+          "top": 126,
+          "bottom": 933
+        },
+        "addToTripVisible": true
+      }
+    },
+    {
+      "name": "phone",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "checks": {
+        "horizontalOverflow": false,
+        "pageHeight": 903,
+        "cityPanel": {
+          "top": 219.453125,
+          "bottom": 844
+        },
+        "addToTripVisible": true
+      }
+    }
+  ]
+}

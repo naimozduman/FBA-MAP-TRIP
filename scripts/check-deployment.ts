@@ -1,0 +1,14 @@
+import { createClient } from '@supabase/supabase-js';
+const expected=process.env.VERCEL_ENV==='production'?'production':process.env.VERCEL_ENV==='preview'?'preview':process.env.FIELDWORK_ENVIRONMENT||'local';
+const names=['NEXT_PUBLIC_SUPABASE_URL','NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY','SUPABASE_ENVIRONMENT','FIELDWORK_ENVIRONMENT','APP_ORIGIN','FIELDWORK_PREVIEW_SUPABASE_URL','FIELDWORK_PRODUCTION_SUPABASE_URL'];
+const missing=names.filter(n=>!process.env[n]);if(missing.length)throw new Error('Missing environment names: '+missing.join(', '));
+if(!['local','preview','production'].includes(expected)||process.env.FIELDWORK_ENVIRONMENT!==expected||process.env.SUPABASE_ENVIRONMENT!==expected)throw new Error('Deployment/data environment mismatch.');
+if(process.env.FIELDWORK_PREVIEW_SUPABASE_URL===process.env.FIELDWORK_PRODUCTION_SUPABASE_URL)throw new Error('Preview and production must use separate Supabase projects.');
+const correct=expected==='production'?process.env.FIELDWORK_PRODUCTION_SUPABASE_URL:expected==='preview'?process.env.FIELDWORK_PREVIEW_SUPABASE_URL:process.env.NEXT_PUBLIC_SUPABASE_URL;
+if(process.env.NEXT_PUBLIC_SUPABASE_URL!==correct)throw new Error('Supabase URL does not match its pinned deployment boundary.');
+for(const name of ['NEXT_PUBLIC_SUPABASE_SERVICE_ROLE_KEY','NEXT_PUBLIC_MAPBOX_DIRECTIONS_TOKEN','NEXT_PUBLIC_FIELDWORK_DATABASE_URL'])if(process.env[name])throw new Error('A privileged credential uses a public variable name: '+name);
+const origin=new URL(process.env.APP_ORIGIN!);if(expected!=='local'&&origin.protocol!=='https:')throw new Error('Hosted auth origin must use HTTPS.');
+const client=createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!,process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY!,{auth:{persistSession:false}});
+const status=await client.auth.getSession();if(status.error)throw new Error('Auth client could not initialize.');
+const denied=await client.from('cities').select('id').limit(1);if(!denied.error)throw new Error('Anonymous table access was not denied.');
+console.log('PASS: configured dedicated environment boundaries and anonymous denial. Login/RLS, redirect allowlist, Mapbox billing/license and migration cutover require their separate checks.');
