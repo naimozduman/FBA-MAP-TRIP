@@ -30,8 +30,15 @@ jobs:
         run: |
           npm run start > private/start-ci.log 2>&1 &
           echo $! > private/start-ci.pid
+          for step in $(seq 1 60); do
+            if curl --fail --silent http://127.0.0.1:3000/preview > /dev/null; then exit 0; fi
+            if ! kill -0 "$(cat private/start-ci.pid)" 2>/dev/null; then echo 'Test server failed to start.'; exit 1; fi
+            sleep 1
+          done
+          echo 'Test server readiness timed out.'
+          exit 1
       - name: Real API and browser checks
-        run: npm run test:api && PLAYWRIGHT_EXECUTABLE_PATH="$(find "$HOME/.cache/ms-playwright" -path '*/chrome-linux*/chrome' -type f | head -1)" PLAYWRIGHT_PRODUCTION=1 npm run test:browser
+        run: npm run test:api && PLAYWRIGHT_BASE_URL=http://127.0.0.1:3000 PLAYWRIGHT_EXTERNAL_SERVER=1 PLAYWRIGHT_PRODUCTION=1 npm run test:browser
       - name: Stop this job's test stack
         if: always()
         run: |

@@ -20,7 +20,7 @@ export default function SignIn({ configured }: { configured: boolean }) {
     } catch(e) { setMessage(e instanceof Error ? e.message : "Sign-in unavailable."); }
     finally { setBusy(false); }
   }
-  return <main id="main" className="auth-shell">
+  return <main id="main" className="auth-shell workbench-app">
     <Link className="wordmark" href="/">Fieldwork</Link>
     <section className="auth-form">
       <h1>{recovery ? "Recover your account" : "Back to the field."}</h1>

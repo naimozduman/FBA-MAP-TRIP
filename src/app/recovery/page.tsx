@@ -4,7 +4,7 @@ import Link from "next/link";
 import { browserClient } from "@/lib/supabase/browser";
 export default function Recovery() {
   const [message, setMessage] = useState("");
-  return <main id="main" className="auth-shell"><Link className="wordmark" href="/">Fieldwork</Link><section className="auth-form"><h1>Set a new password</h1><form method="post" onSubmit={async e => {
+  return <main id="main" className="auth-shell workbench-app"><Link className="wordmark" href="/">Fieldwork</Link><section className="auth-form"><h1>Set a new password</h1><form method="post" onSubmit={async e => {
     e.preventDefault();
     const password = String(new FormData(e.currentTarget).get("password"));
     try {

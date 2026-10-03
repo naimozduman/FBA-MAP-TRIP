@@ -1,4 +1,31 @@
-# Fieldwork — project state
+# Fieldwork - project state
+
+Updated: 3 October 2026, UTC. This section supersedes the archived 2 October reconstruction state below.
+
+The actual original React source, Manrope fonts, Leaflet map assets, catalog, and user screenshots have now been recovered from Library and materialized on the authorized Windows executor. The original interface is restored at `/preview` and at `/` when shared authentication is unconfigured. This is an **unsaved preview**: edits stay in React memory and clear on browser reload. No production cutover or completed shared persistence is claimed.
+
+Repository: `naimozduman/FBA-MAP-TRIP`. Windows checkout: `C:\Users\localhost\Documents\Codex\2026-10-03\task\FBA-MAP-TRIP`. Branch: `preview/fieldwork-vercel`, starting commit `283c2c34f62dca2a03ae6311eddf58603944c28a`. The checkout started clean. Push only this nonproduction branch; `work` is production tracked and must remain untouched. The dedicated Vercel project is `fieldwork-book-sourcing-preview` (`prj_O6WUt1VYyHaJjAmLeE4xAtJURrWr`), under team `team_KdzcpAgnaYuvPhdYUIjbIEso`. Its existing preproduction build restriction and Standard Protection remain required. A new deployed URL must be verified separately after the tested commit is pushed.
+
+Current implementation:
+
+- Copied the recovered app components, original catalog and math, Manrope files, Leaflet CSS/images, geographic fallback and original styling. Scoped legacy Workbench CSS to preserve both interfaces without collisions. Original book logo, ivory/green/olive palette, floating desktop panels, full viewport Leaflet map, spacious corridor rows and Map/Routes/Trips/Insights dock remain.
+- Preserved all 109 city IDs (108 destinations plus St. Louis), 15 corridor IDs, 113 memberships and six source lead IDs. The full brief and reconciliation map are included. Historical estimates, dates, prices, hours, competition and inventory claims are explicitly unverified; recovered checked dates do not become current verification.
+- City marker/list actions open city details. Adding a city to a trip is separate. Keyboard Enter/Space works on markers. Mobile selected cities stay above the detail panel. Map lines are explicitly planning sketches, with no claim of road routing.
+- Added travel bands, four inventory classes, source exclusions with explicit override reasons, revisit guidance, visit counts/zero outcomes, scan/rejection and restock fields, organizer/bulk pickup observations, and raw source quality evidence with optional scores. Observed saturation requires at least three scored visits. Missing measurements stay unknown.
+- Kept projected economics separate from explicitly recorded actual book profit, travel, processing, labor and door-to-door hours. Actual acquisition cost is not deducted twice. Inventory velocity stays unavailable without a sales cohort. Arrival/departure are recorded local time with an explicit unconfirmed timezone; the existing v2 IANA/DST scheduler remains available separately.
+- JSON/CSV exports preserve preview records and raw observations. The prior advanced Workbench and its tested multi-day/crew/vehicle/provider interfaces remain at `/planner-preview`; authenticated configured behavior continues to use the existing guarded Workbench and workspace APIs. The restored UI is not yet integrated with that shared backend.
+- Did not port the recovered public `/api/records` endpoint or Sites D1 backend. Existing Supabase authentication, membership checks, RLS migrations and protected APIs are preserved. No Neon account, credential, OAuth grant, paid service, invitation or external message was created.
+- Fixed CI server ownership: Playwright can explicitly reuse the CI production server on port 3000, and the workflow waits for readiness. Local orchestration owns port 3107. This avoids the previously observed duplicate-server port conflict.
+
+Verification evidence and bounded differences are recorded in `docs/evidence/RESTORATION_REVIEW.md`. Local QA uses Node 24.21.0, npm 11.19.0 and Chrome with Playwright on Windows. Unit, type, lint, build and browser results are recorded from actual runs. Auth/API tests requiring the isolated real Supabase fixture were not rerun on Windows; no new live-auth validation is claimed.
+
+Remaining integration work: connect the restored interface to an approved tenant-scoped backend and the secure v2 trip scheduler; reconcile/import any saved records with workspace authorization; verify actual shared accounts, RLS and provider routing; supply timezone/evidence checks and linked sales cohorts where required. The parent session reports zero saved rows in original D1 `fieldwork_records`; that count was not independently queried from Windows and no live migration was run. Parent owns Vercel publication verification and user acceptance of the restored preview.
+
+---
+
+## Archived 2 October 2026 state
+
+The following is the earlier reconstruction handoff. Its missing-source, unavailable-deployment and source-count statements are historical and superseded above; its prior isolated-auth verification is retained as prior evidence, not a claim that it was rerun here.
 
 Updated: 2 October 2026, UTC. The later implementation prompt superseded plan-only mode. Initial and plan-only states remain archived in `docs/handoff/`; original AGENTS/specification guidance is preserved.
 

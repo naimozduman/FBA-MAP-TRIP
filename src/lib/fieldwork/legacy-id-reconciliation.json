@@ -1,0 +1,747 @@
+{
+  "counts": {
+    "user_pool": 108,
+    "legacy_cities_including_stl": 109,
+    "matched_user_pool": 108
+  },
+  "user_pool_unmatched": [],
+  "legacy_outside_user_pool": [
+    {
+      "legacy_id": "stl",
+      "name": "St. Louis",
+      "state": "MO"
+    }
+  ],
+  "id_mapping": [
+    {
+      "normalized_id": "pacific-mo",
+      "legacy_id": "pacific",
+      "name": "Pacific",
+      "state": "MO"
+    },
+    {
+      "normalized_id": "union-mo",
+      "legacy_id": "union",
+      "name": "Union",
+      "state": "MO"
+    },
+    {
+      "normalized_id": "washington-mo",
+      "legacy_id": "washington",
+      "name": "Washington",
+      "state": "MO"
+    },
+    {
+      "normalized_id": "sullivan-mo",
+      "legacy_id": "sullivan",
+      "name": "Sullivan",
+      "state": "MO"
+    },
+    {
+      "normalized_id": "st-james-mo",
+      "legacy_id": "st-james",
+      "name": "St. James",
+      "state": "MO"
+    },
+    {
+      "normalized_id": "rolla-mo",
+      "legacy_id": "rolla",
+      "name": "Rolla",
+      "state": "MO"
+    },
+    {
+      "normalized_id": "st-robert-mo",
+      "legacy_id": "st-robert",
+      "name": "St. Robert",
+      "state": "MO"
+    },
+    {
+      "normalized_id": "waynesville-mo",
+      "legacy_id": "waynesville",
+      "name": "Waynesville",
+      "state": "MO"
+    },
+    {
+      "normalized_id": "lebanon-mo",
+      "legacy_id": "lebanon",
+      "name": "Lebanon",
+      "state": "MO"
+    },
+    {
+      "normalized_id": "marshfield-mo",
+      "legacy_id": "marshfield",
+      "name": "Marshfield",
+      "state": "MO"
+    },
+    {
+      "normalized_id": "springfield-mo",
+      "legacy_id": "springfield-mo",
+      "name": "Springfield",
+      "state": "MO"
+    },
+    {
+      "normalized_id": "republic-mo",
+      "legacy_id": "republic",
+      "name": "Republic",
+      "state": "MO"
+    },
+    {
+      "normalized_id": "nixa-mo",
+      "legacy_id": "nixa",
+      "name": "Nixa",
+      "state": "MO"
+    },
+    {
+      "normalized_id": "ozark-mo",
+      "legacy_id": "ozark",
+      "name": "Ozark",
+      "state": "MO"
+    },
+    {
+      "normalized_id": "branson-mo",
+      "legacy_id": "branson",
+      "name": "Branson",
+      "state": "MO"
+    },
+    {
+      "normalized_id": "mount-vernon-mo",
+      "legacy_id": "mount-vernon-mo",
+      "name": "Mount Vernon",
+      "state": "MO"
+    },
+    {
+      "normalized_id": "carthage-mo",
+      "legacy_id": "carthage",
+      "name": "Carthage",
+      "state": "MO"
+    },
+    {
+      "normalized_id": "webb-city-mo",
+      "legacy_id": "webb-city",
+      "name": "Webb City",
+      "state": "MO"
+    },
+    {
+      "normalized_id": "joplin-mo",
+      "legacy_id": "joplin",
+      "name": "Joplin",
+      "state": "MO"
+    },
+    {
+      "normalized_id": "neosho-mo",
+      "legacy_id": "neosho",
+      "name": "Neosho",
+      "state": "MO"
+    },
+    {
+      "normalized_id": "pittsburg-ks",
+      "legacy_id": "pittsburg",
+      "name": "Pittsburg",
+      "state": "KS"
+    },
+    {
+      "normalized_id": "warrenton-mo",
+      "legacy_id": "warrenton",
+      "name": "Warrenton",
+      "state": "MO"
+    },
+    {
+      "normalized_id": "kingdom-city-mo",
+      "legacy_id": "kingdom-city",
+      "name": "Kingdom City",
+      "state": "MO"
+    },
+    {
+      "normalized_id": "fulton-mo",
+      "legacy_id": "fulton",
+      "name": "Fulton",
+      "state": "MO"
+    },
+    {
+      "normalized_id": "columbia-mo",
+      "legacy_id": "columbia",
+      "name": "Columbia",
+      "state": "MO"
+    },
+    {
+      "normalized_id": "ashland-mo",
+      "legacy_id": "ashland",
+      "name": "Ashland",
+      "state": "MO"
+    },
+    {
+      "normalized_id": "jefferson-city-mo",
+      "legacy_id": "jefferson-city",
+      "name": "Jefferson City",
+      "state": "MO"
+    },
+    {
+      "normalized_id": "holts-summit-mo",
+      "legacy_id": "holts-summit",
+      "name": "Holts Summit",
+      "state": "MO"
+    },
+    {
+      "normalized_id": "sedalia-mo",
+      "legacy_id": "sedalia",
+      "name": "Sedalia",
+      "state": "MO"
+    },
+    {
+      "normalized_id": "warrensburg-mo",
+      "legacy_id": "warrensburg",
+      "name": "Warrensburg",
+      "state": "MO"
+    },
+    {
+      "normalized_id": "lee-s-summit-mo",
+      "legacy_id": "lees-summit",
+      "name": "Lee’s Summit",
+      "state": "MO"
+    },
+    {
+      "normalized_id": "blue-springs-mo",
+      "legacy_id": "blue-springs",
+      "name": "Blue Springs",
+      "state": "MO"
+    },
+    {
+      "normalized_id": "independence-mo",
+      "legacy_id": "independence",
+      "name": "Independence",
+      "state": "MO"
+    },
+    {
+      "normalized_id": "raytown-mo",
+      "legacy_id": "raytown",
+      "name": "Raytown",
+      "state": "MO"
+    },
+    {
+      "normalized_id": "kansas-city-mo",
+      "legacy_id": "kc-mo",
+      "name": "Kansas City",
+      "state": "MO"
+    },
+    {
+      "normalized_id": "kansas-city-ks",
+      "legacy_id": "kc-ks",
+      "name": "Kansas City",
+      "state": "KS"
+    },
+    {
+      "normalized_id": "gladstone-mo",
+      "legacy_id": "gladstone",
+      "name": "Gladstone",
+      "state": "MO"
+    },
+    {
+      "normalized_id": "liberty-mo",
+      "legacy_id": "liberty",
+      "name": "Liberty",
+      "state": "MO"
+    },
+    {
+      "normalized_id": "overland-park-ks",
+      "legacy_id": "overland-park",
+      "name": "Overland Park",
+      "state": "KS"
+    },
+    {
+      "normalized_id": "shawnee-ks",
+      "legacy_id": "shawnee",
+      "name": "Shawnee",
+      "state": "KS"
+    },
+    {
+      "normalized_id": "lenexa-ks",
+      "legacy_id": "lenexa",
+      "name": "Lenexa",
+      "state": "KS"
+    },
+    {
+      "normalized_id": "olathe-ks",
+      "legacy_id": "olathe",
+      "name": "Olathe",
+      "state": "KS"
+    },
+    {
+      "normalized_id": "lawrence-ks",
+      "legacy_id": "lawrence",
+      "name": "Lawrence",
+      "state": "KS"
+    },
+    {
+      "normalized_id": "topeka-ks",
+      "legacy_id": "topeka",
+      "name": "Topeka",
+      "state": "KS"
+    },
+    {
+      "normalized_id": "troy-mo",
+      "legacy_id": "troy",
+      "name": "Troy",
+      "state": "MO"
+    },
+    {
+      "normalized_id": "bowling-green-mo",
+      "legacy_id": "bowling-green",
+      "name": "Bowling Green",
+      "state": "MO"
+    },
+    {
+      "normalized_id": "hannibal-mo",
+      "legacy_id": "hannibal",
+      "name": "Hannibal",
+      "state": "MO"
+    },
+    {
+      "normalized_id": "palmyra-mo",
+      "legacy_id": "palmyra",
+      "name": "Palmyra",
+      "state": "MO"
+    },
+    {
+      "normalized_id": "quincy-il",
+      "legacy_id": "quincy",
+      "name": "Quincy",
+      "state": "IL"
+    },
+    {
+      "normalized_id": "pittsfield-il",
+      "legacy_id": "pittsfield",
+      "name": "Pittsfield",
+      "state": "IL"
+    },
+    {
+      "normalized_id": "mexico-mo",
+      "legacy_id": "mexico",
+      "name": "Mexico",
+      "state": "MO"
+    },
+    {
+      "normalized_id": "moberly-mo",
+      "legacy_id": "moberly",
+      "name": "Moberly",
+      "state": "MO"
+    },
+    {
+      "normalized_id": "macon-mo",
+      "legacy_id": "macon",
+      "name": "Macon",
+      "state": "MO"
+    },
+    {
+      "normalized_id": "kirksville-mo",
+      "legacy_id": "kirksville",
+      "name": "Kirksville",
+      "state": "MO"
+    },
+    {
+      "normalized_id": "brookfield-mo",
+      "legacy_id": "brookfield",
+      "name": "Brookfield",
+      "state": "MO"
+    },
+    {
+      "normalized_id": "chillicothe-mo",
+      "legacy_id": "chillicothe",
+      "name": "Chillicothe",
+      "state": "MO"
+    },
+    {
+      "normalized_id": "festus-mo",
+      "legacy_id": "festus",
+      "name": "Festus",
+      "state": "MO"
+    },
+    {
+      "normalized_id": "farmington-mo",
+      "legacy_id": "farmington",
+      "name": "Farmington",
+      "state": "MO"
+    },
+    {
+      "normalized_id": "ste-genevieve-mo",
+      "legacy_id": "ste-genevieve",
+      "name": "Ste. Genevieve",
+      "state": "MO"
+    },
+    {
+      "normalized_id": "perryville-mo",
+      "legacy_id": "perryville",
+      "name": "Perryville",
+      "state": "MO"
+    },
+    {
+      "normalized_id": "jackson-mo",
+      "legacy_id": "jackson",
+      "name": "Jackson",
+      "state": "MO"
+    },
+    {
+      "normalized_id": "cape-girardeau-mo",
+      "legacy_id": "cape",
+      "name": "Cape Girardeau",
+      "state": "MO"
+    },
+    {
+      "normalized_id": "scott-city-mo",
+      "legacy_id": "scott-city",
+      "name": "Scott City",
+      "state": "MO"
+    },
+    {
+      "normalized_id": "sikeston-mo",
+      "legacy_id": "sikeston",
+      "name": "Sikeston",
+      "state": "MO"
+    },
+    {
+      "normalized_id": "charleston-mo",
+      "legacy_id": "charleston-mo",
+      "name": "Charleston",
+      "state": "MO"
+    },
+    {
+      "normalized_id": "new-madrid-mo",
+      "legacy_id": "new-madrid",
+      "name": "New Madrid",
+      "state": "MO"
+    },
+    {
+      "normalized_id": "hayti-mo",
+      "legacy_id": "hayti",
+      "name": "Hayti",
+      "state": "MO"
+    },
+    {
+      "normalized_id": "kennett-mo",
+      "legacy_id": "kennett",
+      "name": "Kennett",
+      "state": "MO"
+    },
+    {
+      "normalized_id": "blytheville-ar",
+      "legacy_id": "blytheville",
+      "name": "Blytheville",
+      "state": "AR"
+    },
+    {
+      "normalized_id": "memphis-tn",
+      "legacy_id": "memphis",
+      "name": "Memphis",
+      "state": "TN"
+    },
+    {
+      "normalized_id": "belleville-il",
+      "legacy_id": "belleville",
+      "name": "Belleville",
+      "state": "IL"
+    },
+    {
+      "normalized_id": "o-fallon-il",
+      "legacy_id": "ofallon-il",
+      "name": "O’Fallon",
+      "state": "IL"
+    },
+    {
+      "normalized_id": "centralia-il",
+      "legacy_id": "centralia",
+      "name": "Centralia",
+      "state": "IL"
+    },
+    {
+      "normalized_id": "mount-vernon-il",
+      "legacy_id": "mount-vernon-il",
+      "name": "Mount Vernon",
+      "state": "IL"
+    },
+    {
+      "normalized_id": "marion-il",
+      "legacy_id": "marion",
+      "name": "Marion",
+      "state": "IL"
+    },
+    {
+      "normalized_id": "herrin-il",
+      "legacy_id": "herrin",
+      "name": "Herrin",
+      "state": "IL"
+    },
+    {
+      "normalized_id": "carbondale-il",
+      "legacy_id": "carbondale",
+      "name": "Carbondale",
+      "state": "IL"
+    },
+    {
+      "normalized_id": "litchfield-il",
+      "legacy_id": "litchfield",
+      "name": "Litchfield",
+      "state": "IL"
+    },
+    {
+      "normalized_id": "springfield-il",
+      "legacy_id": "springfield-il",
+      "name": "Springfield",
+      "state": "IL"
+    },
+    {
+      "normalized_id": "lincoln-il",
+      "legacy_id": "lincoln",
+      "name": "Lincoln",
+      "state": "IL"
+    },
+    {
+      "normalized_id": "bloomington-il",
+      "legacy_id": "bloomington-il",
+      "name": "Bloomington",
+      "state": "IL"
+    },
+    {
+      "normalized_id": "normal-il",
+      "legacy_id": "normal",
+      "name": "Normal",
+      "state": "IL"
+    },
+    {
+      "normalized_id": "peoria-il",
+      "legacy_id": "peoria",
+      "name": "Peoria",
+      "state": "IL"
+    },
+    {
+      "normalized_id": "decatur-il",
+      "legacy_id": "decatur",
+      "name": "Decatur",
+      "state": "IL"
+    },
+    {
+      "normalized_id": "vandalia-il",
+      "legacy_id": "vandalia",
+      "name": "Vandalia",
+      "state": "IL"
+    },
+    {
+      "normalized_id": "effingham-il",
+      "legacy_id": "effingham",
+      "name": "Effingham",
+      "state": "IL"
+    },
+    {
+      "normalized_id": "mattoon-il",
+      "legacy_id": "mattoon",
+      "name": "Mattoon",
+      "state": "IL"
+    },
+    {
+      "normalized_id": "charleston-il",
+      "legacy_id": "charleston-il",
+      "name": "Charleston",
+      "state": "IL"
+    },
+    {
+      "normalized_id": "champaign-il",
+      "legacy_id": "champaign",
+      "name": "Champaign",
+      "state": "IL"
+    },
+    {
+      "normalized_id": "urbana-il",
+      "legacy_id": "urbana",
+      "name": "Urbana",
+      "state": "IL"
+    },
+    {
+      "normalized_id": "terre-haute-in",
+      "legacy_id": "terre-haute",
+      "name": "Terre Haute",
+      "state": "IN"
+    },
+    {
+      "normalized_id": "plainfield-in",
+      "legacy_id": "plainfield",
+      "name": "Plainfield",
+      "state": "IN"
+    },
+    {
+      "normalized_id": "indianapolis-in",
+      "legacy_id": "indianapolis",
+      "name": "Indianapolis",
+      "state": "IN"
+    },
+    {
+      "normalized_id": "speedway-in",
+      "legacy_id": "speedway",
+      "name": "Speedway",
+      "state": "IN"
+    },
+    {
+      "normalized_id": "carmel-in",
+      "legacy_id": "carmel",
+      "name": "Carmel",
+      "state": "IN"
+    },
+    {
+      "normalized_id": "fishers-in",
+      "legacy_id": "fishers",
+      "name": "Fishers",
+      "state": "IN"
+    },
+    {
+      "normalized_id": "greenwood-in",
+      "legacy_id": "greenwood",
+      "name": "Greenwood",
+      "state": "IN"
+    },
+    {
+      "normalized_id": "martinsville-in",
+      "legacy_id": "martinsville",
+      "name": "Martinsville",
+      "state": "IN"
+    },
+    {
+      "normalized_id": "bloomington-in",
+      "legacy_id": "bloomington-in",
+      "name": "Bloomington",
+      "state": "IN"
+    },
+    {
+      "normalized_id": "evansville-in",
+      "legacy_id": "evansville",
+      "name": "Evansville",
+      "state": "IN"
+    },
+    {
+      "normalized_id": "henderson-ky",
+      "legacy_id": "henderson",
+      "name": "Henderson",
+      "state": "KY"
+    },
+    {
+      "normalized_id": "owensboro-ky",
+      "legacy_id": "owensboro",
+      "name": "Owensboro",
+      "state": "KY"
+    },
+    {
+      "normalized_id": "jasper-in",
+      "legacy_id": "jasper",
+      "name": "Jasper",
+      "state": "IN"
+    },
+    {
+      "normalized_id": "ferdinand-in",
+      "legacy_id": "ferdinand",
+      "name": "Ferdinand",
+      "state": "IN"
+    },
+    {
+      "normalized_id": "corydon-in",
+      "legacy_id": "corydon",
+      "name": "Corydon",
+      "state": "IN"
+    },
+    {
+      "normalized_id": "new-albany-in",
+      "legacy_id": "new-albany",
+      "name": "New Albany",
+      "state": "IN"
+    },
+    {
+      "normalized_id": "jeffersonville-in",
+      "legacy_id": "jeffersonville",
+      "name": "Jeffersonville",
+      "state": "IN"
+    },
+    {
+      "normalized_id": "louisville-ky",
+      "legacy_id": "louisville",
+      "name": "Louisville",
+      "state": "KY"
+    }
+  ],
+  "membership_comparison": [
+    {
+      "corridor": 1,
+      "brief_only_including_branch_and_transit_places": [],
+      "legacy_only": [
+        {
+          "name": "Washington",
+          "state": "MO"
+        }
+      ],
+      "note": "Not an error by itself: brief includes transit anchors and optional branches; catalog is territory membership, not ordered driving route."
+    },
+    {
+      "corridor": 3,
+      "brief_only_including_branch_and_transit_places": [
+        {
+          "name": "Springfield",
+          "state": "MO"
+        }
+      ],
+      "legacy_only": [],
+      "note": "Not an error by itself: brief includes transit anchors and optional branches; catalog is territory membership, not ordered driving route."
+    },
+    {
+      "corridor": 5,
+      "brief_only_including_branch_and_transit_places": [],
+      "legacy_only": [
+        {
+          "name": "Kansas City",
+          "state": "KS"
+        }
+      ],
+      "note": "Not an error by itself: brief includes transit anchors and optional branches; catalog is territory membership, not ordered driving route."
+    },
+    {
+      "corridor": 6,
+      "brief_only_including_branch_and_transit_places": [
+        {
+          "name": "Kansas City",
+          "state": "MO"
+        }
+      ],
+      "legacy_only": [],
+      "note": "Not an error by itself: brief includes transit anchors and optional branches; catalog is territory membership, not ordered driving route."
+    },
+    {
+      "corridor": 9,
+      "brief_only_including_branch_and_transit_places": [],
+      "legacy_only": [
+        {
+          "name": "Scott City",
+          "state": "MO"
+        }
+      ],
+      "note": "Not an error by itself: brief includes transit anchors and optional branches; catalog is territory membership, not ordered driving route."
+    },
+    {
+      "corridor": 10,
+      "brief_only_including_branch_and_transit_places": [
+        {
+          "name": "Cape Girardeau",
+          "state": "MO"
+        }
+      ],
+      "legacy_only": [],
+      "note": "Not an error by itself: brief includes transit anchors and optional branches; catalog is territory membership, not ordered driving route."
+    },
+    {
+      "corridor": 15,
+      "brief_only_including_branch_and_transit_places": [
+        {
+          "normalized_name": "stmatthews",
+          "state": "KY"
+        }
+      ],
+      "legacy_only": [],
+      "note": "Not an error by itself: brief includes transit anchors and optional branches; catalog is territory membership, not ordered driving route."
+    }
+  ],
+  "do_not_overwrite_legacy_ids": true,
+  "guidance": "Preserve legacy stable IDs and coordinates as historical provenance. Use mapping to enrich existing entities, not duplicate or replace IDs. Brief-only narrative places Poplar Bluff MO and St. Matthews KY are outside explicit 108-town pool; require deliberate modeling rather than silently altering pool.",
+  "source_archive_sha256": "6f5aee08db01d3b3d83713f1738142a4ace899762f905a66548a2363f554a9f1"
+}

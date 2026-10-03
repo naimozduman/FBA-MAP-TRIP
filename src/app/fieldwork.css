@@ -1,0 +1,3263 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "./fieldwork-vendor/shadcn-tailwind-4.13.0.css";
+@import "./fieldwork-vendor/leaflet.css";
+@font-face {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/manrope-latin-400-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/fonts/manrope-latin-500-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/fonts/manrope-latin-600-normal.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/fonts/manrope-latin-700-normal.woff2") format("woff2");
+}
+:is(.fieldwork-app, .fieldwork-dialog) {
+  --background: #faf8f3;
+  --foreground: #25352c;
+  --card: #faf8f3;
+  --card-foreground: #25352c;
+  --popover: #faf8f3;
+  --popover-foreground: #25352c;
+  --primary: #53634a;
+  --primary-foreground: #fff;
+  --secondary: #eeeee7;
+  --secondary-foreground: #25352c;
+  --muted: #eeeee7;
+  --muted-foreground: #667065;
+  --accent: #e7eadf;
+  --accent-foreground: #25352c;
+  --destructive: #a64230;
+  --border: #d4d6ca;
+  --input: #cbd0c4;
+  --ring: #6a795f;
+  --radius: 0.6rem;
+  --rust: #da6547;
+  --paper: #faf8f3;
+  --ink: #25352c;
+  --chart-1: #53634a;
+  --chart-2: #da6547;
+  --chart-3: #aaa37f;
+  --chart-4: #8d9d7f;
+  --chart-5: #746a5b;
+  --sidebar: var(--paper);
+  --sidebar-foreground: var(--ink);
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: white;
+  --sidebar-accent: var(--accent);
+  --sidebar-accent-foreground: var(--ink);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--ring);
+}
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --radius-sm: 4px;
+  --radius-md: 7px;
+  --radius-lg: 10px;
+  --radius-xl: 14px;
+  --font-sans: "Manrope", Arial, sans-serif;
+  --font-mono: ui-monospace, monospace;
+}
+:is(.fieldwork-app, .fieldwork-dialog) * {
+  box-sizing: border-box;
+}
+.fieldwork-app,
+:is(.fieldwork-app, .fieldwork-dialog) {
+  height: 100%;
+  margin: 0;
+}
+:is(.fieldwork-app, .fieldwork-dialog) {
+  font-family: "Manrope", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--ink);
+  background: var(--paper);
+}
+:is(.fieldwork-app, .fieldwork-dialog) button,
+:is(.fieldwork-app, .fieldwork-dialog) input,
+:is(.fieldwork-app, .fieldwork-dialog) textarea,
+:is(.fieldwork-app, .fieldwork-dialog) select {
+  font: inherit;
+}
+:is(.fieldwork-app, .fieldwork-dialog) button,
+:is(.fieldwork-app, .fieldwork-dialog) a {
+  -webkit-tap-highlight-color: transparent;
+}
+:is(.fieldwork-app, .fieldwork-dialog) button {
+  cursor: pointer;
+}
+:is(.fieldwork-app, .fieldwork-dialog) button:disabled {
+  cursor: default;
+  opacity: 0.5;
+}
+:is(.fieldwork-app, .fieldwork-dialog) button:focus-visible,
+:is(.fieldwork-app, .fieldwork-dialog) a:focus-visible {
+  outline: 3px solid #819372;
+  outline-offset: 3px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) h1,
+:is(.fieldwork-app, .fieldwork-dialog) h2,
+:is(.fieldwork-app, .fieldwork-dialog) h3,
+:is(.fieldwork-app, .fieldwork-dialog) p {
+  margin: 0;
+}
+:is(.fieldwork-app, .fieldwork-dialog) h1,
+:is(.fieldwork-app, .fieldwork-dialog) h2,
+:is(.fieldwork-app, .fieldwork-dialog) h3 {
+  font-weight: 700;
+  letter-spacing: -0.045em;
+}
+:is(.fieldwork-app, .fieldwork-dialog) h1 {
+  font-size: 32px;
+  line-height: 1.2;
+}
+:is(.fieldwork-app, .fieldwork-dialog) h2 {
+  font-size: 25px;
+  line-height: 1.25;
+}
+:is(.fieldwork-app, .fieldwork-dialog) h3 {
+  font-size: 16px;
+  letter-spacing: -0.02em;
+}
+:is(.fieldwork-app, .fieldwork-dialog) small,
+:is(.fieldwork-app, .fieldwork-dialog) .meta,
+.fieldwork-dialog.meta {
+  font-size: 12px;
+  color: #667065;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .muted,
+.fieldwork-dialog.muted {
+  color: #667065;
+  font-size: 14px;
+  line-height: 1.65;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .wide,
+.fieldwork-dialog.wide {
+  grid-column: 1/-1;
+}
+.fieldwork-app {
+  height: 100dvh;
+  overflow: hidden;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .app-header,
+.fieldwork-dialog.app-header {
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+  border-bottom: 1px solid var(--border);
+  background: var(--paper);
+  position: relative;
+  z-index: 700;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .wordmark,
+.fieldwork-dialog.wordmark {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 42px;
+  line-height: 1.15;
+  letter-spacing: -2px;
+  font-weight: 700;
+  background: none;
+  border: 0;
+  padding: 0;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .wordmark svg,
+.fieldwork-dialog.wordmark svg {
+  width: 37px;
+  height: 37px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .header-actions,
+.fieldwork-dialog.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .home-base,
+.fieldwork-dialog.home-base {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  padding-right: 20px;
+  border-right: 1px solid var(--border);
+}
+:is(.fieldwork-app, .fieldwork-dialog) .action,
+.fieldwork-dialog.action {
+  height: 44px;
+  padding: 10px 19px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 650;
+  letter-spacing: -0.015em;
+  box-shadow: none;
+  gap: 9px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .action[data-variant="outline"],
+.fieldwork-dialog.action[data-variant="outline"] {
+  background: transparent;
+  border-color: #8b9584;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .action:hover,
+.fieldwork-dialog.action:hover {
+  filter: brightness(0.97);
+}
+:is(.fieldwork-app, .fieldwork-dialog) .icon-action,
+.fieldwork-dialog.icon-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: 0;
+  border-radius: 7px;
+  flex-shrink: 0;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .icon-action:hover,
+.fieldwork-dialog.icon-action:hover {
+  background: #e7eadf;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .icon-action svg,
+.fieldwork-dialog.icon-action svg {
+  width: 21px;
+  height: 21px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .connection-strip,
+.fieldwork-dialog.connection-strip {
+  position: absolute;
+  top: 72px;
+  left: 0;
+  right: 0;
+  z-index: 710;
+  background: #f1ded3;
+  color: #673b28;
+  padding: 9px 22px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .connection-strip button,
+.fieldwork-dialog.connection-strip button {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
+  border: 0;
+  background: none;
+  font-weight: 700;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .main-tabs,
+.fieldwork-dialog.main-tabs {
+  height: calc(100dvh - 72px);
+  display: block !important;
+  gap: 0 !important;
+  position: relative;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .map-page,
+.fieldwork-dialog.map-page {
+  position: absolute;
+  inset: 0;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .map-page[data-state="inactive"],
+.fieldwork-dialog.map-page[data-state="inactive"] {
+  display: none;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .map-wrap,
+.fieldwork-dialog.map-wrap,
+:is(.fieldwork-app, .fieldwork-dialog) .territory-map,
+.fieldwork-dialog.territory-map {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .territory-map,
+.fieldwork-dialog.territory-map {
+  background: #ecebe3;
+  font-family: "Manrope", Arial, sans-serif;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .leaflet-tile-pane,
+.fieldwork-dialog.leaflet-tile-pane {
+  filter: sepia(0.17) saturate(0.48);
+}
+:is(.fieldwork-app, .fieldwork-dialog) .leaflet-container,
+.fieldwork-dialog.leaflet-container {
+  font-family: "Manrope", Arial, sans-serif;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .leaflet-control-attribution,
+.fieldwork-dialog.leaflet-control-attribution {
+  background: #faf8f3cc !important;
+  font-size: 10px !important;
+  color: #667065 !important;
+  max-width: 450px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .leaflet-control-attribution a,
+.fieldwork-dialog.leaflet-control-attribution a {
+  color: #667065 !important;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .leaflet-control-scale-line,
+.fieldwork-dialog.leaflet-control-scale-line {
+  border-color: #687759 !important;
+  color: #25352c !important;
+  background: #faf8f3a0 !important;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .leaflet-bottom.leaflet-right,
+.fieldwork-dialog.leaflet-bottom.leaflet-right {
+  bottom: 4px;
+  right: 88px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .map-pin-host,
+.fieldwork-dialog.map-pin-host {
+  background: none;
+  border: 0;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .map-pin,
+.fieldwork-dialog.map-pin {
+  display: block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #87917a;
+  border: 1.7px solid var(--paper);
+  box-shadow: 0 0 0 0.2px #87917a;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .map-pin.selected,
+.fieldwork-dialog.map-pin.selected {
+  width: 14px;
+  height: 14px;
+  background: var(--rust);
+  border: 2px solid var(--paper);
+  box-shadow: 0 0 0 1px #b9573d;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .map-pin.base,
+.fieldwork-dialog.map-pin.base {
+  width: 24px;
+  height: 24px;
+  background: var(--rust);
+  border: 3px solid var(--paper);
+  box-shadow: 0 0 0 1px var(--rust);
+  display: grid;
+  place-items: center;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .map-pin.base span,
+.fieldwork-dialog.map-pin.base span {
+  width: 11px;
+  height: 11px;
+  border: 1.5px solid white;
+  border-radius: 50%;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .map-pin.focused,
+.fieldwork-dialog.map-pin.focused {
+  outline: 5px solid #da65472e;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .map-label,
+.fieldwork-dialog.map-label {
+  padding: 0 !important;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+  color: #25352c !important;
+  font-size: 12px !important;
+  font-weight: 600;
+  white-space: nowrap;
+  text-shadow:
+    0 1px 1px #faf8f3,
+    0 -1px 1px #faf8f3,
+    1px 0 2px #faf8f3,
+    -1px 0 2px #faf8f3;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .map-label:before,
+.fieldwork-dialog.map-label:before {
+  display: none !important;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .base-label,
+.fieldwork-dialog.base-label {
+  font-weight: 700;
+  font-size: 16px !important;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .map-tools,
+.fieldwork-dialog.map-tools {
+  position: absolute;
+  right: 18px;
+  bottom: 54px;
+  z-index: 500;
+  display: flex;
+  flex-direction: column;
+  background: var(--paper);
+  border: 1px solid var(--border);
+  box-shadow: 0 3px 15px #25352c0a;
+  border-radius: 9px;
+  padding: 3px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .map-tools .icon-action,
+.fieldwork-dialog.map-tools .icon-action {
+  width: 39px;
+  height: 38px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .map-tools .icon-action + button,
+.fieldwork-dialog.map-tools .icon-action + button {
+  border-top: 1px solid #d4d6ca;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .map-legend,
+.fieldwork-dialog.map-legend {
+  position: absolute;
+  left: 18px;
+  bottom: 20px;
+  z-index: 500;
+  padding: 14px 17px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: var(--paper);
+  font-size: 12px;
+  box-shadow: 0 3px 15px #25352c0a;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .map-legend span,
+.fieldwork-dialog.map-legend span {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .map-legend i,
+.fieldwork-dialog.map-legend i {
+  display: inline-block;
+  width: 32px;
+  height: 0;
+  border-top: 3px solid var(--rust);
+}
+:is(.fieldwork-app, .fieldwork-dialog) .map-legend i.return,
+.fieldwork-dialog.map-legend i.return {
+  border-top: 3px dashed #687759;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .map-legend small,
+.fieldwork-dialog.map-legend small {
+  font-size: 11px;
+  margin-top: 6px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .map-error,
+.fieldwork-dialog.map-error {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  background: #e9ebe2;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .map-error p,
+.fieldwork-dialog.map-error p {
+  padding: 5px 20px;
+  color: #667065;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .paper-panel,
+.fieldwork-dialog.paper-panel {
+  background: var(--paper);
+  border: 1px solid #bfc5b9;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px #25352c0c;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .explore-panel,
+.fieldwork-dialog.explore-panel {
+  position: absolute;
+  left: 18px;
+  top: 16px;
+  width: 356px;
+  z-index: 600;
+  padding: 18px 18px 0;
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100% - 154px);
+}
+:is(.fieldwork-app, .fieldwork-dialog) .explore-panel h1,
+.fieldwork-dialog.explore-panel h1 {
+  font-size: 25px;
+  line-height: 1.3;
+  margin-bottom: 15px;
+  letter-spacing: -0.05em;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .search-field,
+.fieldwork-dialog.search-field {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  border: 1px solid #bec6b6;
+  border-radius: 7px;
+  height: 43px;
+  padding: 0 11px;
+  background: #faf8f3;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .search-field input,
+.fieldwork-dialog.search-field input {
+  width: 100%;
+  min-width: 0;
+  background: none;
+  outline: none;
+  border: 0;
+  font-size: 14px;
+  color: var(--ink);
+}
+:is(.fieldwork-app, .fieldwork-dialog) .search-field input::placeholder,
+.fieldwork-dialog.search-field input::placeholder {
+  color: #7b8277;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .search-field:focus-within,
+.fieldwork-dialog.search-field:focus-within {
+  outline: 2px solid #95a28a;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .search-field button,
+.fieldwork-dialog.search-field button {
+  border: 0;
+  background: none;
+  font-size: 23px;
+  line-height: 1;
+  padding: 3px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .filter-row,
+.fieldwork-dialog.filter-row {
+  display: flex;
+  gap: 7px;
+  padding: 12px 0 14px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .filter-row button,
+.fieldwork-dialog.filter-row button {
+  border: 0;
+  background: #eeeee8;
+  min-height: 35px;
+  padding: 6px 16px;
+  border-radius: 22px;
+  font-size: 13px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .filter-row button.selected,
+.fieldwork-dialog.filter-row button.selected {
+  color: white;
+  background: var(--primary);
+}
+:is(.fieldwork-app, .fieldwork-dialog) .explore-list,
+.fieldwork-dialog.explore-list {
+  overflow: auto;
+  max-height: 380px;
+  scrollbar-width: thin;
+  scrollbar-color: #d4d6ca transparent;
+  margin: 0 -7px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .explore-row,
+.fieldwork-dialog.explore-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 76px;
+  border: 0;
+  border-bottom: 1px solid #dedfd5;
+  text-align: left;
+  padding: 12px 8px;
+  background: none;
+  color: var(--ink);
+}
+:is(.fieldwork-app, .fieldwork-dialog) .explore-row:hover,
+.fieldwork-dialog.explore-row:hover {
+  background: #eeeee7;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .explore-row.active,
+.fieldwork-dialog.explore-row.active {
+  background: #e0e4d5;
+  border-radius: 8px;
+  border-bottom-color: transparent;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .explore-row > span:nth-child(2),
+.fieldwork-dialog.explore-row > span:nth-child(2) {
+  flex: 1;
+  min-width: 0;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .explore-row strong,
+.fieldwork-dialog.explore-row strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.35;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .explore-row small,
+.fieldwork-dialog.explore-row small {
+  display: block;
+  margin-top: 5px;
+  font-size: 12px;
+  line-height: 1.3;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .route-number,
+.fieldwork-dialog.route-number {
+  width: 46px;
+  height: 46px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #b8c0b0;
+  border-radius: 7px;
+  font-size: 16px;
+  letter-spacing: -0.04em;
+  flex-shrink: 0;
+  font-weight: 600;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .route-number.small,
+.fieldwork-dialog.route-number.small {
+  width: 35px;
+  height: 35px;
+  font-size: 14px;
+  border-color: #d4d6ca;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .explore-panel footer,
+.fieldwork-dialog.explore-panel footer {
+  padding: 16px 0 17px;
+  font-size: 12px;
+  border-top: 1px solid #cbd0c4;
+  margin-top: 11px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .place-results,
+.fieldwork-dialog.place-results {
+  padding: 5px 8px 10px;
+  border-bottom: 1px solid #d4d6ca;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .place-results button,
+.fieldwork-dialog.place-results button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;
+  border: 0;
+  background: none;
+  width: 100%;
+  text-align: left;
+  font-size: 13px;
+  padding: 9px 3px;
+  min-height: 36px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .no-results,
+.fieldwork-dialog.no-results {
+  padding: 25px 10px;
+  color: #667065;
+  font-size: 14px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .route-detail,
+.fieldwork-dialog.route-detail {
+  position: absolute;
+  right: 18px;
+  top: 16px;
+  width: 320px;
+  z-index: 600;
+  max-height: calc(100% - 156px);
+  display: flex;
+  flex-direction: column;
+  padding: 18px 18px 16px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .detail-head,
+.fieldwork-dialog.detail-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 5px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .detail-head h2,
+.fieldwork-dialog.detail-head h2 {
+  font-size: 24px;
+  letter-spacing: -0.05em;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .detail-head .icon-action,
+.fieldwork-dialog.detail-head .icon-action {
+  width: 25px;
+  height: 28px;
+  margin-right: -4px;
+  flex-shrink: 0;
+  color: #737b71;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .route-summary,
+.fieldwork-dialog.route-summary {
+  font-size: 14px;
+  line-height: 1.5;
+  margin-top: 6px;
+  color: #596353;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .route-facts,
+.fieldwork-dialog.route-facts {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid #cbd0c4;
+  padding: 15px 0 17px;
+  margin-bottom: 16px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .route-facts > span,
+.fieldwork-dialog.route-facts > span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  padding: 0 8px;
+  border-right: 1px solid #d4d6ca;
+  white-space: nowrap;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .route-facts > span:first-child,
+.fieldwork-dialog.route-facts > span:first-child {
+  padding-left: 0;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .route-facts > span:last-child,
+.fieldwork-dialog.route-facts > span:last-child {
+  border: 0;
+  padding-right: 0;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .route-facts svg,
+.fieldwork-dialog.route-facts svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .detail-scroll,
+.fieldwork-dialog.detail-scroll {
+  overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #d4d6ca transparent;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .reason-list h3,
+.fieldwork-dialog.reason-list h3 {
+  margin-bottom: 13px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .reason,
+.fieldwork-dialog.reason {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 17px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .reason > span,
+.fieldwork-dialog.reason > span {
+  width: 29px;
+  height: 29px;
+  border-radius: 50%;
+  background: #e0e4d5;
+  display: grid;
+  place-items: center;
+  font-size: 13px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .reason strong,
+.fieldwork-dialog.reason strong {
+  display: block;
+  font-size: 13px;
+  line-height: 1.3;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .reason p,
+.fieldwork-dialog.reason p {
+  font-size: 12px;
+  line-height: 1.55;
+  color: #667065;
+  margin-top: 3px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .stop-section,
+.fieldwork-dialog.stop-section {
+  border-top: 1px solid #cbd0c4;
+  padding-top: 15px;
+  margin-top: 15px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .stop-list,
+.fieldwork-dialog.stop-list {
+  padding: 0 0 0 7px;
+  list-style: none;
+  margin: 13px 0 0;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .stop-list li,
+.fieldwork-dialog.stop-list li {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  padding-bottom: 19px;
+  min-height: 50px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .stop-list li:before,
+.fieldwork-dialog.stop-list li:before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 9px;
+  bottom: -3px;
+  border-left: 1.5px solid var(--rust);
+}
+:is(.fieldwork-app, .fieldwork-dialog) .stop-list li:last-child:before,
+.fieldwork-dialog.stop-list li:last-child:before {
+  display: none;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .stop-list .return-stop:before,
+.fieldwork-dialog.stop-list .return-stop:before {
+  border-left-style: dashed;
+  border-left-color: #687759;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .stop-dot,
+.fieldwork-dialog.stop-dot {
+  z-index: 1;
+  width: 12px;
+  height: 12px;
+  background: var(--rust);
+  border: 2px solid var(--paper);
+  border-radius: 50%;
+  margin-top: 5px;
+  flex-shrink: 0;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .return-stop .stop-dot,
+.fieldwork-dialog.return-stop .stop-dot {
+  background: #687759;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .stop-list button,
+.fieldwork-dialog.stop-list button {
+  background: none;
+  border: 0;
+  padding: 0;
+  text-align: left;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .stop-list strong,
+.fieldwork-dialog.stop-list strong {
+  display: block;
+  font-size: 13px;
+  line-height: 1.4;
+  font-weight: 700;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .stop-list small,
+.fieldwork-dialog.stop-list small {
+  display: block;
+  font-size: 11px;
+  margin-top: 2px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .stop-counter,
+.fieldwork-dialog.stop-counter {
+  margin-left: auto;
+  color: #87917a;
+  font-size: 11px;
+  padding: 3px 7px;
+  background: #eeeee7;
+  border-radius: 50%;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .detail-source-list,
+.fieldwork-dialog.detail-source-list {
+  padding: 15px 0;
+  border-top: 1px solid #cbd0c4;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .detail-source-list > button,
+.fieldwork-dialog.detail-source-list > button {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  background: none;
+  border: 0;
+  width: 100%;
+  text-align: left;
+  padding: 12px 0 0;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .detail-source-list strong,
+.fieldwork-dialog.detail-source-list strong {
+  display: block;
+  font-size: 12px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .detail-source-list small,
+.fieldwork-dialog.detail-source-list small {
+  display: block;
+  margin-top: 3px;
+  font-size: 11px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .strategy-note,
+.fieldwork-dialog.strategy-note {
+  font-size: 12px;
+  line-height: 1.6;
+  color: #667065;
+  margin: 10px 0 8px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .detail-actions,
+.fieldwork-dialog.detail-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .detail-actions .action,
+.fieldwork-dialog.detail-actions .action {
+  flex: 1;
+  width: 100%;
+  height: 45px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .mobile-log,
+.fieldwork-dialog.mobile-log,
+:is(.fieldwork-app, .fieldwork-dialog) .mobile-handle,
+.fieldwork-dialog.mobile-handle,
+:is(.fieldwork-app, .fieldwork-dialog) .mobile-route-blurb,
+.fieldwork-dialog.mobile-route-blurb,
+:is(.fieldwork-app, .fieldwork-dialog) .mobile-stopline,
+.fieldwork-dialog.mobile-stopline,
+:is(.fieldwork-app, .fieldwork-dialog) .mobile-search,
+.fieldwork-dialog.mobile-search,
+:is(.fieldwork-app, .fieldwork-dialog) .mobile-search-panel,
+.fieldwork-dialog.mobile-search-panel,
+:is(.fieldwork-app, .fieldwork-dialog) .mobile-map-caption,
+.fieldwork-dialog.mobile-map-caption {
+  display: none;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .place-totals,
+.fieldwork-dialog.place-totals {
+  display: flex;
+  gap: 32px;
+  padding: 0 0 24px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .place-totals strong,
+.fieldwork-dialog.place-totals strong {
+  display: block;
+  font-size: 26px;
+  letter-spacing: -0.06em;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .place-totals span,
+.fieldwork-dialog.place-totals span {
+  font-size: 12px;
+  color: #667065;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .source-item,
+.fieldwork-dialog.source-item {
+  padding: 14px 0;
+  border-bottom: 1px solid #d4d6ca;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .source-title,
+.fieldwork-dialog.source-title {
+  background: none;
+  border: 0;
+  text-align: left;
+  padding: 0;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .source-title strong,
+.fieldwork-dialog.source-title strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .source-title span,
+.fieldwork-dialog.source-title span {
+  font-size: 12px;
+  color: #667065;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .source-item p,
+.fieldwork-dialog.source-item p {
+  font-size: 12px;
+  line-height: 1.6;
+  color: #667065;
+  margin: 6px 0;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .text-action,
+.fieldwork-dialog.text-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: 0;
+  padding: 5px 0;
+  font-size: 13px;
+  color: var(--primary);
+  font-weight: 650;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .text-action:hover,
+.fieldwork-dialog.text-action:hover {
+  text-decoration: underline;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .add-source,
+.fieldwork-dialog.add-source {
+  margin-top: 15px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .place-history,
+.fieldwork-dialog.place-history {
+  padding-top: 25px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .place-history > div,
+.fieldwork-dialog.place-history > div {
+  padding: 10px 0;
+  border-bottom: 1px solid #dedfd5;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .place-history strong,
+.fieldwork-dialog.place-history strong,
+:is(.fieldwork-app, .fieldwork-dialog) .place-history small,
+.fieldwork-dialog.place-history small {
+  display: block;
+  font-size: 12px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .place-history small,
+.fieldwork-dialog.place-history small {
+  margin-top: 4px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .scan-restricted,
+.fieldwork-dialog.scan-restricted {
+  color: #8d3e2a !important;
+  background: #f5e5da;
+  border-radius: 6px;
+  padding: 9px 12px;
+  font-size: 13px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .bottom-dock,
+.fieldwork-dialog.bottom-dock {
+  position: absolute;
+  z-index: 650;
+  bottom: 19px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 19px;
+  padding: 7px 14px 7px 7px;
+  border: 1px solid #c4cbbb;
+  border-radius: 42px;
+  background: var(--paper);
+  box-shadow: 0 4px 25px #25352c14;
+  width: 570px;
+  height: 74px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .dock-tabs,
+.fieldwork-dialog.dock-tabs {
+  background: none !important;
+  display: flex !important;
+  width: 100% !important;
+  height: 100% !important;
+  padding: 0 !important;
+  gap: 5px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .dock-tab,
+.fieldwork-dialog.dock-tab {
+  height: 100% !important;
+  border-radius: 29px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 2px !important;
+  font-size: 14px !important;
+  font-weight: 650 !important;
+  transition: background 0.15s !important;
+  padding: 7px 12px !important;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .dock-tab svg,
+.fieldwork-dialog.dock-tab svg {
+  height: 26px !important;
+  width: 26px !important;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .dock-tab[data-state="active"],
+.fieldwork-dialog.dock-tab[data-state="active"] {
+  background: var(--primary) !important;
+  color: var(--paper) !important;
+  box-shadow: none !important;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .dock-divider,
+.fieldwork-dialog.dock-divider {
+  height: 39px;
+  border-left: 1px solid #cbd0c4;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .dock-add,
+.fieldwork-dialog.dock-add {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  background: var(--rust);
+  color: white;
+  border: 0;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .dock-add:hover,
+.fieldwork-dialog.dock-add:hover {
+  background: #c95639;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .dock-add svg,
+.fieldwork-dialog.dock-add svg {
+  width: 27px;
+  height: 27px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .content-page,
+.fieldwork-dialog.content-page {
+  height: 100%;
+  overflow: auto;
+  background: var(--paper);
+  padding-bottom: 110px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .page-view,
+.fieldwork-dialog.page-view {
+  width: min(1250px, 100%);
+  margin: auto;
+  padding: 42px 42px 44px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .page-heading,
+.fieldwork-dialog.page-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 32px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .page-heading p,
+.fieldwork-dialog.page-heading p {
+  font-size: 14px;
+  color: #667065;
+  margin-top: 9px;
+  max-width: 750px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .library-controls,
+.fieldwork-dialog.library-controls {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 22px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .library-controls .search-field,
+.fieldwork-dialog.library-controls .search-field {
+  width: 360px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .library-controls select,
+.fieldwork-dialog.library-controls select {
+  font-size: 14px;
+  background: transparent;
+  border: 1px solid var(--input);
+  height: 43px;
+  padding: 8px 30px 8px 13px;
+  border-radius: 7px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .corridor-table,
+.fieldwork-dialog.corridor-table {
+  border-top: 1px solid var(--border);
+}
+:is(.fieldwork-app, .fieldwork-dialog) table {
+  font-size: 14px !important;
+}
+:is(.fieldwork-app, .fieldwork-dialog) thead th {
+  color: #667065 !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  background: #f0f1e9;
+  padding: 14px 12px !important;
+}
+:is(.fieldwork-app, .fieldwork-dialog) tbody td {
+  padding: 15px 12px !important;
+  border-color: #d4d6ca;
+  font-size: 13px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) tbody small {
+  display: block;
+  font-size: 12px;
+  white-space: normal;
+  margin-top: 4px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) tbody strong {
+  font-weight: 650;
+}
+:is(.fieldwork-app, .fieldwork-dialog) tbody tr:hover {
+  background: #eff0e8 !important;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .table-route,
+.fieldwork-dialog.table-route {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  text-align: left;
+  border: 0;
+  background: none;
+  padding: 0;
+  min-height: 40px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .table-route strong,
+.fieldwork-dialog.table-route strong {
+  display: block;
+  font-size: 14px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .table-route small,
+.fieldwork-dialog.table-route small {
+  margin-top: 3px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .table-route:hover strong,
+.fieldwork-dialog.table-route:hover strong {
+  text-decoration: underline;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .format-tag,
+.fieldwork-dialog.format-tag {
+  display: inline-block;
+  background: #e7eadf;
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  color: #53634a;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .format-tag.overnight,
+.fieldwork-dialog.format-tag.overnight {
+  background: #f1e8db;
+  color: #796849;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .mobile-corridors,
+.fieldwork-dialog.mobile-corridors {
+  display: none;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .sources-section,
+.fieldwork-dialog.sources-section {
+  margin-top: 48px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .section-heading,
+.fieldwork-dialog.section-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 22px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .section-heading h2,
+.fieldwork-dialog.section-heading h2 {
+  font-size: 23px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .section-heading p,
+.fieldwork-dialog.section-heading p {
+  font-size: 13px;
+  color: #667065;
+  margin-top: 7px;
+  max-width: 710px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .source-row,
+.fieldwork-dialog.source-row {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  min-height: 92px;
+  border: 0;
+  border-top: 1px solid var(--border);
+  background: none;
+  text-align: left;
+  width: 100%;
+  padding: 18px 9px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .source-row:hover,
+.fieldwork-dialog.source-row:hover {
+  background: #eff0e8;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .source-date,
+.fieldwork-dialog.source-date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 49px;
+  min-height: 51px;
+  border-radius: 7px;
+  background: #e7eadf;
+  flex-shrink: 0;
+  color: var(--primary);
+}
+:is(.fieldwork-app, .fieldwork-dialog) .source-date strong,
+.fieldwork-dialog.source-date strong {
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: -0.05em;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .source-date span,
+.fieldwork-dialog.source-date span {
+  font-size: 11px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .source-row > span:nth-child(2),
+.fieldwork-dialog.source-row > span:nth-child(2) {
+  flex: 1;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .source-row strong,
+.fieldwork-dialog.source-row strong {
+  display: block;
+  font-size: 14px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .source-row small,
+.fieldwork-dialog.source-row small {
+  display: block;
+  margin-top: 4px;
+  font-size: 12px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .source-price,
+.fieldwork-dialog.source-price {
+  max-width: 280px;
+  font-size: 12px;
+  line-height: 1.6;
+  color: #667065;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .view-tabs,
+.fieldwork-dialog.view-tabs {
+  gap: 22px !important;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .view-tablist,
+.fieldwork-dialog.view-tablist {
+  height: 46px !important;
+  gap: 4px !important;
+  background: #e9ece0 !important;
+  padding: 4px !important;
+  border-radius: 8px !important;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .view-tablist button,
+.fieldwork-dialog.view-tablist button {
+  font-size: 13px !important;
+  padding: 8px 17px !important;
+  gap: 10px !important;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .view-tablist span,
+.fieldwork-dialog.view-tablist span {
+  font-size: 11px;
+  display: inline-grid;
+  place-items: center;
+  width: 21px;
+  height: 21px;
+  border-radius: 5px;
+  background: #dce1d2;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .trip-rows,
+.fieldwork-dialog.trip-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 23px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .trip-item,
+.fieldwork-dialog.trip-item {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 24px 26px;
+  background: var(--paper);
+}
+:is(.fieldwork-app, .fieldwork-dialog) .trip-item-head,
+.fieldwork-dialog.trip-item-head {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .trip-item-head > div,
+.fieldwork-dialog.trip-item-head > div {
+  flex: 1;
+  min-width: 0;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .trip-item h2,
+.fieldwork-dialog.trip-item h2 {
+  font-size: 21px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .trip-item p,
+.fieldwork-dialog.trip-item p {
+  color: #667065;
+  font-size: 13px;
+  margin-top: 5px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .trip-status,
+.fieldwork-dialog.trip-status {
+  font-size: 12px;
+  background: #eeeee7;
+  padding: 5px 10px;
+  border-radius: 6px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .trip-status.active,
+.fieldwork-dialog.trip-status.active {
+  background: #e7eadf;
+  color: #53634a;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .trip-status.complete,
+.fieldwork-dialog.trip-status.complete {
+  background: #ece5d8;
+  color: #746546;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .trip-reason,
+.fieldwork-dialog.trip-reason {
+  margin-top: 20px !important;
+  max-width: 750px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .trip-stops-line,
+.fieldwork-dialog.trip-stops-line {
+  display: flex;
+  gap: 0;
+  flex-wrap: wrap;
+  margin-top: 16px;
+  font-size: 12px;
+  color: #53634a;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .trip-stops-line span,
+.fieldwork-dialog.trip-stops-line span {
+  display: flex;
+  align-items: center;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .trip-stops-line span + span:before,
+.fieldwork-dialog.trip-stops-line span + span:before {
+  content: "";
+  display: inline-block;
+  width: 17px;
+  border-top: 1px solid #9ea994;
+  margin: 0 9px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .trip-numbers,
+.fieldwork-dialog.trip-numbers {
+  display: flex;
+  gap: 46px;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--border);
+}
+:is(.fieldwork-app, .fieldwork-dialog) .trip-numbers strong,
+.fieldwork-dialog.trip-numbers strong {
+  display: block;
+  font-size: 22px;
+  letter-spacing: -0.045em;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .trip-numbers span,
+.fieldwork-dialog.trip-numbers span {
+  color: #667065;
+  font-size: 12px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .trip-actions,
+.fieldwork-dialog.trip-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding-top: 18px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .trip-net,
+.fieldwork-dialog.trip-net {
+  font-size: 12px;
+  color: #53634a;
+  margin-left: auto;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .history-toolbar,
+.fieldwork-dialog.history-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin: 0 0 15px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .visit-title,
+.fieldwork-dialog.visit-title {
+  border: 0;
+  background: none;
+  text-align: left;
+  padding: 0;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .visit-title:hover,
+.fieldwork-dialog.visit-title:hover {
+  text-decoration: underline;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .table-actions,
+.fieldwork-dialog.table-actions {
+  display: flex;
+  gap: 3px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .books-cell,
+.fieldwork-dialog.books-cell {
+  font-size: 18px !important;
+  font-weight: 650;
+  letter-spacing: -0.025em;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .empty-state,
+.fieldwork-dialog.empty-state {
+  text-align: center;
+  min-height: 290px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  padding: 35px 20px;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  color: #667065;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .empty-state h3,
+.fieldwork-dialog.empty-state h3 {
+  font-size: 22px;
+  color: var(--ink);
+}
+:is(.fieldwork-app, .fieldwork-dialog) .empty-state p,
+.fieldwork-dialog.empty-state p {
+  max-width: 430px;
+  font-size: 14px;
+  line-height: 1.7;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .empty-state .action,
+.fieldwork-dialog.empty-state .action {
+  margin-top: 7px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .insight-totals,
+.fieldwork-dialog.insight-totals {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-bottom: 35px;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+:is(.fieldwork-app, .fieldwork-dialog) .insight-totals > div,
+.fieldwork-dialog.insight-totals > div {
+  padding: 23px 24px;
+  position: relative;
+  border-right: 1px solid var(--border);
+}
+:is(.fieldwork-app, .fieldwork-dialog) .insight-totals > div:first-child,
+.fieldwork-dialog.insight-totals > div:first-child {
+  padding-left: 0;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .insight-totals > div:last-child,
+.fieldwork-dialog.insight-totals > div:last-child {
+  border: 0;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .insight-totals svg,
+.fieldwork-dialog.insight-totals svg {
+  position: absolute;
+  top: 25px;
+  right: 18px;
+  color: #85927c;
+  width: 18px;
+  height: 18px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .insight-totals span,
+.fieldwork-dialog.insight-totals span {
+  display: block;
+  font-size: 12px;
+  color: #667065;
+  padding-right: 17px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .insight-totals strong,
+.fieldwork-dialog.insight-totals strong {
+  display: block;
+  font-size: 36px;
+  letter-spacing: -0.07em;
+  line-height: 1.3;
+  margin: 10px 0;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .insight-totals small,
+.fieldwork-dialog.insight-totals small {
+  font-size: 12px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .comparison-section,
+.fieldwork-dialog.comparison-section {
+  margin-top: 35px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .comparison-table,
+.fieldwork-dialog.comparison-table {
+  border-top: 1px solid var(--border);
+}
+:is(.fieldwork-app, .fieldwork-dialog) .comparison-table .table-route strong,
+.fieldwork-dialog.comparison-table .table-route strong {
+  max-width: 230px;
+  font-size: 13px;
+  white-space: normal;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .unmeasured-row,
+.fieldwork-dialog.unmeasured-row {
+  color: #6e7868;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .unmeasured-row .route-number,
+.fieldwork-dialog.unmeasured-row .route-number {
+  color: #8a9380;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .insights-footnote,
+.fieldwork-dialog.insights-footnote {
+  font-size: 12px;
+  line-height: 1.7;
+  color: #667065;
+  padding: 20px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  border-bottom: 1px solid var(--border);
+}
+:is(.fieldwork-app, .fieldwork-dialog) .source-performance,
+.fieldwork-dialog.source-performance {
+  margin-top: 32px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .source-performance h2,
+.fieldwork-dialog.source-performance h2 {
+  font-size: 22px;
+  margin-bottom: 19px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .yield-rows > div,
+.fieldwork-dialog.yield-rows > div {
+  display: grid;
+  grid-template-columns: 1fr repeat(3, 120px);
+  font-size: 13px;
+  padding: 17px 0;
+  border-top: 1px solid var(--border);
+}
+:is(.fieldwork-app, .fieldwork-dialog) .yield-rows span,
+.fieldwork-dialog.yield-rows span {
+  color: #667065;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .work-sheet,
+.fieldwork-dialog.work-sheet {
+  width: min(680px, 100vw) !important;
+  max-width: none !important;
+  gap: 0 !important;
+  z-index: 1001 !important;
+  background: var(--paper) !important;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .work-sheet-header,
+.fieldwork-dialog.work-sheet-header {
+  padding: 28px 32px 22px !important;
+  border-bottom: 1px solid var(--border);
+}
+:is(.fieldwork-app, .fieldwork-dialog) .work-sheet-header [data-slot="sheet-title"],
+.fieldwork-dialog.work-sheet-header [data-slot="sheet-title"] {
+  font-size: 27px;
+  letter-spacing: -0.05em;
+  line-height: 1.3;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .work-sheet-header [data-slot="sheet-description"],
+.fieldwork-dialog.work-sheet-header [data-slot="sheet-description"] {
+  font-size: 14px;
+  color: #667065;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .sheet-form,
+.fieldwork-dialog.sheet-form {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  flex: 1;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .sheet-scroll,
+.fieldwork-dialog.sheet-scroll {
+  padding: 25px 32px;
+  overflow: auto;
+  flex: 1;
+  min-height: 0;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .form-grid,
+.fieldwork-dialog.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px 16px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .form-field,
+.fieldwork-dialog.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  min-width: 0;
+  font-size: 13px;
+  color: var(--ink);
+}
+:is(.fieldwork-app, .fieldwork-dialog) .form-field > span,
+.fieldwork-dialog.form-field > span {
+  font-size: 12px;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+  line-height: 1.45;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .form-field small,
+.fieldwork-dialog.form-field small {
+  font-size: 11px;
+  line-height: 1.55;
+  color: #6b7566;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .field-input,
+.fieldwork-dialog.field-input {
+  background: transparent !important;
+  height: 43px !important;
+  min-height: 43px;
+  border: 1px solid #bdc6b5 !important;
+  box-shadow: none !important;
+  border-radius: 7px !important;
+  width: 100%;
+  font-size: 14px !important;
+  line-height: 1.4 !important;
+  padding: 10px 12px !important;
+  color: #25352c !important;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .field-input:focus-visible,
+.fieldwork-dialog.field-input:focus-visible {
+  border-color: #718366 !important;
+  box-shadow: 0 0 0 2px #96a78945 !important;
+  outline: none;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .textarea,
+.fieldwork-dialog.textarea {
+  min-height: 86px !important;
+  resize: vertical;
+  overflow: auto;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .form-field [data-slot="native-select-wrapper"],
+.fieldwork-dialog.form-field [data-slot="native-select-wrapper"] {
+  width: 100%;
+  min-width: 0;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .form-field select,
+.fieldwork-dialog.form-field select {
+  padding-right: 29px !important;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .form-section,
+.fieldwork-dialog.form-section {
+  border-top: 1px solid var(--border);
+  padding-top: 24px;
+  margin-top: 27px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .form-section h3,
+.fieldwork-dialog.form-section h3 {
+  font-size: 17px;
+  margin-bottom: 13px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .form-section > p,
+.fieldwork-dialog.form-section > p {
+  margin-bottom: 16px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .form-section .form-grid,
+.fieldwork-dialog.form-section .form-grid {
+  margin-top: 15px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .planner-home,
+.fieldwork-dialog.planner-home {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+  font-weight: 650;
+  background: #e7eadf;
+  padding: 13px 12px;
+  border-radius: 7px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .planner-home small,
+.fieldwork-dialog.planner-home small {
+  font-size: 11px;
+  margin-left: auto;
+  font-weight: 400;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .planner-home.back,
+.fieldwork-dialog.planner-home.back {
+  background: #eeeee7;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .planner-stop,
+.fieldwork-dialog.planner-stop {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid #d4d6ca;
+  padding: 9px 0;
+  min-height: 54px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .stop-order,
+.fieldwork-dialog.stop-order {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #f3e0d4;
+  color: #9c452c;
+  font-size: 12px;
+  flex-shrink: 0;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .planner-stop > div,
+.fieldwork-dialog.planner-stop > div {
+  flex: 1;
+  min-width: 0;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .planner-stop strong,
+.fieldwork-dialog.planner-stop strong {
+  display: block;
+  font-size: 13px;
+  line-height: 1.3;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .planner-stop small,
+.fieldwork-dialog.planner-stop small {
+  font-size: 11px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .planner-stop .icon-action,
+.fieldwork-dialog.planner-stop .icon-action {
+  width: 34px;
+  height: 34px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .planner-stop .icon-action svg,
+.fieldwork-dialog.planner-stop .icon-action svg {
+  width: 16px;
+  height: 16px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .planner-stop.back .stop-order,
+.fieldwork-dialog.planner-stop.back .stop-order {
+  background: #e0e4d5;
+  color: #53634a;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .stop-picker,
+.fieldwork-dialog.stop-picker {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: end;
+  gap: 8px;
+  padding: 17px 0;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .stop-picker .action,
+.fieldwork-dialog.stop-picker .action {
+  font-size: 12px;
+  padding: 10px 12px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .corridor-picker,
+.fieldwork-dialog.corridor-picker {
+  margin-top: 15px;
+  font-size: 13px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .corridor-picker summary,
+.fieldwork-dialog.corridor-picker summary {
+  cursor: pointer;
+  padding: 9px 0;
+  color: #53634a;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .corridor-options,
+.fieldwork-dialog.corridor-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  padding: 7px 0;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .corridor-options label,
+.fieldwork-dialog.corridor-options label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  min-height: 33px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .corridor-options [data-slot="checkbox"],
+.fieldwork-dialog.corridor-options [data-slot="checkbox"] {
+  width: 18px;
+  height: 18px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .return-heading,
+.fieldwork-dialog.return-heading {
+  font-size: 12px;
+  padding: 10px 0;
+  color: #667065;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .sheet-bottom,
+.fieldwork-dialog.sheet-bottom {
+  background: var(--paper);
+  padding: 19px 32px 24px;
+  border-top: 1px solid var(--border);
+  flex-shrink: 0;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .sheet-bottom > .action,
+.fieldwork-dialog.sheet-bottom > .action {
+  width: 100%;
+  height: 46px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .planner-budget,
+.fieldwork-dialog.planner-budget {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 17px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .planner-budget > span,
+.fieldwork-dialog.planner-budget > span {
+  font-size: 12px;
+  color: #667065;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .planner-budget strong,
+.fieldwork-dialog.planner-budget strong {
+  display: block;
+  font-size: 22px;
+  letter-spacing: -0.05em;
+  color: var(--ink);
+  margin-top: 3px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .work-dialog,
+.fieldwork-dialog.work-dialog {
+  padding: 0 !important;
+  gap: 0 !important;
+  border: 1px solid #bdc6b5 !important;
+  border-radius: 12px !important;
+  max-width: min(690px, calc(100vw - 36px)) !important;
+  width: calc(100vw - 36px) !important;
+  z-index: 1001 !important;
+  background: var(--paper) !important;
+  max-height: 90dvh !important;
+  display: flex !important;
+  flex-direction: column !important;
+  overflow: hidden !important;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .work-dialog > [data-slot="dialog-header"],
+.fieldwork-dialog.work-dialog > [data-slot="dialog-header"] {
+  padding: 27px 29px 21px !important;
+  border-bottom: 1px solid var(--border);
+  text-align: left !important;
+  gap: 7px !important;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .work-dialog [data-slot="dialog-title"],
+.fieldwork-dialog.work-dialog [data-slot="dialog-title"] {
+  font-size: 24px !important;
+  letter-spacing: -0.05em !important;
+  line-height: 1.3 !important;
+  padding-right: 25px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .work-dialog [data-slot="dialog-description"],
+.fieldwork-dialog.work-dialog [data-slot="dialog-description"] {
+  font-size: 13px !important;
+  color: #667065 !important;
+  line-height: 1.5 !important;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .work-dialog > form,
+.fieldwork-dialog.work-dialog > form {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .dialog-scroll,
+.fieldwork-dialog.dialog-scroll {
+  overflow: auto;
+  min-height: 0;
+  flex: 1;
+  padding: 24px 29px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .dialog-bottom,
+.fieldwork-dialog.dialog-bottom {
+  border-top: 1px solid var(--border);
+  padding: 18px 29px 21px;
+  flex-shrink: 0;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .dialog-bottom > .action,
+.fieldwork-dialog.dialog-bottom > .action {
+  width: 100%;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .action-row,
+.fieldwork-dialog.action-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .action-row > .action,
+.fieldwork-dialog.action-row > .action {
+  flex: 1;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .form-error,
+.fieldwork-dialog.form-error {
+  font-size: 13px;
+  color: #a13e2b;
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .source-verified,
+.fieldwork-dialog.source-verified {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  background: #e7eadf;
+  border-radius: 6px;
+  padding: 11px 13px;
+  margin-bottom: 21px;
+  font-size: 11px;
+  color: #53634a;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .source-verified a,
+.fieldwork-dialog.source-verified a {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  text-decoration: underline;
+  flex-shrink: 0;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .danger,
+.fieldwork-dialog.danger {
+  color: #a64230;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .confirm-dialog,
+.fieldwork-dialog.confirm-dialog {
+  max-width: 440px !important;
+  padding: 25px !important;
+  gap: 20px !important;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .confirm-dialog [data-slot="alert-dialog-title"],
+.fieldwork-dialog.confirm-dialog [data-slot="alert-dialog-title"] {
+  font-size: 22px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .confirm-dialog [data-slot="alert-dialog-description"],
+.fieldwork-dialog.confirm-dialog [data-slot="alert-dialog-description"] {
+  font-size: 14px;
+  line-height: 1.7;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .delete-action,
+.fieldwork-dialog.delete-action {
+  background: #a64230 !important;
+  color: white !important;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .quick-menu,
+.fieldwork-dialog.quick-menu {
+  padding: 8px !important;
+  min-width: 200px;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .quick-menu [data-slot="dropdown-menu-item"],
+.fieldwork-dialog.quick-menu [data-slot="dropdown-menu-item"] {
+  padding: 11px 13px !important;
+  font-size: 14px !important;
+  gap: 10px !important;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .settings-dialog,
+.fieldwork-dialog.settings-dialog {
+  max-width: 620px !important;
+}
+:is(.fieldwork-app, .fieldwork-dialog) [data-slot="dialog-overlay"],
+:is(.fieldwork-app, .fieldwork-dialog) [data-slot="sheet-overlay"],
+:is(.fieldwork-app, .fieldwork-dialog) [data-slot="alert-dialog-overlay"] {
+  z-index: 1000 !important;
+  background: #25352c40 !important;
+  backdrop-filter: blur(2px);
+}
+:is(.fieldwork-app, .fieldwork-dialog) [data-slot="dropdown-menu-content"] {
+  z-index: 1200 !important;
+  background: var(--paper) !important;
+  border-color: #c4cbbb !important;
+  font-size: 14px !important;
+}
+:is(.fieldwork-app, .fieldwork-dialog) [data-slot="sheet-close"],
+:is(.fieldwork-app, .fieldwork-dialog) [data-slot="dialog-close"] {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+}
+:is(.fieldwork-app, .fieldwork-dialog) button[data-state]:focus-visible {
+  outline-offset: 2px;
+}
+@media (min-width: 1500px) {
+  :is(.fieldwork-app, .fieldwork-dialog) .explore-panel,
+.fieldwork-dialog.explore-panel {
+    width: 374px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .explore-panel h1,
+.fieldwork-dialog.explore-panel h1 {
+    font-size: 27px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .explore-row strong,
+.fieldwork-dialog.explore-row strong {
+    font-size: 15px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .route-detail,
+.fieldwork-dialog.route-detail {
+    width: 336px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .reason strong,
+.fieldwork-dialog.reason strong,
+:is(.fieldwork-app, .fieldwork-dialog) .stop-list strong,
+.fieldwork-dialog.stop-list strong {
+    font-size: 14px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .reason p,
+.fieldwork-dialog.reason p {
+    font-size: 13px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .route-summary,
+.fieldwork-dialog.route-summary {
+    font-size: 15px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .route-facts > span,
+.fieldwork-dialog.route-facts > span {
+    font-size: 13px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .detail-scroll,
+.fieldwork-dialog.detail-scroll {
+    max-height: 650px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .map-label,
+.fieldwork-dialog.map-label {
+    font-size: 13px !important;
+  }
+}
+@media (max-width: 1100px) {
+  :is(.fieldwork-app, .fieldwork-dialog) .explore-panel,
+.fieldwork-dialog.explore-panel {
+    width: 315px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .explore-panel h1,
+.fieldwork-dialog.explore-panel h1 {
+    font-size: 23px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .explore-row,
+.fieldwork-dialog.explore-row {
+    gap: 9px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .route-detail,
+.fieldwork-dialog.route-detail {
+    width: 285px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .route-detail h2,
+.fieldwork-dialog.route-detail h2 {
+    font-size: 21px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .route-facts > span,
+.fieldwork-dialog.route-facts > span {
+    font-size: 11px;
+    padding: 0 5px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .route-facts svg,
+.fieldwork-dialog.route-facts svg {
+    width: 13px;
+    height: 13px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .filter-row button,
+.fieldwork-dialog.filter-row button {
+    padding: 6px 13px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .bottom-dock,
+.fieldwork-dialog.bottom-dock {
+    width: 500px;
+    height: 70px;
+    gap: 12px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .dock-tab,
+.fieldwork-dialog.dock-tab {
+    padding: 7px !important;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .page-view,
+.fieldwork-dialog.page-view {
+    padding: 32px 28px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .source-price,
+.fieldwork-dialog.source-price {
+    max-width: 200px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .insight-totals > div,
+.fieldwork-dialog.insight-totals > div {
+    padding: 22px 15px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .insight-totals strong,
+.fieldwork-dialog.insight-totals strong {
+    font-size: 30px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .home-base,
+.fieldwork-dialog.home-base {
+    display: none;
+  }
+}
+@media (max-width: 760px) {
+  :is(.fieldwork-app, .fieldwork-dialog) .app-header,
+.fieldwork-dialog.app-header {
+    height: 64px;
+    padding: 0 19px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .wordmark,
+.fieldwork-dialog.wordmark {
+    font-size: 25px;
+    gap: 10px;
+    letter-spacing: -1.2px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .wordmark svg,
+.fieldwork-dialog.wordmark svg {
+    height: 29px;
+    width: 29px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .header-actions,
+.fieldwork-dialog.header-actions {
+    gap: 4px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .header-log,
+.fieldwork-dialog.header-log,
+:is(.fieldwork-app, .fieldwork-dialog) .header-plan,
+.fieldwork-dialog.header-plan {
+    display: none;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .header-actions .icon-action,
+.fieldwork-dialog.header-actions .icon-action {
+    height: 44px;
+    width: 40px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .connection-strip,
+.fieldwork-dialog.connection-strip {
+    top: 64px;
+    padding: 8px 13px;
+    font-size: 12px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .main-tabs,
+.fieldwork-dialog.main-tabs {
+    height: calc(100dvh - 64px);
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .map-page > .explore-panel,
+.fieldwork-dialog.map-page > .explore-panel {
+    display: none;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .map-legend,
+.fieldwork-dialog.map-legend {
+    display: none;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .map-tools,
+.fieldwork-dialog.map-tools {
+    top: 17px;
+    right: 13px;
+    bottom: auto;
+    padding: 2px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .map-tools .icon-action,
+.fieldwork-dialog.map-tools .icon-action {
+    width: 36px;
+    height: 36px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .map-tools .icon-action:nth-child(n + 3),
+.fieldwork-dialog.map-tools .icon-action:nth-child(n + 3) {
+    display: none;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .mobile-search,
+.fieldwork-dialog.mobile-search {
+    position: absolute;
+    display: block;
+    top: 17px;
+    left: 13px;
+    right: 64px;
+    z-index: 500;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .mobile-search > button,
+.fieldwork-dialog.mobile-search > button {
+    height: 45px;
+    background: var(--paper);
+    border: 1px solid #bdc6b5;
+    border-radius: 9px;
+    box-shadow: 0 3px 15px #25352c0c;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 0 13px;
+    font-size: 13px;
+    color: #667065;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .mobile-search-panel,
+.fieldwork-dialog.mobile-search-panel {
+    display: block;
+    position: absolute;
+    left: 13px;
+    right: 13px;
+    top: 71px;
+    bottom: 105px;
+    z-index: 800;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .mobile-search-panel .explore-panel,
+.fieldwork-dialog.mobile-search-panel .explore-panel {
+    position: static;
+    width: 100%;
+    max-height: 100%;
+    padding: 19px 19px 0;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .mobile-search-panel .explore-list,
+.fieldwork-dialog.mobile-search-panel .explore-list {
+    max-height: none;
+    flex: 1;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .mobile-search-panel h1,
+.fieldwork-dialog.mobile-search-panel h1 {
+    font-size: 23px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .mobile-search-panel .explore-row,
+.fieldwork-dialog.mobile-search-panel .explore-row {
+    min-height: 71px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .route-detail,
+.fieldwork-dialog.route-detail {
+    left: 0;
+    right: 0;
+    top: auto;
+    bottom: 79px;
+    width: 100%;
+    border-radius: 17px 17px 0 0;
+    border-bottom: 0;
+    padding: 15px 19px 16px;
+    max-height: 44%;
+    border-left: 0;
+    border-right: 0;
+    box-shadow: 0 -5px 22px #25352c09;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .mobile-handle,
+.fieldwork-dialog.mobile-handle {
+    display: block;
+    width: 42px;
+    height: 4px;
+    background: #c8cec0;
+    border-radius: 3px;
+    margin: -6px auto 13px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .detail-head h2,
+.fieldwork-dialog.detail-head h2 {
+    font-size: 24px;
+    letter-spacing: -0.055em;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .detail-head .icon-action,
+.fieldwork-dialog.detail-head .icon-action {
+    width: 29px;
+    height: 30px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .route-summary,
+.fieldwork-dialog.route-summary {
+    font-size: 13px;
+    margin-top: 4px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .route-facts,
+.fieldwork-dialog.route-facts {
+    padding: 12px 0 13px;
+    margin-bottom: 9px;
+    justify-content: space-between;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .route-facts > span,
+.fieldwork-dialog.route-facts > span {
+    justify-content: center;
+    font-size: 12px;
+    padding: 0 12px;
+    flex: 1;
+    gap: 5px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .route-facts svg,
+.fieldwork-dialog.route-facts svg {
+    display: none;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .route-facts > span:first-child,
+.fieldwork-dialog.route-facts > span:first-child {
+    justify-content: flex-start;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .route-facts > span:last-child,
+.fieldwork-dialog.route-facts > span:last-child {
+    justify-content: flex-end;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .route-detail:not(.place-detail) .detail-scroll,
+.fieldwork-dialog.route-detail:not(.place-detail) .detail-scroll {
+    display: none;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .mobile-route-blurb,
+.fieldwork-dialog.mobile-route-blurb {
+    display: block;
+    font-size: 12px;
+    color: #667065;
+    line-height: 1.65;
+    margin-top: 5px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .mobile-stopline,
+.fieldwork-dialog.mobile-stopline {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 11px;
+    overflow: auto;
+    white-space: nowrap;
+    color: #25352c;
+    padding: 4px 0;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .mobile-stopline > span,
+.fieldwork-dialog.mobile-stopline > span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .mobile-stopline i,
+.fieldwork-dialog.mobile-stopline i {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--rust);
+    flex-shrink: 0;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .mobile-stopline > span + span:before,
+.fieldwork-dialog.mobile-stopline > span + span:before {
+    content: "";
+    display: inline-block;
+    width: 10px;
+    border-top: 1px solid #abb49f;
+    margin-right: 2px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .mobile-stopline > span:last-child i,
+.fieldwork-dialog.mobile-stopline > span:last-child i {
+    background: #687759;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .detail-actions,
+.fieldwork-dialog.detail-actions {
+    margin-top: 12px;
+    gap: 10px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .detail-actions .action,
+.fieldwork-dialog.detail-actions .action {
+    font-size: 13px;
+    height: 44px;
+    padding: 10px 8px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .detail-actions .action svg,
+.fieldwork-dialog.detail-actions .action svg {
+    display: none;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .mobile-log,
+.fieldwork-dialog.mobile-log {
+    display: inline-flex !important;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .place-detail,
+.fieldwork-dialog.place-detail {
+    max-height: 50%;
+    padding-bottom: 15px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .place-detail .detail-scroll,
+.fieldwork-dialog.place-detail .detail-scroll {
+    max-height: 200px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .place-detail .route-facts > span,
+.fieldwork-dialog.place-detail .route-facts > span {
+    white-space: normal;
+    justify-content: flex-start;
+    padding: 0;
+    font-size: 11px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .place-totals,
+.fieldwork-dialog.place-totals {
+    padding: 0 0 17px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .place-totals strong,
+.fieldwork-dialog.place-totals strong {
+    font-size: 22px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .place-totals span,
+.fieldwork-dialog.place-totals span {
+    font-size: 11px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .mobile-map-caption,
+.fieldwork-dialog.mobile-map-caption {
+    display: block;
+    position: absolute;
+    left: 13px;
+    bottom: 80px;
+    z-index: 500;
+    font-size: 10px;
+    background: #faf8f3b0;
+    padding: 4px 7px;
+    border-radius: 4px;
+    color: #667065;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .route-detail ~ .mobile-map-caption,
+.fieldwork-dialog.route-detail ~ .mobile-map-caption {
+    display: none;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .bottom-dock,
+.fieldwork-dialog.bottom-dock {
+    height: 79px;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    transform: none;
+    border: 0;
+    border-top: 1px solid #cbd0c4;
+    border-radius: 0;
+    padding: 7px 12px max(7px, env(safe-area-inset-bottom));
+    gap: 9px;
+    box-shadow: none;
+    background: var(--paper);
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .dock-tabs,
+.fieldwork-dialog.dock-tabs {
+    gap: 0;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .dock-tab,
+.fieldwork-dialog.dock-tab {
+    border-radius: 9px !important;
+    font-size: 11px !important;
+    gap: 3px !important;
+    padding: 6px 5px !important;
+    color: #6e7868 !important;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .dock-tab svg,
+.fieldwork-dialog.dock-tab svg {
+    width: 23px !important;
+    height: 23px !important;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .dock-tab[data-state="active"],
+.fieldwork-dialog.dock-tab[data-state="active"] {
+    background: none !important;
+    color: #53634a !important;
+    font-weight: 750 !important;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .dock-divider,
+.fieldwork-dialog.dock-divider {
+    display: none;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .dock-add,
+.fieldwork-dialog.dock-add {
+    width: 43px;
+    height: 43px;
+    margin-left: 1px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .dock-add svg,
+.fieldwork-dialog.dock-add svg {
+    width: 24px;
+    height: 24px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .leaflet-bottom.leaflet-right,
+.fieldwork-dialog.leaflet-bottom.leaflet-right {
+    bottom: 81px;
+    right: 7px;
+    max-width: calc(100vw - 20px);
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .leaflet-control-attribution,
+.fieldwork-dialog.leaflet-control-attribution {
+    font-size: 8px !important;
+    max-width: calc(100vw - 20px);
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .leaflet-control-scale,
+.fieldwork-dialog.leaflet-control-scale {
+    display: none;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .map-label,
+.fieldwork-dialog.map-label {
+    font-size: 11px !important;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .base-label,
+.fieldwork-dialog.base-label {
+    font-size: 13px !important;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .content-page,
+.fieldwork-dialog.content-page {
+    padding-bottom: 96px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .page-view,
+.fieldwork-dialog.page-view {
+    padding: 25px 19px 25px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .page-heading,
+.fieldwork-dialog.page-heading {
+    gap: 15px;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-bottom: 23px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .page-heading h1,
+.fieldwork-dialog.page-heading h1 {
+    font-size: 28px;
+    letter-spacing: -0.055em;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .page-heading p,
+.fieldwork-dialog.page-heading p {
+    font-size: 13px;
+    line-height: 1.7;
+    margin-top: 8px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .page-heading .action,
+.fieldwork-dialog.page-heading .action {
+    font-size: 13px;
+    min-width: 120px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .library-controls,
+.fieldwork-dialog.library-controls {
+    flex-wrap: wrap;
+    gap: 9px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .library-controls .search-field,
+.fieldwork-dialog.library-controls .search-field {
+    width: 100%;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .library-controls select,
+.fieldwork-dialog.library-controls select {
+    width: 100%;
+    font-size: 13px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .corridor-table,
+.fieldwork-dialog.corridor-table {
+    display: none;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .mobile-corridors,
+.fieldwork-dialog.mobile-corridors {
+    display: block;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .mobile-corridors article,
+.fieldwork-dialog.mobile-corridors article {
+    padding: 19px 0;
+    border-top: 1px solid var(--border);
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .route-card-title,
+.fieldwork-dialog.route-card-title {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .route-card-title button,
+.fieldwork-dialog.route-card-title button {
+    border: 0;
+    padding: 0;
+    background: none;
+    text-align: left;
+    flex: 1;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .route-card-title h2,
+.fieldwork-dialog.route-card-title h2 {
+    font-size: 17px;
+    line-height: 1.4;
+    letter-spacing: -0.035em;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .route-card-title p,
+.fieldwork-dialog.route-card-title p {
+    font-size: 12px;
+    color: #667065;
+    margin-top: 5px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .route-card-title .route-number,
+.fieldwork-dialog.route-card-title .route-number {
+    width: 41px;
+    height: 43px;
+    font-size: 14px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .mobile-corridor-meta,
+.fieldwork-dialog.mobile-corridor-meta {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    font-size: 11px;
+    color: #667065;
+    padding: 14px 0;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .mobile-corridor-meta span,
+.fieldwork-dialog.mobile-corridor-meta span {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .route-card-actions,
+.fieldwork-dialog.route-card-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .route-card-actions .action,
+.fieldwork-dialog.route-card-actions .action {
+    font-size: 12px;
+    padding: 8px 13px;
+    height: 38px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .section-heading,
+.fieldwork-dialog.section-heading {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .section-heading h2,
+.fieldwork-dialog.section-heading h2 {
+    font-size: 22px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .section-heading p,
+.fieldwork-dialog.section-heading p {
+    font-size: 12px;
+    line-height: 1.7;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .section-heading .meta,
+.fieldwork-dialog.section-heading .meta {
+    display: none;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .sources-section,
+.fieldwork-dialog.sources-section {
+    margin-top: 32px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .source-row,
+.fieldwork-dialog.source-row {
+    gap: 12px;
+    padding: 16px 0;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .source-row strong,
+.fieldwork-dialog.source-row strong {
+    font-size: 13px;
+    line-height: 1.4;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .source-row small,
+.fieldwork-dialog.source-row small {
+    font-size: 11px;
+    line-height: 1.6;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .source-price,
+.fieldwork-dialog.source-price {
+    display: none;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .source-date,
+.fieldwork-dialog.source-date {
+    width: 42px;
+    min-height: 46px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .source-row > svg,
+.fieldwork-dialog.source-row > svg {
+    width: 16px;
+    flex-shrink: 0;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .view-tablist,
+.fieldwork-dialog.view-tablist {
+    width: 100% !important;
+    height: 43px !important;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .view-tablist button,
+.fieldwork-dialog.view-tablist button {
+    flex: 1;
+    font-size: 12px !important;
+    padding: 7px 12px !important;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .trip-item,
+.fieldwork-dialog.trip-item {
+    padding: 17px 15px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .trip-item-head,
+.fieldwork-dialog.trip-item-head {
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .trip-item-head .route-number,
+.fieldwork-dialog.trip-item-head .route-number {
+    width: 36px;
+    height: 39px;
+    font-size: 13px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .trip-item-head h2,
+.fieldwork-dialog.trip-item-head h2 {
+    font-size: 18px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .trip-item-head p,
+.fieldwork-dialog.trip-item-head p {
+    font-size: 11px;
+    line-height: 1.7;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .trip-item-head .trip-status,
+.fieldwork-dialog.trip-item-head .trip-status {
+    margin-left: 46px;
+    font-size: 11px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .trip-item-head .icon-action,
+.fieldwork-dialog.trip-item-head .icon-action {
+    margin-left: auto;
+    height: 30px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .trip-reason,
+.fieldwork-dialog.trip-reason {
+    font-size: 12px !important;
+    line-height: 1.7;
+    margin-top: 14px !important;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .trip-stops-line,
+.fieldwork-dialog.trip-stops-line {
+    font-size: 11px;
+    line-height: 1.8;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .trip-numbers,
+.fieldwork-dialog.trip-numbers {
+    gap: 0;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 16px 0;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .trip-numbers strong,
+.fieldwork-dialog.trip-numbers strong {
+    font-size: 20px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .trip-numbers span,
+.fieldwork-dialog.trip-numbers span {
+    font-size: 10px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .trip-actions,
+.fieldwork-dialog.trip-actions {
+    gap: 7px;
+    flex-wrap: wrap;
+    padding-top: 15px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .trip-actions .action,
+.fieldwork-dialog.trip-actions .action {
+    font-size: 11px;
+    padding: 9px 9px;
+    height: 39px;
+    flex: 1;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .trip-actions .action svg,
+.fieldwork-dialog.trip-actions .action svg {
+    width: 14px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .trip-net,
+.fieldwork-dialog.trip-net {
+    margin-left: 0;
+    margin-top: 6px;
+    font-size: 11px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .history-toolbar,
+.fieldwork-dialog.history-toolbar {
+    gap: 12px;
+    align-items: flex-start;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .history-toolbar p,
+.fieldwork-dialog.history-toolbar p {
+    font-size: 12px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .history-toolbar .action,
+.fieldwork-dialog.history-toolbar .action {
+    font-size: 12px;
+    padding: 9px 12px;
+    flex-shrink: 0;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .history-table,
+.fieldwork-dialog.history-table {
+    overflow: auto;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .history-table table,
+.fieldwork-dialog.history-table table {
+    min-width: 720px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .empty-state,
+.fieldwork-dialog.empty-state {
+    min-height: 290px;
+    padding: 30px 15px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .empty-state h3,
+.fieldwork-dialog.empty-state h3 {
+    font-size: 21px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .empty-state p,
+.fieldwork-dialog.empty-state p {
+    font-size: 13px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .insight-totals,
+.fieldwork-dialog.insight-totals {
+    grid-template-columns: repeat(2, 1fr);
+    margin-bottom: 27px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .insight-totals > div,
+.fieldwork-dialog.insight-totals > div {
+    padding: 18px 10px !important;
+    min-width: 0;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .insight-totals > div:nth-child(2),
+.fieldwork-dialog.insight-totals > div:nth-child(2) {
+    border-right: 0;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .insight-totals > div:nth-child(-n + 2),
+.fieldwork-dialog.insight-totals > div:nth-child(-n + 2) {
+    border-bottom: 1px solid var(--border);
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .insight-totals svg,
+.fieldwork-dialog.insight-totals svg {
+    width: 16px;
+    height: 16px;
+    right: 9px;
+    top: 20px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .insight-totals span,
+.fieldwork-dialog.insight-totals span {
+    font-size: 10px;
+    line-height: 1.5;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .insight-totals strong,
+.fieldwork-dialog.insight-totals strong {
+    font-size: 30px;
+    margin-top: 8px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .insight-totals small,
+.fieldwork-dialog.insight-totals small {
+    font-size: 10px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .comparison-table,
+.fieldwork-dialog.comparison-table {
+    overflow: auto;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .comparison-table table,
+.fieldwork-dialog.comparison-table table {
+    min-width: 980px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .insights-footnote,
+.fieldwork-dialog.insights-footnote {
+    grid-template-columns: 1fr;
+    font-size: 11px;
+    gap: 14px;
+    padding: 19px 0;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .yield-rows > div,
+.fieldwork-dialog.yield-rows > div {
+    grid-template-columns: 1fr auto;
+    font-size: 12px;
+    gap: 5px 14px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .yield-rows strong,
+.fieldwork-dialog.yield-rows strong {
+    grid-column: 1/-1;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .yield-rows span,
+.fieldwork-dialog.yield-rows span {
+    font-size: 11px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .work-sheet,
+.fieldwork-dialog.work-sheet {
+    width: 100vw !important;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .work-sheet-header,
+.fieldwork-dialog.work-sheet-header {
+    padding: 24px 21px 17px !important;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .work-sheet-header [data-slot="sheet-title"],
+.fieldwork-dialog.work-sheet-header [data-slot="sheet-title"] {
+    font-size: 24px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .work-sheet-header [data-slot="sheet-description"],
+.fieldwork-dialog.work-sheet-header [data-slot="sheet-description"] {
+    font-size: 13px;
+    line-height: 1.6;
+    max-width: 320px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .sheet-scroll,
+.fieldwork-dialog.sheet-scroll {
+    padding: 22px 21px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .form-grid,
+.fieldwork-dialog.form-grid {
+    gap: 17px 12px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .form-field > span,
+.fieldwork-dialog.form-field > span {
+    font-size: 11px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .field-input,
+.fieldwork-dialog.field-input {
+    font-size: 14px !important;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .form-field small,
+.fieldwork-dialog.form-field small {
+    font-size: 10px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .sheet-bottom,
+.fieldwork-dialog.sheet-bottom {
+    padding: 15px 21px max(19px, env(safe-area-inset-bottom));
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .planner-budget,
+.fieldwork-dialog.planner-budget {
+    margin-bottom: 12px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .planner-budget strong,
+.fieldwork-dialog.planner-budget strong {
+    font-size: 20px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .stop-picker,
+.fieldwork-dialog.stop-picker {
+    grid-template-columns: 1fr 1fr;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .stop-picker .form-field,
+.fieldwork-dialog.stop-picker .form-field {
+    grid-column: 1/-1;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .stop-picker .action,
+.fieldwork-dialog.stop-picker .action {
+    font-size: 12px;
+    flex: 1;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .planner-stop,
+.fieldwork-dialog.planner-stop {
+    gap: 7px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .planner-stop .icon-action,
+.fieldwork-dialog.planner-stop .icon-action {
+    width: 31px;
+    height: 34px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .work-dialog,
+.fieldwork-dialog.work-dialog {
+    width: calc(100vw - 20px) !important;
+    max-width: calc(100vw - 20px) !important;
+    border-radius: 12px !important;
+    max-height: 92dvh !important;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .work-dialog > [data-slot="dialog-header"],
+.fieldwork-dialog.work-dialog > [data-slot="dialog-header"] {
+    padding: 22px 20px 18px !important;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .work-dialog [data-slot="dialog-title"],
+.fieldwork-dialog.work-dialog [data-slot="dialog-title"] {
+    font-size: 22px !important;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .work-dialog [data-slot="dialog-description"],
+.fieldwork-dialog.work-dialog [data-slot="dialog-description"] {
+    font-size: 12px !important;
+    line-height: 1.6 !important;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .dialog-scroll,
+.fieldwork-dialog.dialog-scroll {
+    padding: 21px 20px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .dialog-bottom,
+.fieldwork-dialog.dialog-bottom {
+    padding: 16px 20px max(18px, env(safe-area-inset-bottom));
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .source-verified,
+.fieldwork-dialog.source-verified {
+    font-size: 10px;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 9px 10px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .source-verified a,
+.fieldwork-dialog.source-verified a {
+    font-size: 11px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .source-dialog .form-grid,
+.fieldwork-dialog.source-dialog .form-grid {
+    grid-template-columns: 1fr;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .source-dialog .wide,
+.fieldwork-dialog.source-dialog .wide {
+    grid-column: 1;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .confirm-dialog,
+.fieldwork-dialog.confirm-dialog {
+    padding: 23px !important;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .form-section h3,
+.fieldwork-dialog.form-section h3 {
+    font-size: 16px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .form-section > .muted,
+.fieldwork-dialog.form-section > .muted {
+    font-size: 12px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .confirm-dialog [data-slot="alert-dialog-title"],
+.fieldwork-dialog.confirm-dialog [data-slot="alert-dialog-title"] {
+    font-size: 22px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .confirm-dialog [data-slot="alert-dialog-description"],
+.fieldwork-dialog.confirm-dialog [data-slot="alert-dialog-description"] {
+    font-size: 13px;
+  }
+}
+@media (max-width: 365px) {
+  :is(.fieldwork-app, .fieldwork-dialog) .dock-tab,
+.fieldwork-dialog.dock-tab {
+    font-size: 10px !important;
+    padding: 5px 2px !important;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .dock-add,
+.fieldwork-dialog.dock-add {
+    width: 38px;
+    height: 38px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .bottom-dock,
+.fieldwork-dialog.bottom-dock {
+    gap: 5px;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .detail-head h2,
+.fieldwork-dialog.detail-head h2 {
+    font-size: 22px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .route-facts > span,
+.fieldwork-dialog.route-facts > span {
+    font-size: 11px;
+    padding: 0 7px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .trip-numbers,
+.fieldwork-dialog.trip-numbers {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .form-grid,
+.fieldwork-dialog.form-grid {
+    grid-template-columns: 1fr;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .wide,
+.fieldwork-dialog.wide {
+    grid-column: 1;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .stop-picker,
+.fieldwork-dialog.stop-picker {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  :is(.fieldwork-app, .fieldwork-dialog) * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+:is(.fieldwork-app, .fieldwork-dialog) .state-label,
+.fieldwork-dialog.state-label {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  color: #687759;
+  opacity: 0.7;
+  text-align: center;
+  white-space: nowrap;
+  background: none;
+  border: 0;
+  text-shadow: 0 1px 2px #faf8f3;
+}
+@media (max-width: 760px) {
+  :is(.fieldwork-app, .fieldwork-dialog) .state-label,
+.fieldwork-dialog.state-label {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+  }
+}
+
+:is(.fieldwork-app, .fieldwork-dialog) .territory-map .leaflet-tile-pane,
+.fieldwork-dialog.territory-map .leaflet-tile-pane {
+  filter: saturate(0.18) sepia(0.15);
+}
+
+@media (max-width: 760px) {
+  :is(.fieldwork-app, .fieldwork-dialog) .mobile-stopline,
+.fieldwork-dialog.mobile-stopline {
+    flex-wrap: wrap;
+    overflow: visible;
+    row-gap: 5px;
+    white-space: normal;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .mobile-stopline span,
+.fieldwork-dialog.mobile-stopline span {
+    white-space: nowrap;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .place-detail .detail-scroll,
+.fieldwork-dialog.place-detail .detail-scroll {
+    display: block;
+    max-height: 230px;
+    overflow: auto;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .place-detail .route-facts,
+.fieldwork-dialog.place-detail .route-facts {
+    display: none;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .place-detail .place-totals,
+.fieldwork-dialog.place-detail .place-totals {
+    padding: 6px 0 12px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .leaflet-bottom.leaflet-right,
+.fieldwork-dialog.leaflet-bottom.leaflet-right {
+    bottom: auto;
+    top: 72px;
+    right: 14px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .leaflet-control-scale,
+.fieldwork-dialog.leaflet-control-scale {
+    display: none;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .leaflet-control-attribution,
+.fieldwork-dialog.leaflet-control-attribution {
+    max-width: 350px;
+    white-space: normal;
+  }
+}
+
+@media (min-width: 1500px) {
+  :is(.fieldwork-app, .fieldwork-dialog) .bottom-dock,
+.fieldwork-dialog.bottom-dock {
+    width: 620px;
+    height: 80px;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .dock-tab,
+.fieldwork-dialog.dock-tab {
+    font-size: 16px !important;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .dock-tab svg,
+.fieldwork-dialog.dock-tab svg {
+    width: 28px !important;
+    height: 28px !important;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .base-label,
+.fieldwork-dialog.base-label {
+    font-size: 17px !important;
+  }
+}
+
+:is(.fieldwork-app, .fieldwork-dialog) .detail-scroll,
+.fieldwork-dialog.detail-scroll {
+  min-height: 0;
+  flex: 1;
+}
+:is(.fieldwork-app, .fieldwork-dialog) .detail-head,
+.fieldwork-dialog.detail-head,
+:is(.fieldwork-app, .fieldwork-dialog) .route-summary,
+.fieldwork-dialog.route-summary,
+:is(.fieldwork-app, .fieldwork-dialog) .route-facts,
+.fieldwork-dialog.route-facts,
+:is(.fieldwork-app, .fieldwork-dialog) .detail-actions,
+.fieldwork-dialog.detail-actions {
+  flex-shrink: 0;
+}
+
+@media (max-width: 760px) {
+  :is(.fieldwork-app, .fieldwork-dialog) .leaflet-bottom.leaflet-right,
+.fieldwork-dialog.leaflet-bottom.leaflet-right {
+    left: 14px;
+    right: 14px;
+    top: 72px;
+    width: auto;
+  }
+  :is(.fieldwork-app, .fieldwork-dialog) .leaflet-control-attribution,
+.fieldwork-dialog.leaflet-control-attribution {
+    float: left !important;
+    max-width: 330px !important;
+    margin: 0 !important;
+    white-space: normal;
+    line-height: 1.3;
+  }
+}
+
+/* Preview disclosure and added data panels retain the recovered palette and layout. */
+.fieldwork-app .preview-label { font-size: 11px; color: #53634a; white-space: nowrap; }
+.fieldwork-app .city-brief { margin-bottom: 22px; font-size: 13px; line-height: 1.6; }
+.fieldwork-app .city-brief h3 { margin: 16px 0 8px; }
+.fieldwork-app .city-brief details { margin: 12px 0; }
+.fieldwork-app .city-brief summary, .fieldwork-dialog summary { cursor: pointer; font-weight: 600; }
+.fieldwork-app .city-brief ul { padding-left: 20px; margin: 8px 0; }
+:is(.fieldwork-app,.fieldwork-dialog) .evidence-note { font-size: 12px; color: #53634a; margin: 10px 0; line-height: 1.5; }
+.fieldwork-app .brief-guide { margin: 32px 0; padding: 24px 0; border-top: 1px solid #d4d6ca; }
+.fieldwork-app .travel-band-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin: 20px 0; }
+.fieldwork-app .travel-band-grid div { display: grid; gap: 8px; }
+.fieldwork-app .travel-band-grid span { color: #667065; font-size: 14px; }
+.fieldwork-app .actual-economics { margin: 24px 0; }
+.fieldwork-app .actual-economics p { margin: 12px 0; }
+.fieldwork-app .raw-observations { grid-column: 1 / -1; font-size: 13px; }
+.fieldwork-app .yield-rows > div { flex-wrap: wrap; }
+.fieldwork-app .raw-observations > div { display: block; border-top: 1px solid #d4d6ca; padding: 12px 0; }
+.fieldwork-dialog .quality-fields, .fieldwork-dialog .actual-budget { margin: 16px 0; }
+.fieldwork-dialog .quality-dimension { display: grid; gap: 8px; }
+.fieldwork-dialog .actual-budget { padding: 18px 0; border-top: 1px solid #d4d6ca; }
+@media (max-width: 760px) {
+ .fieldwork-app .preview-label { position: absolute; right: 54px; font-size: 9px; }
+ .fieldwork-app .travel-band-grid { grid-template-columns: 1fr 1fr; }
+ .fieldwork-app .place-detail .detail-actions { flex-wrap: wrap; gap: 8px; }
+ .fieldwork-app .place-detail .detail-actions .action { flex: 1; min-width: 120px; }
+}
+
+.fieldwork-app .source-class-filter { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin: 16px 0; font-size: 14px; }
+.fieldwork-app .source-class-filter select { padding: 9px 12px; border: 1px solid #cbd0c4; border-radius: 7px; max-width: 100%; }
+@media (max-width: 760px) {
+ .fieldwork-app .dock-tab[data-state="active"] { border: 1px solid #cbd0c4 !important; border-radius: 9px !important; }
+}

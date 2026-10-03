@@ -1,0 +1,3097 @@
+{
+  "schema_version": "1.0",
+  "provenance": {
+    "reference_site": "https://fieldwork-book-sourcing.naimozduman.chatgpt.site",
+    "source": "User-provided brief in conversation, normalized without web verification",
+    "brief_temporal_anchor": "2026-10-01",
+    "raw_brief_preserved": false,
+    "raw_brief_note": "The exact original remains in the cited conversation message; this JSON is structured extraction, not a verbatim transcript."
+  },
+  "global_constraints": {
+    "center": {
+      "id": "st-louis-mo",
+      "name": "St. Louis",
+      "state": "MO"
+    },
+    "driving_times": "Normal estimates before traffic, sourcing stops, food or loading; actual metro departure point changes estimates. Not live routing.",
+    "competition": "Proxy only, not count of Amazon sellers. Based on market size, reseller opportunities, universities, recurring sales visibility and sale traffic.",
+    "volume": "Qualitative user-provided proxy, not measured stock.",
+    "historical_claims": "All dated events, prices, hours and inventory figures require official-source verification before operational use.",
+    "scanner_rule": "Record SCAN PROHIBITED and obey source-specific rules when scanners are prohibited.",
+    "saturation": "Do not seed empirical saturation scores from competition proxies."
+  },
+  "direction_groups": [
+    {
+      "direction": "west",
+      "anchors": [
+        "Columbia",
+        "Kansas City",
+        "Johnson County",
+        "Lawrence",
+        "Topeka"
+      ]
+    },
+    {
+      "direction": "southwest",
+      "anchors": [
+        "Rolla",
+        "Lebanon",
+        "Springfield MO",
+        "Joplin"
+      ]
+    },
+    {
+      "direction": "northwest / north",
+      "anchors": [
+        "Hannibal",
+        "Quincy",
+        "Moberly",
+        "Kirksville"
+      ]
+    },
+    {
+      "direction": "northeast / east",
+      "anchors": [
+        "Springfield IL",
+        "Peoria",
+        "Bloomington-Normal",
+        "Champaign-Urbana",
+        "Terre Haute"
+      ]
+    },
+    {
+      "direction": "southeast / south",
+      "anchors": [
+        "Cape Girardeau",
+        "Sikeston",
+        "Poplar Bluff",
+        "Carbondale",
+        "Memphis"
+      ]
+    },
+    {
+      "direction": "east / southeast",
+      "anchors": [
+        "Indianapolis",
+        "Bloomington IN",
+        "Evansville",
+        "Louisville"
+      ]
+    }
+  ],
+  "travel_bands": [
+    {
+      "hours_as_supplied": "0 to 2",
+      "classification": "normal day route"
+    },
+    {
+      "hours_as_supplied": "2 to 3",
+      "classification": "serious full-day route"
+    },
+    {
+      "hours_as_supplied": "3 to 3.75",
+      "classification": "long-day route, or overnight when volume is expected"
+    },
+    {
+      "hours_as_supplied": "3.75 to 5",
+      "classification": "expedition route; major sale, several confirmed sources or overnight required"
+    }
+  ],
+  "corridors": [
+    {
+      "id": "route-01",
+      "number": 1,
+      "name": "I-44 Technical Corridor",
+      "ordered_places": [
+        {
+          "id": "st-louis-mo",
+          "name": "St. Louis",
+          "state": "MO"
+        },
+        {
+          "id": "pacific-mo",
+          "name": "Pacific",
+          "state": "MO"
+        },
+        {
+          "id": "union-mo",
+          "name": "Union",
+          "state": "MO"
+        },
+        {
+          "id": "sullivan-mo",
+          "name": "Sullivan",
+          "state": "MO"
+        },
+        {
+          "id": "st-james-mo",
+          "name": "St. James",
+          "state": "MO"
+        },
+        {
+          "id": "rolla-mo",
+          "name": "Rolla",
+          "state": "MO"
+        },
+        {
+          "id": "st-robert-mo",
+          "name": "St. Robert",
+          "state": "MO"
+        },
+        {
+          "id": "waynesville-mo",
+          "name": "Waynesville",
+          "state": "MO"
+        },
+        {
+          "id": "lebanon-mo",
+          "name": "Lebanon",
+          "state": "MO"
+        }
+      ],
+      "branches": [],
+      "supplied_travel_times": [
+        {
+          "destination": "Pacific, MO",
+          "value_as_supplied": "40–50 minutes",
+          "origin": "St. Louis, MO",
+          "kind": "approximate_driving_time",
+          "verified": false
+        },
+        {
+          "destination": "Union, MO",
+          "value_as_supplied": "about 1 hour",
+          "origin": "St. Louis, MO",
+          "kind": "approximate_driving_time",
+          "verified": false
+        },
+        {
+          "destination": "Sullivan, MO",
+          "value_as_supplied": "about 1 hour 10 minutes",
+          "origin": "St. Louis, MO",
+          "kind": "approximate_driving_time",
+          "verified": false
+        },
+        {
+          "destination": "St. James, MO",
+          "value_as_supplied": "about 1 hour 30 minutes",
+          "origin": "St. Louis, MO",
+          "kind": "approximate_driving_time",
+          "verified": false
+        },
+        {
+          "destination": "Rolla, MO",
+          "value_as_supplied": "1 hour 41 minutes",
+          "origin": "St. Louis, MO",
+          "kind": "approximate_driving_time",
+          "verified": false
+        },
+        {
+          "destination": "St. Robert / Waynesville, MO",
+          "value_as_supplied": "roughly 2 hours",
+          "origin": "St. Louis, MO",
+          "kind": "approximate_driving_time",
+          "verified": false
+        },
+        {
+          "destination": "Lebanon, MO",
+          "value_as_supplied": "roughly 2 hours 40 minutes",
+          "origin": "St. Louis, MO",
+          "kind": "approximate_driving_time",
+          "verified": false
+        }
+      ],
+      "market_role": "Academic, technical, military-family, rural and regional sourcing",
+      "competition_proxy": "low to medium",
+      "volume_proxy": "medium",
+      "strategy": [
+        "Missouri S&T may influence engineering, mathematics, science, computing, business and professional nonfiction inventory.",
+        "Target library sales, thrift stores, estate sales, university-area moving sales, church sales, direct donation pickups and school surplus.",
+        "Test whether smaller university towns outperform STL on profit per sourcing hour."
+      ],
+      "source_leads": [
+        {
+          "name": "Rolla Public Library Friends sale",
+          "details_as_supplied": "Semiannual sale; June 2026 event reportedly had public sale days followed by a $1 bag sale.",
+          "verification_status": "unverified_user_provided",
+          "official_url": null
+        }
+      ],
+      "evidence_status": "user_provided_unverified",
+      "sequence_semantics": "Conceptual corridor order supplied by user; not a verified or optimized driving itinerary"
+    },
+    {
+      "id": "route-02",
+      "number": 2,
+      "name": "Springfield / Ozarks",
+      "ordered_places": [
+        {
+          "id": "st-louis-mo",
+          "name": "St. Louis",
+          "state": "MO"
+        },
+        {
+          "id": "lebanon-mo",
+          "name": "Lebanon",
+          "state": "MO"
+        },
+        {
+          "id": "marshfield-mo",
+          "name": "Marshfield",
+          "state": "MO"
+        },
+        {
+          "id": "springfield-mo",
+          "name": "Springfield",
+          "state": "MO"
+        },
+        {
+          "id": "republic-mo",
+          "name": "Republic",
+          "state": "MO"
+        },
+        {
+          "id": "nixa-mo",
+          "name": "Nixa",
+          "state": "MO"
+        },
+        {
+          "id": "ozark-mo",
+          "name": "Ozark",
+          "state": "MO"
+        },
+        {
+          "id": "branson-mo",
+          "name": "Branson",
+          "state": "MO"
+        }
+      ],
+      "branches": [],
+      "supplied_travel_times": [
+        {
+          "destination": "Lebanon, MO",
+          "value_as_supplied": "roughly 2 hours 40 minutes",
+          "origin": "St. Louis, MO",
+          "kind": "approximate_driving_time",
+          "verified": false
+        },
+        {
+          "destination": "Marshfield, MO",
+          "value_as_supplied": "roughly 3 hours",
+          "origin": "St. Louis, MO",
+          "kind": "approximate_driving_time",
+          "verified": false
+        },
+        {
+          "destination": "Springfield, MO",
+          "value_as_supplied": "3 hours 20 minutes",
+          "origin": "St. Louis, MO",
+          "kind": "approximate_driving_time",
+          "verified": false
+        },
+        {
+          "destination": "Republic, MO",
+          "value_as_supplied": "about 15 minutes",
+          "origin": "Springfield, MO",
+          "kind": "approximate_driving_time",
+          "verified": false
+        },
+        {
+          "destination": "Nixa, MO",
+          "value_as_supplied": "about 20 minutes",
+          "origin": "Springfield, MO",
+          "kind": "approximate_driving_time",
+          "verified": false
+        },
+        {
+          "destination": "Ozark, MO",
+          "value_as_supplied": "about 20 minutes",
+          "origin": "Springfield, MO",
+          "kind": "approximate_driving_time",
+          "verified": false
+        },
+        {
+          "destination": "Branson, MO",
+          "value_as_supplied": "roughly 45–55 minutes south",
+          "origin": "Springfield, MO",
+          "kind": "approximate_driving_time",
+          "verified": false
+        }
+      ],
+      "market_role": "Volume route",
+      "competition_proxy": "medium normally; high during famous Friends sale",
+      "volume_proxy": "extremely high during sale; medium-high otherwise",
+      "strategy": [
+        "Target huge sales, suburban thrifts, estates, religious nonfiction, homeschool material, college material, professional books and bulk deals.",
+        "For the big Friends sale, early arrival takes priority over extra thrift stops."
+      ],
+      "source_leads": [
+        {
+          "name": "Springfield-Greene County Friends sale",
+          "details_as_supplied": "2026 sale reportedly at Ozark Empire Fairgrounds E-Plex; regular books and most media $1 or less; $1 and $5 bag day at end. Major spring and fall sales. 2025 fall event reportedly involved six tractor-trailers and more than $206,000 sales.",
+          "verification_status": "unverified_user_provided",
+          "official_url": null
+        }
+      ],
+      "evidence_status": "user_provided_unverified",
+      "sequence_semantics": "Conceptual corridor order supplied by user; not a verified or optimized driving itinerary"
+    },
+    {
+      "id": "route-03",
+      "number": 3,
+      "name": "Joplin / Southwest Missouri",
+      "ordered_places": [
+        {
+          "id": "st-louis-mo",
+          "name": "St. Louis",
+          "state": "MO"
+        },
+        {
+          "id": "springfield-mo",
+          "name": "Springfield",
+          "state": "MO"
+        },
+        {
+          "id": "mount-vernon-mo",
+          "name": "Mount Vernon",
+          "state": "MO"
+        },
+        {
+          "id": "carthage-mo",
+          "name": "Carthage",
+          "state": "MO"
+        },
+        {
+          "id": "webb-city-mo",
+          "name": "Webb City",
+          "state": "MO"
+        },
+        {
+          "id": "joplin-mo",
+          "name": "Joplin",
+          "state": "MO"
+        },
+        {
+          "id": "neosho-mo",
+          "name": "Neosho",
+          "state": "MO"
+        },
+        {
+          "id": "pittsburg-ks",
+          "name": "Pittsburg",
+          "state": "KS"
+        }
+      ],
+      "branches": [],
+      "supplied_travel_times": [
+        {
+          "destination": "Joplin, MO",
+          "value_as_supplied": "4 hours 20 minutes",
+          "origin": "St. Louis, MO",
+          "kind": "approximate_driving_time",
+          "verified": false
+        },
+        {
+          "destination": "Mount Vernon, MO",
+          "value_as_supplied": "about 45 minutes west",
+          "origin": "Springfield, MO",
+          "kind": "approximate_driving_time",
+          "verified": false
+        },
+        {
+          "destination": "Carthage, MO",
+          "value_as_supplied": "about 20 minutes northeast",
+          "origin": "Joplin, MO",
+          "kind": "approximate_driving_time",
+          "verified": false
+        },
+        {
+          "destination": "Webb City, MO",
+          "value_as_supplied": "about 10 minutes",
+          "origin": "Joplin, MO",
+          "kind": "approximate_driving_time",
+          "verified": false
+        },
+        {
+          "destination": "Neosho, MO",
+          "value_as_supplied": "roughly 25 minutes south",
+          "origin": "Joplin, MO",
+          "kind": "approximate_driving_time",
+          "verified": false
+        },
+        {
+          "destination": "Pittsburg, KS",
+          "value_as_supplied": "roughly 40 minutes northwest",
+          "origin": "Joplin, MO",
+          "kind": "approximate_driving_time",
+          "verified": false
+        }
+      ],
+      "market_role": "Experimental, geographically isolated territory",
+      "competition_proxy": "medium",
+      "volume_proxy": "medium",
+      "strategy": [
+        "Overnight or planned 14-hour day.",
+        "Search thrift chains, charity stores, estate sales, churches, schools, colleges and surrounding rural towns rather than central Joplin alone.",
+        "Permanent route status depends on measured economics proving the long drive worthwhile."
+      ],
+      "source_leads": [],
+      "evidence_status": "user_provided_unverified",
+      "sequence_semantics": "Conceptual corridor order supplied by user; not a verified or optimized driving itinerary"
+    },
+    {
+      "id": "route-04",
+      "number": 4,
+      "name": "Central Missouri",
+      "ordered_places": [
+        {
+          "id": "st-louis-mo",
+          "name": "St. Louis",
+          "state": "MO"
+        },
+        {
+          "id": "warrenton-mo",
+          "name": "Warrenton",
+          "state": "MO"
+        },
+        {
+          "id": "kingdom-city-mo",
+          "name": "Kingdom City",
+          "state": "MO"
+        },
+        {
+          "id": "fulton-mo",
+          "name": "Fulton",
+          "state": "MO"
+        },
+        {
+          "id": "columbia-mo",
+          "name": "Columbia",
+          "state": "MO"
+        },
+        {
+          "id": "ashland-mo",
+          "name": "Ashland",
+          "state": "MO"
+        },
+        {
+          "id": "jefferson-city-mo",
+          "name": "Jefferson City",
+          "state": "MO"
+        },
+        {
+          "id": "holts-summit-mo",
+          "name": "Holts Summit",
+          "state": "MO"
+        }
+      ],
+      "branches": [],
+      "supplied_travel_times": [
+        {
+          "destination": "Columbia, MO",
+          "value_as_supplied": "1 hour 55 minutes",
+          "origin": "St. Louis, MO",
+          "kind": "approximate_driving_time",
+          "verified": false
+        },
+        {
+          "destination": "Jefferson City, MO",
+          "value_as_supplied": "2 hours 3 minutes",
+          "origin": "St. Louis, MO",
+          "kind": "approximate_driving_time",
+          "verified": false
+        }
+      ],
+      "market_role": "Repeatable benchmark route; university and government households",
+      "competition_proxy": "medium",
+      "volume_proxy": "medium-high",
+      "strategy": [
+        "Target university material, business, law, government, education, textbooks, specialized nonfiction and other profitable books.",
+        "Farther routes should materially outperform this route after travel costs."
+      ],
+      "source_leads": [
+        {
+          "name": "Friends of Columbia Public Library",
+          "details_as_supplied": "Four large weekend sales yearly, themed monthly sales, smaller lobby sales every Wednesday and Saturday. September 2026 fall sale reportedly hardcovers $1 and paperbacks $0.50.",
+          "verification_status": "unverified_user_provided",
+          "official_url": null
+        },
+        {
+          "name": "Missouri River Regional Library Friends",
+          "details_as_supplied": "Friends members reportedly receive opening-night access to major sale.",
+          "verification_status": "unverified_user_provided",
+          "official_url": null
+        }
+      ],
+      "evidence_status": "user_provided_unverified",
+      "sequence_semantics": "Conceptual corridor order supplied by user; not a verified or optimized driving itinerary"
+    },
+    {
+      "id": "route-05",
+      "number": 5,
+      "name": "Kansas City Eastern Approach",
+      "ordered_places": [
+        {
+          "id": "st-louis-mo",
+          "name": "St. Louis",
+          "state": "MO"
+        },
+        {
+          "id": "sedalia-mo",
+          "name": "Sedalia",
+          "state": "MO"
+        },
+        {
+          "id": "warrensburg-mo",
+          "name": "Warrensburg",
+          "state": "MO"
+        },
+        {
+          "id": "lee-s-summit-mo",
+          "name": "Lee’s Summit",
+          "state": "MO"
+        },
+        {
+          "id": "blue-springs-mo",
+          "name": "Blue Springs",
+          "state": "MO"
+        },
+        {
+          "id": "independence-mo",
+          "name": "Independence",
+          "state": "MO"
+        },
+        {
+          "id": "kansas-city-mo",
+          "name": "Kansas City",
+          "state": "MO"
+        },
+        {
+          "id": "liberty-mo",
+          "name": "Liberty",
+          "state": "MO"
+        }
+      ],
+      "branches": [
+        {
+          "type": "additional_satellite_markets",
+          "places": [
+            {
+              "id": "raytown-mo",
+              "name": "Raytown",
+              "state": "MO"
+            },
+            {
+              "id": "gladstone-mo",
+              "name": "Gladstone",
+              "state": "MO"
+            }
+          ]
+        }
+      ],
+      "supplied_travel_times": [
+        {
+          "destination": "Kansas City, MO",
+          "value_as_supplied": "3 hours 40 minutes",
+          "origin": "St. Louis, MO",
+          "kind": "approximate_driving_time",
+          "verified": false
+        }
+      ],
+      "market_role": "High-volume, high-diversity metro route",
+      "competition_proxy": "high",
+      "volume_proxy": "high",
+      "strategy": [
+        "Enter through smaller markets, work suburbs, then selected KC sources rather than starting in downtown.",
+        "Prioritize projected profit per sourcing hour and cost per acquired book over raw volume."
+      ],
+      "source_leads": [],
+      "evidence_status": "user_provided_unverified",
+      "sequence_semantics": "Conceptual corridor order supplied by user; not a verified or optimized driving itinerary"
+    },
+    {
+      "id": "route-06",
+      "number": 6,
+      "name": "Johnson County / Lawrence / Topeka",
+      "ordered_places": [
+        {
+          "id": "kansas-city-mo",
+          "name": "Kansas City",
+          "state": "MO"
+        },
+        {
+          "id": "overland-park-ks",
+          "name": "Overland Park",
+          "state": "KS"
+        },
+        {
+          "id": "shawnee-ks",
+          "name": "Shawnee",
+          "state": "KS"
+        },
+        {
+          "id": "lenexa-ks",
+          "name": "Lenexa",
+          "state": "KS"
+        },
+        {
+          "id": "olathe-ks",
+          "name": "Olathe",
+          "state": "KS"
+        },
+        {
+          "id": "lawrence-ks",
+          "name": "Lawrence",
+          "state": "KS"
+        },
+        {
+          "id": "topeka-ks",
+          "name": "Topeka",
+          "state": "KS"
+        }
+      ],
+      "branches": [],
+      "supplied_travel_times": [
+        {
+          "destination": "Lawrence, KS",
+          "value_as_supplied": "4 hours 16 minutes",
+          "origin": "St. Louis, MO",
+          "kind": "approximate_driving_time",
+          "verified": false
+        },
+        {
+          "destination": "Topeka, KS",
+          "value_as_supplied": "around 4 hours 35 minutes",
+          "origin": "St. Louis, MO",
+          "kind": "approximate_driving_time",
+          "verified": false
+        }
+      ],
+      "market_role": "Strong repeatable far route with university ecosystem",
+      "competition_proxy": "high",
+      "volume_proxy": "high",
+      "strategy": [
+        "Overnight: day 1 KC and Johnson County; day 2 Lawrence and Topeka.",
+        "Charge hotel, fuel and eight-plus hours of round-trip highway time against inventory.",
+        "Lawrence includes University of Kansas ecosystem."
+      ],
+      "source_leads": [
+        {
+          "name": "Lenexa Friends Book Nook",
+          "details_as_supplied": "More than 16,000 items, weekly additions, prices starting at $0.25, current weekend opening hours claimed.",
+          "verification_status": "unverified_user_provided",
+          "official_url": null
+        },
+        {
+          "name": "Topeka Friends sales",
+          "details_as_supplied": "Four major sales in 2026; most hardbacks and paperbacks $2; Sunday $10 bag sale.",
+          "verification_status": "unverified_user_provided",
+          "official_url": null
+        }
+      ],
+      "evidence_status": "user_provided_unverified",
+      "sequence_semantics": "Conceptual corridor order supplied by user; not a verified or optimized driving itinerary"
+    },
+    {
+      "id": "route-07",
+      "number": 7,
+      "name": "Hannibal / Quincy",
+      "ordered_places": [
+        {
+          "id": "st-louis-mo",
+          "name": "St. Louis",
+          "state": "MO"
+        },
+        {
+          "id": "troy-mo",
+          "name": "Troy",
+          "state": "MO"
+        },
+        {
+          "id": "bowling-green-mo",
+          "name": "Bowling Green",
+          "state": "MO"
+        },
+        {
+          "id": "hannibal-mo",
+          "name": "Hannibal",
+          "state": "MO"
+        },
+        {
+          "id": "palmyra-mo",
+          "name": "Palmyra",
+          "state": "MO"
+        },
+        {
+          "id": "quincy-il",
+          "name": "Quincy",
+          "state": "IL"
+        },
+        {
+          "id": "pittsfield-il",
+          "name": "Pittsfield",
+          "state": "IL"
+        }
+      ],
+      "branches": [],
+      "supplied_travel_times": [
+        {
+          "destination": "Hannibal, MO",
+          "value_as_supplied": "1 hour 53 minutes",
+          "origin": "St. Louis, MO",
+          "kind": "approximate_driving_time",
+          "verified": false
+        },
+        {
+          "destination": "Quincy, IL",
+          "value_as_supplied": "2 hours 17 minutes",
+          "origin": "St. Louis, MO",
+          "kind": "approximate_driving_time",
+          "verified": false
+        }
+      ],
+      "market_role": "Strong day route; older households and regional collections",
+      "competition_proxy": "low to medium",
+      "volume_proxy": "medium",
+      "strategy": [
+        "Target estates, religious books, history, agriculture, education and local collections."
+      ],
+      "source_leads": [
+        {
+          "name": "Quincy Friends sales and Secondhand Prose",
+          "details_as_supplied": "Two Friends sales yearly; permanent store reportedly Tuesday–Saturday. Fall sale October 8–10, 2026, standard material $0.50 per inch.",
+          "verification_status": "unverified_user_provided",
+          "official_url": null
+        }
+      ],
+      "evidence_status": "user_provided_unverified",
+      "sequence_semantics": "Conceptual corridor order supplied by user; not a verified or optimized driving itinerary"
+    },
+    {
+      "id": "route-08",
+      "number": 8,
+      "name": "North Central Missouri",
+      "ordered_places": [
+        {
+          "id": "st-louis-mo",
+          "name": "St. Louis",
+          "state": "MO"
+        },
+        {
+          "id": "mexico-mo",
+          "name": "Mexico",
+          "state": "MO"
+        },
+        {
+          "id": "moberly-mo",
+          "name": "Moberly",
+          "state": "MO"
+        },
+        {
+          "id": "macon-mo",
+          "name": "Macon",
+          "state": "MO"
+        },
+        {
+          "id": "kirksville-mo",
+          "name": "Kirksville",
+          "state": "MO"
+        },
+        {
+          "id": "brookfield-mo",
+          "name": "Brookfield",
+          "state": "MO"
+        },
+        {
+          "id": "chillicothe-mo",
+          "name": "Chillicothe",
+          "state": "MO"
+        }
+      ],
+      "branches": [],
+      "supplied_travel_times": [
+        {
+          "destination": "Kirksville, MO",
+          "value_as_supplied": "3 hours 18 minutes",
+          "origin": "St. Louis, MO",
+          "kind": "approximate_driving_time",
+          "verified": false
+        }
+      ],
+      "market_role": "Lower-density, less obvious reseller territory",
+      "competition_proxy": "low",
+      "volume_proxy": "low to medium",
+      "strategy": [
+        "Mexico is a regional stop; Moberly described as roughly halfway between Columbia and Kirksville; Macon a smaller hub.",
+        "Kirksville includes Truman State University and A.T. Still University.",
+        "Prioritize estates, university move-outs, library Friends groups, churches, schools and direct bulk pickups.",
+        "Require appointments or several confirmed stops before departure; two ordinary thrift shops do not justify three-hour drive."
+      ],
+      "source_leads": [],
+      "evidence_status": "user_provided_unverified",
+      "sequence_semantics": "Conceptual corridor order supplied by user; not a verified or optimized driving itinerary"
+    },
+    {
+      "id": "route-09",
+      "number": 9,
+      "name": "Southeast Missouri / Cape",
+      "ordered_places": [
+        {
+          "id": "st-louis-mo",
+          "name": "St. Louis",
+          "state": "MO"
+        },
+        {
+          "id": "festus-mo",
+          "name": "Festus",
+          "state": "MO"
+        },
+        {
+          "id": "ste-genevieve-mo",
+          "name": "Ste. Genevieve",
+          "state": "MO"
+        },
+        {
+          "id": "perryville-mo",
+          "name": "Perryville",
+          "state": "MO"
+        },
+        {
+          "id": "jackson-mo",
+          "name": "Jackson",
+          "state": "MO"
+        },
+        {
+          "id": "cape-girardeau-mo",
+          "name": "Cape Girardeau",
+          "state": "MO"
+        },
+        {
+          "id": "sikeston-mo",
+          "name": "Sikeston",
+          "state": "MO"
+        }
+      ],
+      "branches": [
+        {
+          "type": "optional_branch",
+          "places": [
+            {
+              "id": "farmington-mo",
+              "name": "Farmington",
+              "state": "MO"
+            }
+          ]
+        }
+      ],
+      "supplied_travel_times": [
+        {
+          "destination": "Cape Girardeau, MO",
+          "value_as_supplied": "1 hour 51 minutes",
+          "origin": "St. Louis, MO",
+          "kind": "approximate_driving_time",
+          "verified": false
+        }
+      ],
+      "market_role": "Clean one-day truck route; college and smaller surrounding markets",
+      "competition_proxy": "low to medium",
+      "volume_proxy": "medium",
+      "strategy": [
+        "SEMO gives Cape a college component; Jackson adds surrounding market.",
+        "Perryville and Ste. Genevieve: estate, church and small-town sourcing; Sikeston anchors decision to continue south."
+      ],
+      "source_leads": [
+        {
+          "name": "Cape Girardeau Friends sale",
+          "details_as_supplied": "Four-day August 2026 sale reportedly included early access and full weekend days.",
+          "verification_status": "unverified_user_provided",
+          "official_url": null
+        }
+      ],
+      "evidence_status": "user_provided_unverified",
+      "sequence_semantics": "Conceptual corridor order supplied by user; not a verified or optimized driving itinerary"
+    },
+    {
+      "id": "route-10",
+      "number": 10,
+      "name": "I-55 Deep South / Memphis",
+      "ordered_places": [
+        {
+          "id": "st-louis-mo",
+          "name": "St. Louis",
+          "state": "MO"
+        },
+        {
+          "id": "cape-girardeau-mo",
+          "name": "Cape Girardeau",
+          "state": "MO"
+        },
+        {
+          "id": "scott-city-mo",
+          "name": "Scott City",
+          "state": "MO"
+        },
+        {
+          "id": "sikeston-mo",
+          "name": "Sikeston",
+          "state": "MO"
+        },
+        {
+          "id": "charleston-mo",
+          "name": "Charleston",
+          "state": "MO"
+        },
+        {
+          "id": "new-madrid-mo",
+          "name": "New Madrid",
+          "state": "MO"
+        },
+        {
+          "id": "hayti-mo",
+          "name": "Hayti",
+          "state": "MO"
+        },
+        {
+          "id": "blytheville-ar",
+          "name": "Blytheville",
+          "state": "AR"
+        },
+        {
+          "id": "memphis-tn",
+          "name": "Memphis",
+          "state": "TN"
+        }
+      ],
+      "branches": [
+        {
+          "type": "optional_branch",
+          "places": [
+            {
+              "id": "kennett-mo",
+              "name": "Kennett",
+              "state": "MO"
+            }
+          ]
+        },
+        {
+          "type": "sequence_interpretation",
+          "note": "User wrote Cape/Scott City area as one area; normalized as two distinct places, not a required visit to both."
+        }
+      ],
+      "supplied_travel_times": [
+        {
+          "destination": "Memphis, TN",
+          "value_as_supplied": "4 hours 8 minutes",
+          "origin": "St. Louis, MO",
+          "kind": "approximate_driving_time",
+          "verified": false
+        }
+      ],
+      "market_role": "Overnight sourcing expedition",
+      "competition_proxy": "small Missouri/Arkansas towns low; Memphis medium-high",
+      "volume_proxy": "high once in Memphis",
+      "strategy": [
+        "Memphis is anchor, not entire trip; collect confirmed estate sales, libraries, thrifts, churches and bulk leads along I-55.",
+        "Do not drive four hours for one store."
+      ],
+      "source_leads": [
+        {
+          "name": "Friends bookstore at Benjamin L. Hooks Central Library",
+          "details_as_supplied": "Permanent bookstore reportedly Tuesday–Saturday, thousands of donated books, average selling price around $3.",
+          "verification_status": "unverified_user_provided",
+          "official_url": null
+        }
+      ],
+      "evidence_status": "user_provided_unverified",
+      "sequence_semantics": "Conceptual corridor order supplied by user; not a verified or optimized driving itinerary"
+    },
+    {
+      "id": "route-11",
+      "number": 11,
+      "name": "Southern Illinois",
+      "ordered_places": [
+        {
+          "id": "st-louis-mo",
+          "name": "St. Louis",
+          "state": "MO"
+        },
+        {
+          "id": "belleville-il",
+          "name": "Belleville",
+          "state": "IL"
+        },
+        {
+          "id": "o-fallon-il",
+          "name": "O’Fallon",
+          "state": "IL"
+        },
+        {
+          "id": "mount-vernon-il",
+          "name": "Mount Vernon",
+          "state": "IL"
+        },
+        {
+          "id": "marion-il",
+          "name": "Marion",
+          "state": "IL"
+        },
+        {
+          "id": "herrin-il",
+          "name": "Herrin",
+          "state": "IL"
+        },
+        {
+          "id": "carbondale-il",
+          "name": "Carbondale",
+          "state": "IL"
+        }
+      ],
+      "branches": [
+        {
+          "type": "optional_branch",
+          "places": [
+            {
+              "id": "centralia-il",
+              "name": "Centralia",
+              "state": "IL"
+            }
+          ]
+        }
+      ],
+      "supplied_travel_times": [
+        {
+          "destination": "Carbondale, IL",
+          "value_as_supplied": "1 hour 51 minutes",
+          "origin": "St. Louis, MO",
+          "kind": "approximate_driving_time",
+          "verified": false
+        }
+      ],
+      "market_role": "Normal day route; SIU academic pool",
+      "competition_proxy": "low to medium",
+      "volume_proxy": "medium",
+      "strategy": [
+        "Target thrift, university, estate, church and direct-sourcing channels.",
+        "Respect source-specific scanner prohibitions; do not equate one prohibited sale with a prohibited territory."
+      ],
+      "source_leads": [
+        {
+          "name": "Carbondale Public Library Friends sale",
+          "details_as_supplied": "September 2026 event reportedly explicitly prohibited electronic ISBN scanners. Historical event-specific rule; verify future events.",
+          "verification_status": "unverified_user_provided",
+          "official_url": null
+        }
+      ],
+      "evidence_status": "user_provided_unverified",
+      "sequence_semantics": "Conceptual corridor order supplied by user; not a verified or optimized driving itinerary"
+    },
+    {
+      "id": "route-12",
+      "number": 12,
+      "name": "Central Illinois Loop",
+      "ordered_places": [
+        {
+          "id": "st-louis-mo",
+          "name": "St. Louis",
+          "state": "MO"
+        },
+        {
+          "id": "litchfield-il",
+          "name": "Litchfield",
+          "state": "IL"
+        },
+        {
+          "id": "springfield-il",
+          "name": "Springfield",
+          "state": "IL"
+        },
+        {
+          "id": "lincoln-il",
+          "name": "Lincoln",
+          "state": "IL"
+        },
+        {
+          "id": "bloomington-il",
+          "name": "Bloomington",
+          "state": "IL"
+        },
+        {
+          "id": "normal-il",
+          "name": "Normal",
+          "state": "IL"
+        },
+        {
+          "id": "peoria-il",
+          "name": "Peoria",
+          "state": "IL"
+        },
+        {
+          "id": "decatur-il",
+          "name": "Decatur",
+          "state": "IL"
+        },
+        {
+          "id": "st-louis-mo",
+          "name": "St. Louis",
+          "state": "MO"
+        }
+      ],
+      "branches": [],
+      "supplied_travel_times": [
+        {
+          "destination": "Springfield, IL",
+          "value_as_supplied": "1 hour 35 minutes",
+          "origin": "St. Louis, MO",
+          "kind": "approximate_driving_time",
+          "verified": false
+        },
+        {
+          "destination": "Decatur, IL",
+          "value_as_supplied": "2 hours 2 minutes",
+          "origin": "St. Louis, MO",
+          "kind": "approximate_driving_time",
+          "verified": false
+        },
+        {
+          "destination": "Bloomington, IL",
+          "value_as_supplied": "2 hours 26 minutes",
+          "origin": "St. Louis, MO",
+          "kind": "approximate_driving_time",
+          "verified": false
+        },
+        {
+          "destination": "Peoria, IL",
+          "value_as_supplied": "2 hours 28 minutes",
+          "origin": "St. Louis, MO",
+          "kind": "approximate_driving_time",
+          "verified": false
+        }
+      ],
+      "market_role": "Several independent markets within roughly 2.5 hours of home",
+      "competition_proxy": "medium",
+      "volume_proxy": "medium-high",
+      "strategy": [
+        "Bloomington-Normal adds Illinois State University, Springfield government/professional households, Peoria a larger regional market."
+      ],
+      "source_leads": [
+        {
+          "name": "Peoria Friends bookstore",
+          "details_as_supplied": "More than 10,000 titles, open multiple days weekly; also large annual sale.",
+          "verification_status": "unverified_user_provided",
+          "official_url": null
+        }
+      ],
+      "evidence_status": "user_provided_unverified",
+      "sequence_semantics": "Conceptual corridor order supplied by user; not a verified or optimized driving itinerary"
+    },
+    {
+      "id": "route-13",
+      "number": 13,
+      "name": "Eastern Illinois / Champaign / Terre Haute",
+      "ordered_places": [
+        {
+          "id": "st-louis-mo",
+          "name": "St. Louis",
+          "state": "MO"
+        },
+        {
+          "id": "vandalia-il",
+          "name": "Vandalia",
+          "state": "IL"
+        },
+        {
+          "id": "effingham-il",
+          "name": "Effingham",
+          "state": "IL"
+        },
+        {
+          "id": "mattoon-il",
+          "name": "Mattoon",
+          "state": "IL"
+        },
+        {
+          "id": "charleston-il",
+          "name": "Charleston",
+          "state": "IL"
+        },
+        {
+          "id": "champaign-il",
+          "name": "Champaign",
+          "state": "IL"
+        },
+        {
+          "id": "urbana-il",
+          "name": "Urbana",
+          "state": "IL"
+        }
+      ],
+      "branches": [
+        {
+          "type": "optional_branch",
+          "places": [
+            {
+              "id": "terre-haute-in",
+              "name": "Terre Haute",
+              "state": "IN"
+            }
+          ]
+        }
+      ],
+      "supplied_travel_times": [
+        {
+          "destination": "Champaign, IL",
+          "value_as_supplied": "2 hours 43 minutes",
+          "origin": "St. Louis, MO",
+          "kind": "approximate_driving_time",
+          "verified": false
+        },
+        {
+          "destination": "Terre Haute, IN",
+          "value_as_supplied": "2 hours 37 minutes",
+          "origin": "St. Louis, MO",
+          "kind": "approximate_driving_time",
+          "verified": false
+        }
+      ],
+      "market_role": "Strong academic corridor",
+      "competition_proxy": "medium-high",
+      "volume_proxy": "high",
+      "strategy": [
+        "University of Illinois, Eastern Illinois University, Indiana State and Rose-Hulman provide academic ecosystems."
+      ],
+      "source_leads": [
+        {
+          "name": "Champaign FriendShop",
+          "details_as_supplied": "More than 20,000 books/media; most books $2 or less; Wednesday–Sunday; monthly member half-price period and $1 bag sales last week of month.",
+          "verification_status": "unverified_user_provided",
+          "official_url": null
+        }
+      ],
+      "evidence_status": "user_provided_unverified",
+      "sequence_semantics": "Conceptual corridor order supplied by user; not a verified or optimized driving itinerary"
+    },
+    {
+      "id": "route-14",
+      "number": 14,
+      "name": "Indianapolis / Bloomington Indiana",
+      "ordered_places": [
+        {
+          "id": "st-louis-mo",
+          "name": "St. Louis",
+          "state": "MO"
+        },
+        {
+          "id": "terre-haute-in",
+          "name": "Terre Haute",
+          "state": "IN"
+        },
+        {
+          "id": "plainfield-in",
+          "name": "Plainfield",
+          "state": "IN"
+        },
+        {
+          "id": "indianapolis-in",
+          "name": "Indianapolis",
+          "state": "IN"
+        },
+        {
+          "id": "speedway-in",
+          "name": "Speedway",
+          "state": "IN"
+        },
+        {
+          "id": "carmel-in",
+          "name": "Carmel",
+          "state": "IN"
+        },
+        {
+          "id": "fishers-in",
+          "name": "Fishers",
+          "state": "IN"
+        },
+        {
+          "id": "greenwood-in",
+          "name": "Greenwood",
+          "state": "IN"
+        },
+        {
+          "id": "martinsville-in",
+          "name": "Martinsville",
+          "state": "IN"
+        },
+        {
+          "id": "bloomington-in",
+          "name": "Bloomington",
+          "state": "IN"
+        }
+      ],
+      "branches": [],
+      "supplied_travel_times": [
+        {
+          "destination": "Indianapolis, IN",
+          "value_as_supplied": "3 hours 41 minutes",
+          "origin": "St. Louis, MO",
+          "kind": "approximate_driving_time",
+          "verified": false
+        },
+        {
+          "destination": "Bloomington, IN",
+          "value_as_supplied": "3 hours 46 minutes",
+          "origin": "St. Louis, MO",
+          "kind": "approximate_driving_time",
+          "verified": false
+        }
+      ],
+      "market_role": "Serious inventory territory, overnight",
+      "competition_proxy": "high",
+      "volume_proxy": "extremely high",
+      "strategy": [
+        "Cluster A: Indianapolis, Plainfield, Speedway, Greenwood. Cluster B: Carmel, Fishers, northern suburbs.",
+        "Bloomington separate half-day or second day tied to major sale."
+      ],
+      "source_leads": [
+        {
+          "name": "Indianapolis library sales",
+          "details_as_supplied": "Repeated large-sale cycles in 2026; adult hardcovers $3, softcovers $1, final main-sale day $10 bag day.",
+          "verification_status": "unverified_user_provided",
+          "official_url": null
+        },
+        {
+          "name": "Bloomington Indiana Friends sale",
+          "details_as_supplied": "Four-day sale twice yearly; September 2026 reportedly started at $0.50–$2, moved to tote/box pricing, remaining items free final day.",
+          "verification_status": "unverified_user_provided",
+          "official_url": null
+        }
+      ],
+      "evidence_status": "user_provided_unverified",
+      "sequence_semantics": "Conceptual corridor order supplied by user; not a verified or optimized driving itinerary"
+    },
+    {
+      "id": "route-15",
+      "number": 15,
+      "name": "Evansville / Southern Indiana / Louisville",
+      "ordered_places": [
+        {
+          "id": "st-louis-mo",
+          "name": "St. Louis",
+          "state": "MO"
+        },
+        {
+          "id": "mount-vernon-il",
+          "name": "Mount Vernon",
+          "state": "IL"
+        },
+        {
+          "id": "evansville-in",
+          "name": "Evansville",
+          "state": "IN"
+        },
+        {
+          "id": "henderson-ky",
+          "name": "Henderson",
+          "state": "KY"
+        },
+        {
+          "id": "corydon-in",
+          "name": "Corydon",
+          "state": "IN"
+        },
+        {
+          "id": "new-albany-in",
+          "name": "New Albany",
+          "state": "IN"
+        },
+        {
+          "id": "jeffersonville-in",
+          "name": "Jeffersonville",
+          "state": "IN"
+        },
+        {
+          "id": "louisville-ky",
+          "name": "Louisville",
+          "state": "KY"
+        }
+      ],
+      "branches": [
+        {
+          "type": "optional_branch",
+          "places": [
+            {
+              "id": "owensboro-ky",
+              "name": "Owensboro",
+              "state": "KY"
+            }
+          ]
+        },
+        {
+          "type": "optional_branch",
+          "places": [
+            {
+              "id": "jasper-in",
+              "name": "Jasper",
+              "state": "IN"
+            },
+            {
+              "id": "ferdinand-in",
+              "name": "Ferdinand",
+              "state": "IN"
+            }
+          ]
+        },
+        {
+          "type": "additional_satellite_markets",
+          "places": [
+            {
+              "id": "st-matthews-ky",
+              "name": "St. Matthews",
+              "state": "KY"
+            }
+          ]
+        }
+      ],
+      "supplied_travel_times": [
+        {
+          "destination": "Evansville, IN",
+          "value_as_supplied": "2 hours 38 minutes",
+          "origin": "St. Louis, MO",
+          "kind": "approximate_driving_time",
+          "verified": false
+        },
+        {
+          "destination": "Louisville, KY",
+          "value_as_supplied": "3 hours 49 minutes",
+          "origin": "St. Louis, MO",
+          "kind": "approximate_driving_time",
+          "verified": false
+        }
+      ],
+      "market_role": "Evansville long day; Evansville plus Louisville overnight",
+      "competition_proxy": "medium-high",
+      "volume_proxy": "medium-high",
+      "strategy": [
+        "Louisville suburbs, especially St. Matthews and Indiana suburbs across river, matter as much as central city."
+      ],
+      "source_leads": [
+        {
+          "name": "Evansville Foundation sale",
+          "details_as_supplied": "2026 annual sale reportedly hundreds of books/media at $0.50–$2; another sale November 14–15, 2026.",
+          "verification_status": "unverified_user_provided",
+          "official_url": null
+        },
+        {
+          "name": "Louisville library network",
+          "details_as_supplied": "Branch-level Friends sales and bargain carts reported.",
+          "verification_status": "unverified_user_provided",
+          "official_url": null
+        }
+      ],
+      "evidence_status": "user_provided_unverified",
+      "sequence_semantics": "Conceptual corridor order supplied by user; not a verified or optimized driving itinerary"
+    }
+  ],
+  "full_town_pool": [
+    {
+      "id": "pacific-mo",
+      "name": "Pacific",
+      "state": "MO"
+    },
+    {
+      "id": "union-mo",
+      "name": "Union",
+      "state": "MO"
+    },
+    {
+      "id": "washington-mo",
+      "name": "Washington",
+      "state": "MO"
+    },
+    {
+      "id": "sullivan-mo",
+      "name": "Sullivan",
+      "state": "MO"
+    },
+    {
+      "id": "st-james-mo",
+      "name": "St. James",
+      "state": "MO"
+    },
+    {
+      "id": "rolla-mo",
+      "name": "Rolla",
+      "state": "MO"
+    },
+    {
+      "id": "st-robert-mo",
+      "name": "St. Robert",
+      "state": "MO"
+    },
+    {
+      "id": "waynesville-mo",
+      "name": "Waynesville",
+      "state": "MO"
+    },
+    {
+      "id": "lebanon-mo",
+      "name": "Lebanon",
+      "state": "MO"
+    },
+    {
+      "id": "marshfield-mo",
+      "name": "Marshfield",
+      "state": "MO"
+    },
+    {
+      "id": "springfield-mo",
+      "name": "Springfield",
+      "state": "MO"
+    },
+    {
+      "id": "republic-mo",
+      "name": "Republic",
+      "state": "MO"
+    },
+    {
+      "id": "nixa-mo",
+      "name": "Nixa",
+      "state": "MO"
+    },
+    {
+      "id": "ozark-mo",
+      "name": "Ozark",
+      "state": "MO"
+    },
+    {
+      "id": "branson-mo",
+      "name": "Branson",
+      "state": "MO"
+    },
+    {
+      "id": "mount-vernon-mo",
+      "name": "Mount Vernon",
+      "state": "MO"
+    },
+    {
+      "id": "carthage-mo",
+      "name": "Carthage",
+      "state": "MO"
+    },
+    {
+      "id": "webb-city-mo",
+      "name": "Webb City",
+      "state": "MO"
+    },
+    {
+      "id": "joplin-mo",
+      "name": "Joplin",
+      "state": "MO"
+    },
+    {
+      "id": "neosho-mo",
+      "name": "Neosho",
+      "state": "MO"
+    },
+    {
+      "id": "pittsburg-ks",
+      "name": "Pittsburg",
+      "state": "KS"
+    },
+    {
+      "id": "warrenton-mo",
+      "name": "Warrenton",
+      "state": "MO"
+    },
+    {
+      "id": "kingdom-city-mo",
+      "name": "Kingdom City",
+      "state": "MO"
+    },
+    {
+      "id": "fulton-mo",
+      "name": "Fulton",
+      "state": "MO"
+    },
+    {
+      "id": "columbia-mo",
+      "name": "Columbia",
+      "state": "MO"
+    },
+    {
+      "id": "ashland-mo",
+      "name": "Ashland",
+      "state": "MO"
+    },
+    {
+      "id": "jefferson-city-mo",
+      "name": "Jefferson City",
+      "state": "MO"
+    },
+    {
+      "id": "holts-summit-mo",
+      "name": "Holts Summit",
+      "state": "MO"
+    },
+    {
+      "id": "sedalia-mo",
+      "name": "Sedalia",
+      "state": "MO"
+    },
+    {
+      "id": "warrensburg-mo",
+      "name": "Warrensburg",
+      "state": "MO"
+    },
+    {
+      "id": "lee-s-summit-mo",
+      "name": "Lee’s Summit",
+      "state": "MO"
+    },
+    {
+      "id": "blue-springs-mo",
+      "name": "Blue Springs",
+      "state": "MO"
+    },
+    {
+      "id": "independence-mo",
+      "name": "Independence",
+      "state": "MO"
+    },
+    {
+      "id": "raytown-mo",
+      "name": "Raytown",
+      "state": "MO"
+    },
+    {
+      "id": "kansas-city-mo",
+      "name": "Kansas City",
+      "state": "MO"
+    },
+    {
+      "id": "kansas-city-ks",
+      "name": "Kansas City",
+      "state": "KS"
+    },
+    {
+      "id": "gladstone-mo",
+      "name": "Gladstone",
+      "state": "MO"
+    },
+    {
+      "id": "liberty-mo",
+      "name": "Liberty",
+      "state": "MO"
+    },
+    {
+      "id": "overland-park-ks",
+      "name": "Overland Park",
+      "state": "KS"
+    },
+    {
+      "id": "shawnee-ks",
+      "name": "Shawnee",
+      "state": "KS"
+    },
+    {
+      "id": "lenexa-ks",
+      "name": "Lenexa",
+      "state": "KS"
+    },
+    {
+      "id": "olathe-ks",
+      "name": "Olathe",
+      "state": "KS"
+    },
+    {
+      "id": "lawrence-ks",
+      "name": "Lawrence",
+      "state": "KS"
+    },
+    {
+      "id": "topeka-ks",
+      "name": "Topeka",
+      "state": "KS"
+    },
+    {
+      "id": "troy-mo",
+      "name": "Troy",
+      "state": "MO"
+    },
+    {
+      "id": "bowling-green-mo",
+      "name": "Bowling Green",
+      "state": "MO"
+    },
+    {
+      "id": "hannibal-mo",
+      "name": "Hannibal",
+      "state": "MO"
+    },
+    {
+      "id": "palmyra-mo",
+      "name": "Palmyra",
+      "state": "MO"
+    },
+    {
+      "id": "quincy-il",
+      "name": "Quincy",
+      "state": "IL"
+    },
+    {
+      "id": "pittsfield-il",
+      "name": "Pittsfield",
+      "state": "IL"
+    },
+    {
+      "id": "mexico-mo",
+      "name": "Mexico",
+      "state": "MO"
+    },
+    {
+      "id": "moberly-mo",
+      "name": "Moberly",
+      "state": "MO"
+    },
+    {
+      "id": "macon-mo",
+      "name": "Macon",
+      "state": "MO"
+    },
+    {
+      "id": "kirksville-mo",
+      "name": "Kirksville",
+      "state": "MO"
+    },
+    {
+      "id": "brookfield-mo",
+      "name": "Brookfield",
+      "state": "MO"
+    },
+    {
+      "id": "chillicothe-mo",
+      "name": "Chillicothe",
+      "state": "MO"
+    },
+    {
+      "id": "festus-mo",
+      "name": "Festus",
+      "state": "MO"
+    },
+    {
+      "id": "farmington-mo",
+      "name": "Farmington",
+      "state": "MO"
+    },
+    {
+      "id": "ste-genevieve-mo",
+      "name": "Ste. Genevieve",
+      "state": "MO"
+    },
+    {
+      "id": "perryville-mo",
+      "name": "Perryville",
+      "state": "MO"
+    },
+    {
+      "id": "jackson-mo",
+      "name": "Jackson",
+      "state": "MO"
+    },
+    {
+      "id": "cape-girardeau-mo",
+      "name": "Cape Girardeau",
+      "state": "MO"
+    },
+    {
+      "id": "scott-city-mo",
+      "name": "Scott City",
+      "state": "MO"
+    },
+    {
+      "id": "sikeston-mo",
+      "name": "Sikeston",
+      "state": "MO"
+    },
+    {
+      "id": "charleston-mo",
+      "name": "Charleston",
+      "state": "MO"
+    },
+    {
+      "id": "new-madrid-mo",
+      "name": "New Madrid",
+      "state": "MO"
+    },
+    {
+      "id": "hayti-mo",
+      "name": "Hayti",
+      "state": "MO"
+    },
+    {
+      "id": "kennett-mo",
+      "name": "Kennett",
+      "state": "MO"
+    },
+    {
+      "id": "blytheville-ar",
+      "name": "Blytheville",
+      "state": "AR"
+    },
+    {
+      "id": "memphis-tn",
+      "name": "Memphis",
+      "state": "TN"
+    },
+    {
+      "id": "belleville-il",
+      "name": "Belleville",
+      "state": "IL"
+    },
+    {
+      "id": "o-fallon-il",
+      "name": "O’Fallon",
+      "state": "IL"
+    },
+    {
+      "id": "centralia-il",
+      "name": "Centralia",
+      "state": "IL"
+    },
+    {
+      "id": "mount-vernon-il",
+      "name": "Mount Vernon",
+      "state": "IL"
+    },
+    {
+      "id": "marion-il",
+      "name": "Marion",
+      "state": "IL"
+    },
+    {
+      "id": "herrin-il",
+      "name": "Herrin",
+      "state": "IL"
+    },
+    {
+      "id": "carbondale-il",
+      "name": "Carbondale",
+      "state": "IL"
+    },
+    {
+      "id": "litchfield-il",
+      "name": "Litchfield",
+      "state": "IL"
+    },
+    {
+      "id": "springfield-il",
+      "name": "Springfield",
+      "state": "IL"
+    },
+    {
+      "id": "lincoln-il",
+      "name": "Lincoln",
+      "state": "IL"
+    },
+    {
+      "id": "bloomington-il",
+      "name": "Bloomington",
+      "state": "IL"
+    },
+    {
+      "id": "normal-il",
+      "name": "Normal",
+      "state": "IL"
+    },
+    {
+      "id": "peoria-il",
+      "name": "Peoria",
+      "state": "IL"
+    },
+    {
+      "id": "decatur-il",
+      "name": "Decatur",
+      "state": "IL"
+    },
+    {
+      "id": "vandalia-il",
+      "name": "Vandalia",
+      "state": "IL"
+    },
+    {
+      "id": "effingham-il",
+      "name": "Effingham",
+      "state": "IL"
+    },
+    {
+      "id": "mattoon-il",
+      "name": "Mattoon",
+      "state": "IL"
+    },
+    {
+      "id": "charleston-il",
+      "name": "Charleston",
+      "state": "IL"
+    },
+    {
+      "id": "champaign-il",
+      "name": "Champaign",
+      "state": "IL"
+    },
+    {
+      "id": "urbana-il",
+      "name": "Urbana",
+      "state": "IL"
+    },
+    {
+      "id": "terre-haute-in",
+      "name": "Terre Haute",
+      "state": "IN"
+    },
+    {
+      "id": "plainfield-in",
+      "name": "Plainfield",
+      "state": "IN"
+    },
+    {
+      "id": "indianapolis-in",
+      "name": "Indianapolis",
+      "state": "IN"
+    },
+    {
+      "id": "speedway-in",
+      "name": "Speedway",
+      "state": "IN"
+    },
+    {
+      "id": "carmel-in",
+      "name": "Carmel",
+      "state": "IN"
+    },
+    {
+      "id": "fishers-in",
+      "name": "Fishers",
+      "state": "IN"
+    },
+    {
+      "id": "greenwood-in",
+      "name": "Greenwood",
+      "state": "IN"
+    },
+    {
+      "id": "martinsville-in",
+      "name": "Martinsville",
+      "state": "IN"
+    },
+    {
+      "id": "bloomington-in",
+      "name": "Bloomington",
+      "state": "IN"
+    },
+    {
+      "id": "evansville-in",
+      "name": "Evansville",
+      "state": "IN"
+    },
+    {
+      "id": "henderson-ky",
+      "name": "Henderson",
+      "state": "KY"
+    },
+    {
+      "id": "owensboro-ky",
+      "name": "Owensboro",
+      "state": "KY"
+    },
+    {
+      "id": "jasper-in",
+      "name": "Jasper",
+      "state": "IN"
+    },
+    {
+      "id": "ferdinand-in",
+      "name": "Ferdinand",
+      "state": "IN"
+    },
+    {
+      "id": "corydon-in",
+      "name": "Corydon",
+      "state": "IN"
+    },
+    {
+      "id": "new-albany-in",
+      "name": "New Albany",
+      "state": "IN"
+    },
+    {
+      "id": "jeffersonville-in",
+      "name": "Jeffersonville",
+      "state": "IN"
+    },
+    {
+      "id": "louisville-ky",
+      "name": "Louisville",
+      "state": "KY"
+    }
+  ],
+  "source_classes": [
+    {
+      "id": 1,
+      "name": "predictable inventory",
+      "examples": [
+        "permanent Friends bookstores",
+        "recurring library sales",
+        "regular thrift stores"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "event inventory",
+      "examples": [
+        "major Friends sales",
+        "bag days",
+        "estate sales",
+        "church sales",
+        "university move-outs",
+        "school liquidations"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "relationship inventory",
+      "examples": [
+        "libraries",
+        "schools",
+        "churches",
+        "estate companies",
+        "thrift managers",
+        "people with hundreds or thousands of unwanted books"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "opportunistic inventory",
+      "examples": [
+        "yard sales",
+        "Facebook Marketplace bulk lots",
+        "garage sales",
+        "random roadside opportunities"
+      ]
+    }
+  ],
+  "source_strategy": "Shift more volume toward Classes 1 and 3; prioritize confirmed bulk inventory over speculative long drives.",
+  "required_scanning_fields": [
+    "route",
+    "city",
+    "source",
+    "source_type",
+    "arrival_time",
+    "departure_time",
+    "books_scanned",
+    "books_purchased",
+    "purchase_cost",
+    "average_cost_per_book",
+    "projected_revenue",
+    "projected_amazon_fees",
+    "projected_profit",
+    "books_rejected",
+    "rejection_reason",
+    "scanner_competitors_observed",
+    "stock_looked_recently_picked",
+    "restock_frequency",
+    "employee_or_organizer_contact",
+    "accepts_bulk_removal_proposals",
+    "next_sale_or_restock_date"
+  ],
+  "metrics": [
+    {
+      "id": "books_per_sourcing_hour",
+      "formula": "books_purchased / sourcing_hours",
+      "example": {
+        "books_purchased": 160,
+        "sourcing_hours": 5,
+        "result": 32
+      },
+      "note": null
+    },
+    {
+      "id": "buy_rate",
+      "formula": "books_purchased / books_scanned",
+      "example": {
+        "books_purchased": 160,
+        "books_scanned": 1000,
+        "result": 0.16
+      },
+      "note": null
+    },
+    {
+      "id": "average_acquisition_cost",
+      "formula": "total_book_spend / books_purchased",
+      "example": null,
+      "note": null
+    },
+    {
+      "id": "projected_contribution_per_book",
+      "formula": "expected_proceeds_after_marketplace_fees - acquisition_cost",
+      "example": null,
+      "note": null
+    },
+    {
+      "id": "route_projected_contribution",
+      "formula": "total_projected_book_contribution - fuel - tolls - lodging - other_trip_expenses",
+      "example": null,
+      "note": null
+    },
+    {
+      "id": "route_contribution_per_hour",
+      "formula": "route_contribution / total_door_to_door_hours",
+      "example": null,
+      "note": null
+    },
+    {
+      "id": "profit_per_mile",
+      "formula": "net_route_contribution / miles_driven",
+      "example": null,
+      "note": null
+    },
+    {
+      "id": "source_yield",
+      "formula": "profitable_books_purchased / locations_visited",
+      "example": {
+        "profitable_books_purchased": 180,
+        "locations_visited": 9,
+        "result": 20
+      },
+      "note": null
+    },
+    {
+      "id": "dead_stop_rate",
+      "formula": "stops_producing_zero_or_almost_zero_inventory / total_stops",
+      "example": null,
+      "note": "Almost zero is not numerically defined by user; retain raw yield and configurable threshold."
+    },
+    {
+      "id": "actual_route_profit",
+      "formula": "actual_book_profit - fuel - tolls - hotel - parking - sourcing_labor - processing_labor_attributable_to_books",
+      "example": null,
+      "note": "Definition of actual_book_profit must avoid double-counting acquisition or marketplace fees."
+    },
+    {
+      "id": "route_profit_per_hour",
+      "formula": "actual_route_profit / total_trip_hours",
+      "example": null,
+      "note": null
+    },
+    {
+      "id": "travel_break_even_books",
+      "formula": "trip_travel_expense / average_contribution_per_purchased_book",
+      "example": {
+        "trip_travel_expense": 96,
+        "average_contribution_per_purchased_book": 8,
+        "result": 12
+      },
+      "note": "Covers travel only, not justification of time; whole-book threshold rounding is an implementation choice."
+    }
+  ],
+  "competition_observations": [
+    "0 scanners seen",
+    "1 scanner",
+    "2 to 3 scanners",
+    "4+ scanners",
+    "shelves visibly pre-picked",
+    "major sale attracting reseller carts"
+  ],
+  "inventory_velocity": [
+    "30-day sell-through",
+    "60-day sell-through",
+    "90-day sell-through",
+    "180-day unsold percentage"
+  ],
+  "saturation_index": {
+    "min": 0,
+    "max": 10,
+    "bands": [
+      {
+        "range": [
+          0,
+          2
+        ],
+        "label": "almost no evidence of reseller activity"
+      },
+      {
+        "range": [
+          3,
+          4
+        ],
+        "label": "some competition"
+      },
+      {
+        "range": [
+          5,
+          6
+        ],
+        "label": "normal reseller presence"
+      },
+      {
+        "range": [
+          7,
+          8
+        ],
+        "label": "frequently picked inventory or multiple scanners"
+      },
+      {
+        "range": [
+          9,
+          10
+        ],
+        "label": "severe competition, early arrivals, carts of scanners, consistently stripped inventory"
+      }
+    ],
+    "constraints": [
+      "Record after every actual visit.",
+      "Do not assign before visiting.",
+      "After three visits, average scores.",
+      "Retain raw observations and visit provenance."
+    ],
+    "initial_value": null
+  },
+  "source_quality_index": {
+    "dimension_min": 0,
+    "dimension_max": 5,
+    "dimensions": [
+      "volume",
+      "profitability",
+      "price",
+      "restock_frequency",
+      "competition",
+      "relationship_potential",
+      "accessibility_loading"
+    ],
+    "competition_direction": "Lower competition receives stronger score.",
+    "aggregation_formula": null,
+    "constraints": [
+      "Store raw measurements behind scores.",
+      "Do not discard raw data and retain only scores.",
+      "No user-provided weighting or aggregation formula; do not invent one as canonical."
+    ]
+  },
+  "revisit_logic": [
+    {
+      "condition": "strong inventory and weekly restocking",
+      "cadence": "2 to 4 weeks"
+    },
+    {
+      "condition": "normal thrift store",
+      "cadence": "once per route visit"
+    },
+    {
+      "condition": "semiannual Friends sale",
+      "cadence": "event-driven"
+    },
+    {
+      "condition": "small town picked clean",
+      "cadence": "2 to 3 month cooldown"
+    },
+    {
+      "condition": "direct supplier producing hundreds of books",
+      "cadence": "priority regardless of route"
+    }
+  ],
+  "historical_event_candidates": [
+    {
+      "source": "Quincy Friends fall sale",
+      "dates": [
+        "2026-10-08",
+        "2026-10-09",
+        "2026-10-10"
+      ],
+      "claim": "Standard material $0.50 per inch",
+      "verification_status": "unverified_user_provided",
+      "source_temporal_anchor": "2026-10-01",
+      "official_url": null
+    },
+    {
+      "source": "Indianapolis library sale cycle",
+      "dates": [
+        "2026-10-09"
+      ],
+      "claim": "Starts October 9; main Saturday sale, half-price Monday, $10 bag day Tuesday; subsequent exact dates not supplied explicitly",
+      "verification_status": "unverified_user_provided",
+      "source_temporal_anchor": "2026-10-01",
+      "official_url": null
+    },
+    {
+      "source": "Topeka Friends sale",
+      "dates": [
+        "2026-10-16",
+        "2026-10-17",
+        "2026-10-18"
+      ],
+      "claim": "Ends with $10 bag day",
+      "verification_status": "unverified_user_provided",
+      "source_temporal_anchor": "2026-10-01",
+      "official_url": null
+    },
+    {
+      "source": "Lenexa Friends Book Nook",
+      "dates": [],
+      "claim": "Repeatable weekend source; >16,000 items and weekly stocking",
+      "verification_status": "unverified_user_provided",
+      "source_temporal_anchor": "2026-10-01",
+      "official_url": null
+    },
+    {
+      "source": "Champaign FriendShop",
+      "dates": [],
+      "claim": "Wednesday–Sunday; >20,000 items, monthly discount and bag-sale programs",
+      "verification_status": "unverified_user_provided",
+      "source_temporal_anchor": "2026-10-01",
+      "official_url": null
+    },
+    {
+      "source": "Evansville Foundation sale",
+      "dates": [
+        "2026-11-14",
+        "2026-11-15"
+      ],
+      "claim": "Another sale scheduled",
+      "verification_status": "unverified_user_provided",
+      "source_temporal_anchor": "2026-10-01",
+      "official_url": null
+    }
+  ],
+  "baseline_experiment": {
+    "window_days": [
+      60,
+      90
+    ],
+    "test_route_types": [
+      "small-town corridor",
+      "university corridor",
+      "huge Friends sale",
+      "major metro",
+      "lower-competition rural/regional route",
+      "overnight expedition"
+    ],
+    "evaluation_after_visits": 3,
+    "compare": [
+      "actual_profit_per_hour",
+      "books_per_hour",
+      "average_cost",
+      "sell_through",
+      "competition_observations"
+    ],
+    "dispatch_targets": [
+      "Naim",
+      "Kerem",
+      "employee",
+      "cargo van",
+      "U-Haul"
+    ],
+    "principle": "Use measured economics and inventory velocity rather than impressions or raw acquisition volume."
+  },
+  "ambiguities": [
+    {
+      "topic": "States",
+      "detail": "Unqualified towns assigned states by corridor context. Kansas City main path normalized to MO; pool retains separate Kansas City KS."
+    },
+    {
+      "topic": "Town pool vs route mentions",
+      "detail": "Washington MO and Kansas City KS are in supplied pool but no explicit corridor assignment. Poplar Bluff MO appears only in direction overview. St. Matthews KY appears only in route 15 narrative. Do not silently add these to supplied pool or infer memberships."
+    },
+    {
+      "topic": "Compound areas",
+      "detail": "Bloomington-Normal and Champaign-Urbana split into separate places; Cape/Scott City split as an area, not mandatory two stops."
+    },
+    {
+      "topic": "Travel-band boundaries",
+      "detail": "Supplied bands overlap at 2, 3 and 3.75 hours; exact inclusive/exclusive rule unspecified."
+    },
+    {
+      "topic": "Data vs forecasts",
+      "detail": "Projected profit, contribution and actual realized profit require distinct fields and cannot substitute for each other."
+    },
+    {
+      "topic": "Missing metric definitions",
+      "detail": "Sell-through denominator/cohort, almost-zero dead stop threshold, score weights, and treatment of unsold inventory are unspecified."
+    }
+  ],
+  "all_mentioned_places": [
+    {
+      "id": "pacific-mo",
+      "name": "Pacific",
+      "state": "MO",
+      "legacy_id": "pacific"
+    },
+    {
+      "id": "union-mo",
+      "name": "Union",
+      "state": "MO",
+      "legacy_id": "union"
+    },
+    {
+      "id": "washington-mo",
+      "name": "Washington",
+      "state": "MO",
+      "legacy_id": "washington"
+    },
+    {
+      "id": "sullivan-mo",
+      "name": "Sullivan",
+      "state": "MO",
+      "legacy_id": "sullivan"
+    },
+    {
+      "id": "st-james-mo",
+      "name": "St. James",
+      "state": "MO",
+      "legacy_id": "st-james"
+    },
+    {
+      "id": "rolla-mo",
+      "name": "Rolla",
+      "state": "MO",
+      "legacy_id": "rolla"
+    },
+    {
+      "id": "st-robert-mo",
+      "name": "St. Robert",
+      "state": "MO",
+      "legacy_id": "st-robert"
+    },
+    {
+      "id": "waynesville-mo",
+      "name": "Waynesville",
+      "state": "MO",
+      "legacy_id": "waynesville"
+    },
+    {
+      "id": "lebanon-mo",
+      "name": "Lebanon",
+      "state": "MO",
+      "legacy_id": "lebanon"
+    },
+    {
+      "id": "marshfield-mo",
+      "name": "Marshfield",
+      "state": "MO",
+      "legacy_id": "marshfield"
+    },
+    {
+      "id": "springfield-mo",
+      "name": "Springfield",
+      "state": "MO",
+      "legacy_id": "springfield-mo"
+    },
+    {
+      "id": "republic-mo",
+      "name": "Republic",
+      "state": "MO",
+      "legacy_id": "republic"
+    },
+    {
+      "id": "nixa-mo",
+      "name": "Nixa",
+      "state": "MO",
+      "legacy_id": "nixa"
+    },
+    {
+      "id": "ozark-mo",
+      "name": "Ozark",
+      "state": "MO",
+      "legacy_id": "ozark"
+    },
+    {
+      "id": "branson-mo",
+      "name": "Branson",
+      "state": "MO",
+      "legacy_id": "branson"
+    },
+    {
+      "id": "mount-vernon-mo",
+      "name": "Mount Vernon",
+      "state": "MO",
+      "legacy_id": "mount-vernon-mo"
+    },
+    {
+      "id": "carthage-mo",
+      "name": "Carthage",
+      "state": "MO",
+      "legacy_id": "carthage"
+    },
+    {
+      "id": "webb-city-mo",
+      "name": "Webb City",
+      "state": "MO",
+      "legacy_id": "webb-city"
+    },
+    {
+      "id": "joplin-mo",
+      "name": "Joplin",
+      "state": "MO",
+      "legacy_id": "joplin"
+    },
+    {
+      "id": "neosho-mo",
+      "name": "Neosho",
+      "state": "MO",
+      "legacy_id": "neosho"
+    },
+    {
+      "id": "pittsburg-ks",
+      "name": "Pittsburg",
+      "state": "KS",
+      "legacy_id": "pittsburg"
+    },
+    {
+      "id": "warrenton-mo",
+      "name": "Warrenton",
+      "state": "MO",
+      "legacy_id": "warrenton"
+    },
+    {
+      "id": "kingdom-city-mo",
+      "name": "Kingdom City",
+      "state": "MO",
+      "legacy_id": "kingdom-city"
+    },
+    {
+      "id": "fulton-mo",
+      "name": "Fulton",
+      "state": "MO",
+      "legacy_id": "fulton"
+    },
+    {
+      "id": "columbia-mo",
+      "name": "Columbia",
+      "state": "MO",
+      "legacy_id": "columbia"
+    },
+    {
+      "id": "ashland-mo",
+      "name": "Ashland",
+      "state": "MO",
+      "legacy_id": "ashland"
+    },
+    {
+      "id": "jefferson-city-mo",
+      "name": "Jefferson City",
+      "state": "MO",
+      "legacy_id": "jefferson-city"
+    },
+    {
+      "id": "holts-summit-mo",
+      "name": "Holts Summit",
+      "state": "MO",
+      "legacy_id": "holts-summit"
+    },
+    {
+      "id": "sedalia-mo",
+      "name": "Sedalia",
+      "state": "MO",
+      "legacy_id": "sedalia"
+    },
+    {
+      "id": "warrensburg-mo",
+      "name": "Warrensburg",
+      "state": "MO",
+      "legacy_id": "warrensburg"
+    },
+    {
+      "id": "lee-s-summit-mo",
+      "name": "Lee’s Summit",
+      "state": "MO",
+      "legacy_id": "lees-summit"
+    },
+    {
+      "id": "blue-springs-mo",
+      "name": "Blue Springs",
+      "state": "MO",
+      "legacy_id": "blue-springs"
+    },
+    {
+      "id": "independence-mo",
+      "name": "Independence",
+      "state": "MO",
+      "legacy_id": "independence"
+    },
+    {
+      "id": "raytown-mo",
+      "name": "Raytown",
+      "state": "MO",
+      "legacy_id": "raytown"
+    },
+    {
+      "id": "kansas-city-mo",
+      "name": "Kansas City",
+      "state": "MO",
+      "legacy_id": "kc-mo"
+    },
+    {
+      "id": "kansas-city-ks",
+      "name": "Kansas City",
+      "state": "KS",
+      "legacy_id": "kc-ks"
+    },
+    {
+      "id": "gladstone-mo",
+      "name": "Gladstone",
+      "state": "MO",
+      "legacy_id": "gladstone"
+    },
+    {
+      "id": "liberty-mo",
+      "name": "Liberty",
+      "state": "MO",
+      "legacy_id": "liberty"
+    },
+    {
+      "id": "overland-park-ks",
+      "name": "Overland Park",
+      "state": "KS",
+      "legacy_id": "overland-park"
+    },
+    {
+      "id": "shawnee-ks",
+      "name": "Shawnee",
+      "state": "KS",
+      "legacy_id": "shawnee"
+    },
+    {
+      "id": "lenexa-ks",
+      "name": "Lenexa",
+      "state": "KS",
+      "legacy_id": "lenexa"
+    },
+    {
+      "id": "olathe-ks",
+      "name": "Olathe",
+      "state": "KS",
+      "legacy_id": "olathe"
+    },
+    {
+      "id": "lawrence-ks",
+      "name": "Lawrence",
+      "state": "KS",
+      "legacy_id": "lawrence"
+    },
+    {
+      "id": "topeka-ks",
+      "name": "Topeka",
+      "state": "KS",
+      "legacy_id": "topeka"
+    },
+    {
+      "id": "troy-mo",
+      "name": "Troy",
+      "state": "MO",
+      "legacy_id": "troy"
+    },
+    {
+      "id": "bowling-green-mo",
+      "name": "Bowling Green",
+      "state": "MO",
+      "legacy_id": "bowling-green"
+    },
+    {
+      "id": "hannibal-mo",
+      "name": "Hannibal",
+      "state": "MO",
+      "legacy_id": "hannibal"
+    },
+    {
+      "id": "palmyra-mo",
+      "name": "Palmyra",
+      "state": "MO",
+      "legacy_id": "palmyra"
+    },
+    {
+      "id": "quincy-il",
+      "name": "Quincy",
+      "state": "IL",
+      "legacy_id": "quincy"
+    },
+    {
+      "id": "pittsfield-il",
+      "name": "Pittsfield",
+      "state": "IL",
+      "legacy_id": "pittsfield"
+    },
+    {
+      "id": "mexico-mo",
+      "name": "Mexico",
+      "state": "MO",
+      "legacy_id": "mexico"
+    },
+    {
+      "id": "moberly-mo",
+      "name": "Moberly",
+      "state": "MO",
+      "legacy_id": "moberly"
+    },
+    {
+      "id": "macon-mo",
+      "name": "Macon",
+      "state": "MO",
+      "legacy_id": "macon"
+    },
+    {
+      "id": "kirksville-mo",
+      "name": "Kirksville",
+      "state": "MO",
+      "legacy_id": "kirksville"
+    },
+    {
+      "id": "brookfield-mo",
+      "name": "Brookfield",
+      "state": "MO",
+      "legacy_id": "brookfield"
+    },
+    {
+      "id": "chillicothe-mo",
+      "name": "Chillicothe",
+      "state": "MO",
+      "legacy_id": "chillicothe"
+    },
+    {
+      "id": "festus-mo",
+      "name": "Festus",
+      "state": "MO",
+      "legacy_id": "festus"
+    },
+    {
+      "id": "farmington-mo",
+      "name": "Farmington",
+      "state": "MO",
+      "legacy_id": "farmington"
+    },
+    {
+      "id": "ste-genevieve-mo",
+      "name": "Ste. Genevieve",
+      "state": "MO",
+      "legacy_id": "ste-genevieve"
+    },
+    {
+      "id": "perryville-mo",
+      "name": "Perryville",
+      "state": "MO",
+      "legacy_id": "perryville"
+    },
+    {
+      "id": "jackson-mo",
+      "name": "Jackson",
+      "state": "MO",
+      "legacy_id": "jackson"
+    },
+    {
+      "id": "cape-girardeau-mo",
+      "name": "Cape Girardeau",
+      "state": "MO",
+      "legacy_id": "cape"
+    },
+    {
+      "id": "scott-city-mo",
+      "name": "Scott City",
+      "state": "MO",
+      "legacy_id": "scott-city"
+    },
+    {
+      "id": "sikeston-mo",
+      "name": "Sikeston",
+      "state": "MO",
+      "legacy_id": "sikeston"
+    },
+    {
+      "id": "charleston-mo",
+      "name": "Charleston",
+      "state": "MO",
+      "legacy_id": "charleston-mo"
+    },
+    {
+      "id": "new-madrid-mo",
+      "name": "New Madrid",
+      "state": "MO",
+      "legacy_id": "new-madrid"
+    },
+    {
+      "id": "hayti-mo",
+      "name": "Hayti",
+      "state": "MO",
+      "legacy_id": "hayti"
+    },
+    {
+      "id": "kennett-mo",
+      "name": "Kennett",
+      "state": "MO",
+      "legacy_id": "kennett"
+    },
+    {
+      "id": "blytheville-ar",
+      "name": "Blytheville",
+      "state": "AR",
+      "legacy_id": "blytheville"
+    },
+    {
+      "id": "memphis-tn",
+      "name": "Memphis",
+      "state": "TN",
+      "legacy_id": "memphis"
+    },
+    {
+      "id": "belleville-il",
+      "name": "Belleville",
+      "state": "IL",
+      "legacy_id": "belleville"
+    },
+    {
+      "id": "o-fallon-il",
+      "name": "O’Fallon",
+      "state": "IL",
+      "legacy_id": "ofallon-il"
+    },
+    {
+      "id": "centralia-il",
+      "name": "Centralia",
+      "state": "IL",
+      "legacy_id": "centralia"
+    },
+    {
+      "id": "mount-vernon-il",
+      "name": "Mount Vernon",
+      "state": "IL",
+      "legacy_id": "mount-vernon-il"
+    },
+    {
+      "id": "marion-il",
+      "name": "Marion",
+      "state": "IL",
+      "legacy_id": "marion"
+    },
+    {
+      "id": "herrin-il",
+      "name": "Herrin",
+      "state": "IL",
+      "legacy_id": "herrin"
+    },
+    {
+      "id": "carbondale-il",
+      "name": "Carbondale",
+      "state": "IL",
+      "legacy_id": "carbondale"
+    },
+    {
+      "id": "litchfield-il",
+      "name": "Litchfield",
+      "state": "IL",
+      "legacy_id": "litchfield"
+    },
+    {
+      "id": "springfield-il",
+      "name": "Springfield",
+      "state": "IL",
+      "legacy_id": "springfield-il"
+    },
+    {
+      "id": "lincoln-il",
+      "name": "Lincoln",
+      "state": "IL",
+      "legacy_id": "lincoln"
+    },
+    {
+      "id": "bloomington-il",
+      "name": "Bloomington",
+      "state": "IL",
+      "legacy_id": "bloomington-il"
+    },
+    {
+      "id": "normal-il",
+      "name": "Normal",
+      "state": "IL",
+      "legacy_id": "normal"
+    },
+    {
+      "id": "peoria-il",
+      "name": "Peoria",
+      "state": "IL",
+      "legacy_id": "peoria"
+    },
+    {
+      "id": "decatur-il",
+      "name": "Decatur",
+      "state": "IL",
+      "legacy_id": "decatur"
+    },
+    {
+      "id": "vandalia-il",
+      "name": "Vandalia",
+      "state": "IL",
+      "legacy_id": "vandalia"
+    },
+    {
+      "id": "effingham-il",
+      "name": "Effingham",
+      "state": "IL",
+      "legacy_id": "effingham"
+    },
+    {
+      "id": "mattoon-il",
+      "name": "Mattoon",
+      "state": "IL",
+      "legacy_id": "mattoon"
+    },
+    {
+      "id": "charleston-il",
+      "name": "Charleston",
+      "state": "IL",
+      "legacy_id": "charleston-il"
+    },
+    {
+      "id": "champaign-il",
+      "name": "Champaign",
+      "state": "IL",
+      "legacy_id": "champaign"
+    },
+    {
+      "id": "urbana-il",
+      "name": "Urbana",
+      "state": "IL",
+      "legacy_id": "urbana"
+    },
+    {
+      "id": "terre-haute-in",
+      "name": "Terre Haute",
+      "state": "IN",
+      "legacy_id": "terre-haute"
+    },
+    {
+      "id": "plainfield-in",
+      "name": "Plainfield",
+      "state": "IN",
+      "legacy_id": "plainfield"
+    },
+    {
+      "id": "indianapolis-in",
+      "name": "Indianapolis",
+      "state": "IN",
+      "legacy_id": "indianapolis"
+    },
+    {
+      "id": "speedway-in",
+      "name": "Speedway",
+      "state": "IN",
+      "legacy_id": "speedway"
+    },
+    {
+      "id": "carmel-in",
+      "name": "Carmel",
+      "state": "IN",
+      "legacy_id": "carmel"
+    },
+    {
+      "id": "fishers-in",
+      "name": "Fishers",
+      "state": "IN",
+      "legacy_id": "fishers"
+    },
+    {
+      "id": "greenwood-in",
+      "name": "Greenwood",
+      "state": "IN",
+      "legacy_id": "greenwood"
+    },
+    {
+      "id": "martinsville-in",
+      "name": "Martinsville",
+      "state": "IN",
+      "legacy_id": "martinsville"
+    },
+    {
+      "id": "bloomington-in",
+      "name": "Bloomington",
+      "state": "IN",
+      "legacy_id": "bloomington-in"
+    },
+    {
+      "id": "evansville-in",
+      "name": "Evansville",
+      "state": "IN",
+      "legacy_id": "evansville"
+    },
+    {
+      "id": "henderson-ky",
+      "name": "Henderson",
+      "state": "KY",
+      "legacy_id": "henderson"
+    },
+    {
+      "id": "owensboro-ky",
+      "name": "Owensboro",
+      "state": "KY",
+      "legacy_id": "owensboro"
+    },
+    {
+      "id": "jasper-in",
+      "name": "Jasper",
+      "state": "IN",
+      "legacy_id": "jasper"
+    },
+    {
+      "id": "ferdinand-in",
+      "name": "Ferdinand",
+      "state": "IN",
+      "legacy_id": "ferdinand"
+    },
+    {
+      "id": "corydon-in",
+      "name": "Corydon",
+      "state": "IN",
+      "legacy_id": "corydon"
+    },
+    {
+      "id": "new-albany-in",
+      "name": "New Albany",
+      "state": "IN",
+      "legacy_id": "new-albany"
+    },
+    {
+      "id": "jeffersonville-in",
+      "name": "Jeffersonville",
+      "state": "IN",
+      "legacy_id": "jeffersonville"
+    },
+    {
+      "id": "louisville-ky",
+      "name": "Louisville",
+      "state": "KY",
+      "legacy_id": "louisville"
+    },
+    {
+      "id": "st-louis-mo",
+      "name": "St. Louis",
+      "state": "MO",
+      "legacy_id": "stl"
+    },
+    {
+      "id": "st-matthews-ky",
+      "name": "St. Matthews",
+      "state": "KY"
+    },
+    {
+      "id": "poplar-bluff-mo",
+      "name": "Poplar Bluff",
+      "state": "MO"
+    }
+  ],
+  "counts": {
+    "corridors": 15,
+    "supplied_full_town_pool": 108,
+    "unique_full_town_pool": 108,
+    "all_mentioned_places_including_origin_and_narrative": 111,
+    "required_scanning_fields": 21,
+    "source_classes": 4
+  },
+  "legacy_reconciliation": {
+    "file": "legacy-id-reconciliation.json",
+    "matched_full_town_pool": 108,
+    "unmatched_full_town_pool": 0,
+    "note": "All original IDs retained in companion mapping. Do not replace existing IDs with generated IDs."
+  }
+}

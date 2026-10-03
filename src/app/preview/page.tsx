@@ -1,4 +1,3 @@
-import Workbench from "@/components/Workbench";
-import { previewData } from "@/lib/data/reference";
+import FieldworkApp from "@/components/fieldwork/app";
 export const dynamic = "force-dynamic";
-export default function Preview() { return <Workbench initialData={previewData} preview userId={null} />; }
+export default function Preview() { return <FieldworkApp />; }
