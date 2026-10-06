@@ -106,7 +106,7 @@ export default function VisitDialog({
             {initial ? "Edit visit" : "Log a sourcing visit"}
           </DialogTitle>
           <DialogDescription>
-            Record the books you bought and what you learned. Edits stay in this tab and clear on reload. Projected revenue, fees and contribution remain estimates.
+            Record the books you bought and what you learned. Visits save on this device. Projected revenue, fees and contribution remain estimates.
           </DialogDescription>
         </DialogHeader>
         {visit && (
