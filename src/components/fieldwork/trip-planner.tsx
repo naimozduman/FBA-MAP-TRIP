@@ -135,7 +135,7 @@ export default function TripPlanner({
     setError("");
     try {
       await workspace.save("trip", trip, draftRevision);
-      toast.success("Trip kept in this unsaved preview. Reloading clears it.");
+      toast.success("Trip saved on this device.");
       onSaved(trip);
       onClose();
     } catch (e) {
@@ -194,7 +194,7 @@ export default function TripPlanner({
             {initial ? "Edit trip" : "Plan a sourcing trip"}
           </SheetTitle>
           <SheetDescription>
-            Choose your stops, your reason, and the cost of going. This unsaved preview clears on reload. Mileage and budget defaults are editable estimates.
+            Choose your stops, your reason, and the cost of going. Mileage and budget defaults are editable estimates.
           </SheetDescription>
         </SheetHeader>
         {trip && (
@@ -534,7 +534,7 @@ export default function TripPlanner({
                 disabled={saving || workspace.loading || !!workspace.error}
               >
                 <Check size={18} />
-                {saving ? "Saving…" : initial ? "Keep changes in preview" : "Keep trip in preview"}
+                {saving ? "Saving…" : initial ? "Save changes" : "Save trip"}
               </Action>
             </div>
           </form>

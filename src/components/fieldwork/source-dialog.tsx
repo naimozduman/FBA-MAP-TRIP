@@ -83,7 +83,7 @@ export default function SourceDialog({
     setError("");
     try {
       await workspace.save("source", source, draftRevision);
-      toast.success("Source kept in this unsaved preview. Reloading clears it.");
+      toast.success("Source saved on this device.");
       onClose();
     } catch (e) {
       setError(e instanceof Error ? e.message : "The source was not saved.");
@@ -110,7 +110,7 @@ export default function SourceDialog({
         {source && (
           <form onSubmit={submit}>
             <div className="dialog-scroll">
-              <p className="evidence-note">Unsaved preview — changes clear on reload. {source?.historical ? "Recovered details, prices and sale dates are historical claims and require verification." : "Record evidence before treating this lead as a confirmed source."}</p>
+              <p className="evidence-note">{source?.historical ? "Recovered details, prices and sale dates are historical claims and require verification." : "Record evidence before treating this lead as a confirmed source."}</p>
               {source && sourceExclusion(source) && <p className="scan-restricted">{sourceExclusion(source)}. Outlets are a separate source type. An override requires a recorded reason.</p>}
               {initial?.verifiedAt && (
                 <div className="source-verified">
@@ -273,7 +273,7 @@ export default function SourceDialog({
                   disabled={saving || workspace.loading || !!workspace.error}
                 >
                   <Check size={18} />
-                  {saving ? "Saving…" : "Keep source in preview"}
+                  {saving ? "Saving…" : "Save source"}
                 </Action>
                 {initial && !initial.id.startsWith("seed-") && (
                   <button

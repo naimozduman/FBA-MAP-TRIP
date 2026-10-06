@@ -12,35 +12,23 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run lint && npm run typecheck && npm test
-      - name: Start isolated real Supabase Auth test stack
-        run: |
-          mkdir -p private
-          FIELDWORK_KEEP_TEST_STACK=1 npm run test:auth > private/auth-ci.log 2>&1 &
-          echo $! > private/auth-ci.pid
-          for step in $(seq 1 120); do
-            if test -f private/auth-report.json; then exit 0; fi
-            if ! kill -0 "$(cat private/auth-ci.pid)" 2>/dev/null; then echo 'Auth test stack failed; credentials are withheld from logs.'; exit 1; fi
-            sleep 1
-          done
-          echo 'Auth test stack timed out.'
-          exit 1
       - run: npm run build
       - run: npx playwright install --with-deps chromium
       - name: Start production server
         run: |
+          mkdir -p private
           npm run start > private/start-ci.log 2>&1 &
           echo $! > private/start-ci.pid
           for step in $(seq 1 60); do
-            if curl --fail --silent http://127.0.0.1:3000/preview > /dev/null; then exit 0; fi
+            if curl --fail --silent http://127.0.0.1:3000/ > /dev/null; then exit 0; fi
             if ! kill -0 "$(cat private/start-ci.pid)" 2>/dev/null; then echo 'Test server failed to start.'; exit 1; fi
             sleep 1
           done
           echo 'Test server readiness timed out.'
           exit 1
-      - name: Real API and browser checks
-        run: npm run test:api && PLAYWRIGHT_BASE_URL=http://127.0.0.1:3000 PLAYWRIGHT_EXTERNAL_SERVER=1 PLAYWRIGHT_PRODUCTION=1 npm run test:browser
-      - name: Stop this job's test stack
+      - name: Standalone browser checks
+        run: PLAYWRIGHT_BASE_URL=http://127.0.0.1:3000 PLAYWRIGHT_EXTERNAL_SERVER=1 PLAYWRIGHT_PRODUCTION=1 npm run test:browser
+      - name: Stop this job's test server
         if: always()
         run: |
           test ! -f private/start-ci.pid || kill "$(cat private/start-ci.pid)" || true
-          test ! -f private/auth-ci.pid || kill "$(cat private/auth-ci.pid)" || true

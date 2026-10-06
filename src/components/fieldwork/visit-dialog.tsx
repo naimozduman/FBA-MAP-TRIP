@@ -84,7 +84,7 @@ export default function VisitDialog({
     setError("");
     try {
       await workspace.save("visit", visit, draftRevision);
-      toast.success("Visit kept in this unsaved preview. Reloading clears it.");
+      toast.success("Visit saved on this device.");
       onClose();
     } catch (e) {
       setError(e instanceof Error ? e.message : "Your visit was not saved.");
@@ -373,7 +373,7 @@ export default function VisitDialog({
                 disabled={saving || workspace.loading || !!workspace.error}
               >
                 <Check size={18} />
-                {saving ? "Saving…" : "Keep visit in preview"}
+                {saving ? "Saving…" : "Save visit"}
               </Action>
             </div>
           </form>

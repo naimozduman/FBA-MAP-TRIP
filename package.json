@@ -12,13 +12,14 @@
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
-    "test:browser": "playwright test",
+    "test:browser": "playwright test restored-fieldwork.spec.ts",
     "test:auth": "tsx scripts/test-auth.ts",
     "import:legacy": "tsx scripts/import-fieldwork.ts",
     "inspect:legacy": "tsx scripts/inspect-legacy.ts",
     "bootstrap:owner": "tsx scripts/bootstrap-owner.ts",
     "check:deployment": "tsx scripts/check-deployment.ts",
-    "test:api": "tsx scripts/test-real-api.ts"
+    "test:api": "tsx scripts/test-real-api.ts",
+    "test:browser:legacy": "playwright test fieldwork.spec.ts"
   },
   "dependencies": {
     "@js-temporal/polyfill": "0.5.1",

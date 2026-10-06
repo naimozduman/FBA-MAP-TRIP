@@ -14,10 +14,10 @@ test('restored source identity, assets and all catalog markers render without er
   const errors: string[] = [];
   page.on('pageerror', error => errors.push(error.message));
   page.on('console', message => { if (message.type() === 'error') errors.push(message.text()); });
-  await page.goto('/preview');
+  await page.goto('/');
   await expect(page).toHaveTitle('Fieldwork · Book sourcing');
   await expect(page.locator('.wordmark')).toHaveText('Fieldwork');
-  await expect(page.getByText('Unsaved preview', { exact: true })).toBeVisible();
+  await expect(page.getByText('Saved on this device', { exact: true })).toBeVisible();
   await expect(page.locator('.leaflet-marker-pane [data-city-id]')).toHaveCount(109);
   await page.evaluate(() => document.fonts.ready);
   const style = await page.locator('.fieldwork-app').evaluate(element => ({ font: getComputedStyle(element).fontFamily, color: getComputedStyle(element).color, background: getComputedStyle(element).backgroundColor, overflow: document.documentElement.scrollWidth > innerWidth }));
@@ -37,7 +37,7 @@ test('restored source identity, assets and all catalog markers render without er
 test('city selection stays separate from trip creation, with keyboard marker access', async ({ page }, info) => {
   const unsafe: string[] = [];
   page.on('request', request => { if (request.url().includes('/api/records') || (request.method() !== 'GET' && request.url().includes('/api/workspaces/'))) unsafe.push(request.url()); });
-  await page.goto('/preview');
+  await page.goto('/');
   await selectRolla(page);
   const city = page.getByTestId('original-city-panel');
   await expect(city.getByText('Untested · no visit observations')).toBeVisible();
@@ -53,7 +53,7 @@ test('city selection stays separate from trip creation, with keyboard marker acc
   await expect(planner.getByRole('heading', { name: 'Plan a sourcing trip' })).toBeVisible();
   await expect(planner.locator('.planner-stop')).toHaveCount(1);
   await expect(planner.locator('.planner-stop')).toContainText('Rolla');
-  await planner.getByLabel('Trip name', { exact: true }).fill('Synthetic preview trip');
+  await planner.getByLabel('Trip name', { exact: true }).fill('Synthetic saved trip');
   await planner.getByText('Record actual route economics', { exact: true }).click();
   await expect(planner.getByLabel('Realized book profit after acquisition and fees ($)', { exact: true })).toHaveValue('');
   await planner.getByLabel('Realized book profit after acquisition and fees ($)', { exact: true }).fill('500');
@@ -61,7 +61,7 @@ test('city selection stays separate from trip creation, with keyboard marker acc
   await planner.getByLabel('Actual processing costs ($)', { exact: true }).fill('0');
   await planner.getByLabel('Actual sourcing labor costs ($)', { exact: true }).fill('0');
   await planner.getByLabel('Actual door-to-door hours', { exact: true }).fill('8');
-  await planner.getByRole('button', { name: 'Keep trip in preview', exact: true }).click();
+  await planner.getByRole('button', { name: 'Save trip', exact: true }).click();
   await expect(planner).not.toBeVisible();
   await page.getByRole('tab', { name: 'Insights', exact: true }).click();
   await expect(page.locator('.actual-economics')).toContainText('$404.00 recorded actual route profit');
@@ -69,10 +69,10 @@ test('city selection stays separate from trip creation, with keyboard marker acc
   expect(unsafe).toEqual([]);
   await page.reload();
   await page.getByRole('tab', { name: 'Trips', exact: true }).click();
-  await expect(page.getByText('Synthetic preview trip', { exact: true })).toHaveCount(0);
+  await expect(page.getByText('Synthetic saved trip', { exact: true })).toBeVisible();
 });
-test('zero outcomes and raw quality survive preview navigation; saturation waits for three visits', async ({ page }, info) => {
-  await page.goto('/preview');
+test('zero outcomes and raw quality survive navigation and reload; saturation waits for three visits', async ({ page }, info) => {
+  await page.goto('/');
   await selectRolla(page);
   for (const score of [4, 6, 8]) {
     await page.getByTestId('original-city-panel').getByRole('button', { name: /Log visit in Rolla/ }).click();
@@ -84,7 +84,7 @@ test('zero outcomes and raw quality survive preview navigation; saturation waits
     await form.getByText('Source quality: raw evidence and optional 0–5 scores', { exact: true }).click();
     await form.getByLabel('volume — raw observation', { exact: true }).fill('Four full shelves observed; no suitable buys');
     await form.getByLabel('volume — score', { exact: true }).selectOption('4');
-    await form.getByRole('button', { name: 'Keep visit in preview', exact: true }).click();
+    await form.getByRole('button', { name: 'Save visit', exact: true }).click();
     await expect(form).not.toBeVisible();
     if (score < 8) await expect(page.getByTestId('original-city-panel').getByText(/awaiting three scored visits/)).toBeVisible();
   }
@@ -98,7 +98,7 @@ test('zero outcomes and raw quality survive preview navigation; saturation waits
   await page.screenshot({ path: join(evidence, `fieldwork-${info.project.name}-observations.png`), animations: 'disabled' });
 });
 test('recovered lead details are unverified and source class filters respond', async ({ page }) => {
-  await page.goto('/preview');
+  await page.goto('/');
   await page.getByRole('tab', { name: 'Routes', exact: true }).click();
   await page.getByLabel('Inventory class', { exact: true }).selectOption('1');
   await expect(page.locator('.source-rows .source-row')).toHaveCount(2);
@@ -111,12 +111,12 @@ test('recovered lead details are unverified and source class filters respond', a
   await expect(dialog.getByLabel('ISBN scanning', { exact: true })).toHaveValue('Unknown');
   await dialog.getByRole('button', { name: 'Close', exact: true }).click();
 });
-test('preview status changes, linked visits, trip removal and exports keep a coherent record', async ({ page }) => {
-  await page.goto('/preview');
+test('saved status changes, linked visits, trip removal and exports keep a coherent record', async ({ page }) => {
+  await page.goto('/');
   await selectRolla(page);
   await page.getByTestId('original-city-panel').getByRole('button', { name: 'Add city to trip', exact: true }).click();
   await page.getByRole('dialog').getByLabel('Trip name', { exact: true }).fill('Synthetic removable trip');
-  await page.getByRole('dialog').getByRole('button', { name: 'Keep trip in preview', exact: true }).click();
+  await page.getByRole('dialog').getByRole('button', { name: 'Save trip', exact: true }).click();
   await page.getByRole('tab', { name: 'Trips', exact: true }).click();
   const card = page.locator('.trip-item').filter({ hasText: 'Synthetic removable trip' });
   await card.getByRole('button', { name: 'Start trip', exact: true }).click();
@@ -126,19 +126,19 @@ test('preview status changes, linked visits, trip removal and exports keep a coh
   await visit.getByLabel('Source name', { exact: true }).fill('Synthetic linked source');
   await visit.getByLabel('Books bought', { exact: true }).fill('2');
   await visit.getByLabel('Book purchase cost ($)', { exact: true }).fill('1');
-  await visit.getByRole('button', { name: 'Keep visit in preview', exact: true }).click();
+  await visit.getByRole('button', { name: 'Save visit', exact: true }).click();
   await card.getByRole('button', { name: 'More actions for Synthetic removable trip', exact: true }).click();
   await page.getByRole('menuitem', { name: 'Remove trip', exact: true }).click();
   await page.getByRole('alertdialog').getByRole('button', { name: 'Remove entry', exact: true }).click();
   await expect(card).toHaveCount(0);
   await page.getByRole('button', { name: 'Workspace settings', exact: true }).click();
   const settings = page.getByRole('dialog');
-  await expect(settings.getByText(/Reloading clears them/)).toBeVisible();
+  await expect(settings.getByText(/survive reloads/)).toBeVisible();
   const downloaded = page.waitForEvent('download');
   await settings.getByRole('button', { name: 'Backup JSON', exact: true }).click();
   const download = await downloaded;
   const data = JSON.parse(await readFile((await download.path())!, 'utf8'));
-  expect(data.persistence).toBe('unsaved-preview-export');
+  expect(data.persistence).toBe('browser-local');
   expect(data.records.filter((record: { kind: string }) => record.kind === 'trip')).toHaveLength(0);
   const observations = data.records.filter((record: { kind: string }) => record.kind === 'visit');
   expect(observations).toHaveLength(1);

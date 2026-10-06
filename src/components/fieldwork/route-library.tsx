@@ -202,7 +202,7 @@ export default function RouteLibrary({
             </p>
           </div>
           <span className="meta">
-            6 recovered leads, plus your preview sources
+            6 recovered leads, plus your saved sources
           </span>
         </div>
         <div className="source-rows">

@@ -1,3 +1,16 @@
+# Current release: standalone Fieldwork
+
+Updated: 6 October 2026, UTC. The owner requested an app opening directly without Vercel or app login. This supersedes the earlier preview-only and mandatory shared-auth release instructions below.
+
+- Public entry `/` always renders the restored Fieldwork app, independently of Supabase configuration. `/preview` remains a compatible entry to the same app.
+- Trips, visits, custom sources and settings use versioned, validated browser storage. Saves survive reloads, same-origin tabs receive updates, stale edits are rejected, and failed writes do not show success. JSON export/restore supports moving records between browsers. There is no automatic cross-device or partner sync.
+- Private workspace API authorization and Supabase RLS are preserved. No database was migrated, provisioned or made public. The former authenticated Workbench remains archived source, with its original optional integration tests available through `test:browser:legacy`.
+- The existing owned Vercel project ID is `prj_O6WUt1VYyHaJjAmLeE4xAtJURrWr`, team `team_KdzcpAgnaYuvPhdYUIjbIEso`. It is now named `fieldwork-book-sourcing`. Hosting SSO and feedback toolbar are disabled. Production publication and live browser checks are recorded in a following handoff update.
+- Local checks: lint, TypeScript, production build and 49 unit tests passed. A local Chromium download returned an invalid archive, so rendered verification will use the cloud browser against the deployment. The updated standalone Playwright suite is also the CI browser target, with desktop, tablet and phone projects. No unrun browser suite is claimed passed.
+- The catalog retains 109 cities, 15 corridors and six historical sourcing leads. Streets use OpenStreetMap tiles with an atlas fallback. Corridor lines remain planning sketches, not provider road navigation. The original Sites deployment remains intact.
+
+## Previous release history
+
 # Fieldwork - project state
 
 Updated: 3 October 2026, UTC. This section supersedes the archived 2 October reconstruction state below.

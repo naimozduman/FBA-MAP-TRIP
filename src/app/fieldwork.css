@@ -3229,8 +3229,8 @@
   }
 }
 
-/* Preview disclosure and added data panels retain the recovered palette and layout. */
-.fieldwork-app .preview-label { font-size: 11px; color: #53634a; white-space: nowrap; }
+/* Storage status and added data panels retain the recovered palette and layout. */
+.fieldwork-app .storage-label { font-size: 14px; color: #53634a; white-space: nowrap; }
 .fieldwork-app .city-brief { margin-bottom: 22px; font-size: 13px; line-height: 1.6; }
 .fieldwork-app .city-brief h3 { margin: 16px 0 8px; }
 .fieldwork-app .city-brief details { margin: 12px 0; }
@@ -3250,7 +3250,7 @@
 .fieldwork-dialog .quality-dimension { display: grid; gap: 8px; }
 .fieldwork-dialog .actual-budget { padding: 18px 0; border-top: 1px solid #d4d6ca; }
 @media (max-width: 760px) {
- .fieldwork-app .preview-label { position: absolute; right: 54px; font-size: 9px; }
+ .fieldwork-app .storage-label { position: absolute; right: 54px; font-size: 12px; }
  .fieldwork-app .travel-band-grid { grid-template-columns: 1fr 1fr; }
  .fieldwork-app .place-detail .detail-actions { flex-wrap: wrap; gap: 8px; }
  .fieldwork-app .place-detail .detail-actions .action { flex: 1; min-width: 120px; }

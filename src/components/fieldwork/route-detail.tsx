@@ -271,7 +271,7 @@ export function PlaceDetail({
       </div>
       <div className="detail-actions">
         <Action onClick={() => onLog()}>
-          <span className="sr-only">Unsaved preview: </span>
+
           <BookOpen size={18} />
           Log visit in {city.name}
         </Action>

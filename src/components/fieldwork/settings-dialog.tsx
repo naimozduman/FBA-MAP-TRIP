@@ -1,6 +1,6 @@
 "use client";
-import { useState } from "react";
-import { Check, Download } from "lucide-react";
+import { useRef, useState } from "react";
+import { Check, Download, Upload } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -25,6 +25,7 @@ export default function SettingsDialog({
   const [settings, setSettings] = useState<Settings>(workspace.settings),
     [saving, setSaving] = useState(false),
     [error, setError] = useState("");
+  const backupInput = useRef<HTMLInputElement>(null);
   const [draftRevision] = useState(
     () =>
       workspace.records.find((record) => record.kind === "settings")
@@ -43,7 +44,7 @@ export default function SettingsDialog({
     setError("");
     try {
       await workspace.save("settings", settings, draftRevision);
-      toast.success("Defaults kept in this unsaved preview");
+      toast.success("Defaults saved on this device");
       onClose();
     } catch (e) {
       setError(e instanceof Error ? e.message : "Settings were not saved.");
@@ -91,7 +92,7 @@ export default function SettingsDialog({
           {
             app: "Fieldwork",
             version: 1,
-            persistence: "unsaved-preview-export",
+            persistence: "browser-local",
             exportedAt: new Date().toISOString(),
             records: workspace.records,
           },
@@ -109,6 +110,22 @@ export default function SettingsDialog({
     a.click();
     URL.revokeObjectURL(url);
     toast.success("Export downloaded");
+  };
+  const restore = async (file: File | undefined) => {
+    if (!file) return;
+    setSaving(true);
+    setError("");
+    try {
+      if (file.size > 10 * 1024 * 1024) throw new Error("Choose a backup smaller than 10 MB.");
+      const count = await workspace.restore(await file.text());
+      toast.success(`${count} records restored on this device`);
+      onClose();
+    } catch (e) {
+      setError(e instanceof Error && e.name !== "ZodError" && e.name !== "SyntaxError" ? e.message : "Choose a valid Fieldwork JSON backup. Your saved records have not changed.");
+    } finally {
+      setSaving(false);
+      if (backupInput.current) backupInput.current.value = "";
+    }
   };
   return (
     <Dialog
@@ -169,8 +186,8 @@ export default function SettingsDialog({
             <section className="form-section">
               <h3>Records & exports</h3>
               <p className="muted">
-                Trip plans, sources and visit history stay only in this tab.
-                Reloading clears them. Download JSON or a visit spreadsheet to keep a copy.
+                Trip plans, sources and visit history save in this browser and survive reloads.
+                Use a JSON backup to move your records to another device. Clearing website data removes this browser’s copy.
               </p>
               <div className="action-row">
                 <Action
@@ -191,7 +208,25 @@ export default function SettingsDialog({
                   <Download size={16} />
                   Visits CSV
                 </Action>
+                <input
+                  ref={backupInput}
+                  type="file"
+                  accept=".json,application/json"
+                  aria-label="Restore Fieldwork backup"
+                  className="sr-only"
+                  onChange={e => void restore(e.target.files?.[0])}
+                />
+                <Action
+                  type="button"
+                  variant="outline"
+                  disabled={saving || workspace.loading || !!workspace.error}
+                  onClick={() => backupInput.current?.click()}
+                >
+                  <Upload size={16} />
+                  Restore JSON
+                </Action>
               </div>
+              <p className="muted">Restore merges backup records into this browser. Matching record IDs use the backup version.</p>
             </section>
             <section className="form-section">
               <h3>About the territory</h3>
@@ -220,7 +255,7 @@ export default function SettingsDialog({
               disabled={saving || workspace.loading || !!workspace.error}
             >
               <Check size={18} />
-              {saving ? "Saving…" : "Keep defaults in preview"}
+              {saving ? "Saving…" : "Save defaults"}
             </Action>
           </div>
         </form>

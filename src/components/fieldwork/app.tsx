@@ -210,15 +210,16 @@ export default function FieldworkApp() {
             <MapPin size={18} />
             St. Louis, MO
           </span>
-          <span className="preview-label" title="Edits exist only in this tab and reset on reload">Unsaved preview</span>
+          <span className="storage-label" title="Trips, visits and sources save in this browser">{workspace.loading ? "Loading records…" : workspace.error ? "Storage unavailable" : "Saved on this device"}</span>
           <Action
             variant="outline"
             onClick={() => log()}
+            disabled={workspace.loading || !!workspace.error}
             className="header-log"
           >
             Log visit
           </Action>
-          <Action onClick={() => plan()} className="header-plan">
+          <Action onClick={() => plan()} className="header-plan" disabled={workspace.loading || !!workspace.error}>
             Plan trip
           </Action>
           <IconAction

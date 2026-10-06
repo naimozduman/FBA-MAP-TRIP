@@ -41,8 +41,8 @@ export default function RemoveDialog({
           </AlertDialogTitle>
           <AlertDialogDescription>
             {entry?.kind === "trip"
-              ? "The preview trip will be removed. Its visit observations remain in this tab as standalone visits."
-              : "This preview entry will be removed from this tab."}
+              ? "The trip will be removed. Its visit observations remain saved as standalone visits."
+              : "This entry will be removed from your saved records."}
           </AlertDialogDescription>
         </AlertDialogHeader>
         {error && (
